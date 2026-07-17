@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiko:wght@400;600;700&display=swap');
 
 :root {
   --ink: #14151A;
@@ -9,9 +9,9 @@
   --stone-line: #D8D6CC;
   --mist: #EFEDE5;
 
-  --display: 'Fraunces', serif;
-  --body: 'Inter', sans-serif;
-  --mono: 'IBM Plex Mono', monospace;
+  --display: 'Amiko', sans-serif;
+  --body: 'Amiko', sans-serif;
+  --mono: 'Amiko', sans-serif;
 
   --max: 1180px;
 }
