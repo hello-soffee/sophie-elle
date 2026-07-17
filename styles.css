@@ -101,13 +101,9 @@ nav.main-nav a {
   border-bottom: 1px solid transparent;
   transition: border-color 0.2s ease, color 0.2s ease;
 }
-nav.main-nav a:hover {
-  border-bottom-color: var(--ink);
-}
+nav.main-nav a:hover,
 nav.main-nav a[aria-current="page"] {
-  border-bottom-color: var(--safelight);
-  color: var(--safelight);
-  font-weight: 600;
+  border-bottom-color: var(--ink);
 }
 .nav-toggle {
   display: none;
