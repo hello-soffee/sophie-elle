@@ -17,5 +17,14 @@ document.addEventListener('DOMContentLoaded', function () {
       if (symbol) symbol.textContent = isOpen ? '\u2212' : '+';
     });
   });
+
+  var navLinks = document.querySelectorAll('.main-nav a');
+  var currentFile = window.location.pathname.split('/').pop() || 'index.html';
+  navLinks.forEach(function (link) {
+    var linkFile = link.getAttribute('href');
+    if (linkFile === currentFile) {
+      link.setAttribute('aria-current', 'page');
+    }
+  });
   
 });
