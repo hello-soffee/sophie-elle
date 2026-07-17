@@ -58,19 +58,22 @@ h1, h2, h3 {
 
 /* ---------- Header ---------- */
 .site-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background-image: url('images/62210016-2.jpg');
+  position: relative;
+  background-image: url('images/your-nav-image.jpg');
   background-size: cover;
   background-position: center;
   border-bottom: 1px solid var(--stone-line);
+  transition: all 0.4s ease;
 }
 .site-header .wrap {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 76px;
+  transition: height 0.4s ease;
+}
+.site-header:hover .wrap {
+  height: 160px;
 }
 .logo {
   font-family: var(--display);
