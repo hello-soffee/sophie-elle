@@ -60,7 +60,7 @@ h1, h2, h3 {
 .site-header {
   position: relative;
   z-index: 50;
-  background-image: url('images/your-nav-image.jpg');
+  background-image: url('images/logo.white.png');
   background-size: cover;
   background-position: center;
   border-bottom: 1px solid var(--stone-line);
