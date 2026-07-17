@@ -18,9 +18,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  var navLinks = document.querySelectorAll('.main-nav a');
+var navLinks = document.querySelectorAll('.main-nav a');
   var currentFile = window.location.pathname.split('/').pop() || 'index.html';
   navLinks.forEach(function (link) {
+    link.removeAttribute('aria-current');
     var linkFile = link.getAttribute('href');
     if (linkFile === currentFile) {
       link.setAttribute('aria-current', 'page');
