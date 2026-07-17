@@ -136,6 +136,9 @@ nav.main-nav a[aria-current="page"] {
   nav.main-nav.open { display: flex; }
   nav.main-nav a { padding: 12px 0; border-bottom: 1px solid var(--stone-line); }
   .nav-toggle { display: block; }
+  .site-header:hover .wrap {
+    height: 76px;
+  }
 }
 
 /* ---------- Hero split (home) ---------- */
