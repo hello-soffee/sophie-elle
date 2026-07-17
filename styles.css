@@ -208,13 +208,13 @@ nav.main-nav a[aria-current="page"] {
 }
 .intro-statement {
   padding: 96px 0 48px;
-  background-image: linear-gradient(rgba(242,241,236,0.85), rgba(242,241,236,0.85)), url('images/landing-image.jpg');
+  background-image: linear-gradient(rgba(242,241,236,0.85), rgba(242,241,236,0.85)), url('images/62720003.jpg');
   background-size: cover;
   background-position: center;
 }
 
 .services {
-  background-image: linear-gradient(rgba(242,241,236,0.9), rgba(242,241,236,0.9)), url('images/landing-image.jpg');
+  background-image: linear-gradient(rgba(242,241,236,0.9), rgba(242,241,236,0.9)), url('images/62720003.jpg');
   background-size: cover;
   background-position: center;
 }
