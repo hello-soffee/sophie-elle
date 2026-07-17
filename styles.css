@@ -81,6 +81,11 @@ nav.main-nav {
   display: flex;
   gap: 36px;
 }
+.logo-img {
+  height: 32px;
+  width: auto;
+  display: block;
+}
 nav.main-nav a {
   font-family: var(--mono);
   font-size: 12px;
