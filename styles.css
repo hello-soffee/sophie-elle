@@ -214,7 +214,7 @@ nav.main-nav a[aria-current="page"] {
 }
 
 .services {
-  background-image: linear-gradient(rgba(242,241,236,0.9), rgba(242,241,236,0.9)), url('images/your-services-image.jpg');
+  background-image: linear-gradient(rgba(242,241,236,0.9), rgba(242,241,236,0.9)), url('images/landing-image.jpg');
   background-size: cover;
   background-position: center;
 }
