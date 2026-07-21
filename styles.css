@@ -166,7 +166,7 @@ nav.main-nav a[aria-current="page"] {
 }
 @media (min-width: 801px) {
   .split-panel:hover {
-    flex: 1.6 1 0;
+    flex: 6 1 0;
   }
 }
 .split-panel.photo { background: var(--ink); color: var(--paper); }
