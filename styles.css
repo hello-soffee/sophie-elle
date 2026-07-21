@@ -143,8 +143,7 @@ nav.main-nav a[aria-current="page"] {
 
 /* ---------- Hero split (home) ---------- */
 .split-hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   min-height: 640px;
 }
 .split-panel {
@@ -152,10 +151,16 @@ nav.main-nav a[aria-current="page"] {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  flex: 1 1 0;
   padding: 48px;
   min-height: 400px;
   overflow: hidden;
-  transition: flex 0.3s ease;
+  transition: flex 0.5s ease;
+}
+@media (min-width: 801px) {
+  .split-panel:hover {
+    flex: 1.6 1 0;
+  }
 }
 .split-panel.photo { background: var(--ink); color: var(--paper); }
 .split-panel.design { background: var(--paper); color: var(--ink); border-left: 1px solid var(--stone-line); }
