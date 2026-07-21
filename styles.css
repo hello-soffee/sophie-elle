@@ -145,6 +145,12 @@ nav.main-nav a[aria-current="page"] {
 .split-hero {
   display: flex;
   min-height: 640px;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 .split-panel {
   position: relative;
