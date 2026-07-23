@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
-});
 
   var triggers = document.querySelectorAll('.accordion-trigger');
   triggers.forEach(function (btn) {
@@ -31,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-var navLinks = document.querySelectorAll('.main-nav a');
+  var navLinks = document.querySelectorAll('.main-nav a');
   var currentFile = window.location.pathname.split('/').pop() || 'index.html';
   navLinks.forEach(function (link) {
     link.removeAttribute('aria-current');
@@ -40,5 +39,4 @@ var navLinks = document.querySelectorAll('.main-nav a');
       link.setAttribute('aria-current', 'page');
     }
   });
-  
 });
