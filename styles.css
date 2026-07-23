@@ -203,16 +203,17 @@ nav.main-nav a[aria-current="page"] {
 
 /* background images for photography and graphic design split*/
 .split-panel.photo .placeholder-block {
-    /* background-image: url('images/62720019-2.jpg'); */
+    /* background-image: url('images/62720019-2.jpg'); 
+         background-size: cover;
+          background-position: center;*/
   background: 55A25F;
-  background-size: cover;
-  background-position: center;
+ 
 }
 .split-panel.design .placeholder-block {
- /* background-image: url('images/62720003.jpg'); */
+ /* background-image: url('images/62720003.jpg');
+      background-size: cover;
+        background-position: center;*/
   background: 61AFC9;
-  background-size: cover;
-  background-position: center;
 }
 
 .split-panel .content { position: relative; z-index: 1; }
