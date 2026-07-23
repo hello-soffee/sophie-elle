@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Amiko:wght@400;600;700&display=swap');
 
 :root {
-  --ink: #14151A;
+  --ink: #222222;
   --paper: #F2F1EC;
-  --safelight: #B23A2E;
+  --safelight: #55A25F;
   --slate: #3C5068;
-  --stone: #8A8A82;
+  --stone: #7CDBEB;
   --stone-line: #D8D6CC;
   --mist: #EFEDE5;
 
