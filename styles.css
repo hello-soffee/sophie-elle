@@ -229,6 +229,17 @@ nav.main-nav a[aria-current="page"] {
   border: 1px solid currentColor;
   transition: background 0.2s ease, color 0.2s ease;
 }
+.split-panel .btn {
+  position: absolute;
+  bottom: 40px;
+  z-index: 1;
+}
+.split-panel.photo .btn {
+  right: 40px;
+}
+.split-panel.design .btn {
+  left: 40px;
+}
 .split-panel.photo .btn:hover { background: var(--paper); color: var(--ink); }
 .split-panel.design .btn:hover { background: var(--ink); color: var(--paper); }
 
