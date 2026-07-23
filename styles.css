@@ -179,6 +179,7 @@ nav.main-nav a[aria-current="page"] {
   opacity: 0.5;
 }
 
+/* background images for photography and graphic design split*/
 .split-panel.photo .placeholder-block {
   background-image:
     linear-gradient(rgba(20,21,26,0.45), rgba(20,21,26,0.45)),
@@ -189,7 +190,7 @@ nav.main-nav a[aria-current="page"] {
 .split-panel.design .placeholder-block {
   background-image:
     linear-gradient(rgba(242,241,236,0.55), rgba(242,241,236,0.55)),
-    url('images/design-hero.jpg');
+    url('images/62720003.jpg');
   background-size: cover;
   background-position: center;
 }
