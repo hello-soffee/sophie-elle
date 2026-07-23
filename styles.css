@@ -142,17 +142,6 @@ nav.main-nav a[aria-current="page"] {
   }
 }
 
-/* ---------- top intro (home) ---------- */
-.lead-text {
-  padding: 96px 0 48px;
-  text-align: center;
-}
-.lead-text p {
-  font-family: var(--display);
-  font-size: clamp(20px, 2.4vw, 28px);
-  max-width: 44ch;
-  margin: 0 auto;
-}
 
 /* ---------- Hero split (home) ---------- */
 .split-hero {
