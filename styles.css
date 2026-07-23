@@ -227,6 +227,10 @@ nav.main-nav a[aria-current="page"] {
 .intro-statement {
   padding: 96px 0 48px;
 }
+p a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 
 .section-head.center {
   justify-content: center;
