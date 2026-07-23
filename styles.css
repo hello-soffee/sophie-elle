@@ -157,13 +157,14 @@ nav.main-nav a[aria-current="page"] {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
   flex: 1 1 0;
   padding: 48px;
   min-height: 400px;
   overflow: hidden;
   transition: flex 0.5s ease;
 }
+
 @media (min-width: 801px) {
   .split-panel {
     cursor: pointer;
@@ -173,13 +174,30 @@ nav.main-nav a[aria-current="page"] {
   }
 }
 
+.panel-label {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  z-index: 1;
+  font-family: var(--display);
+  font-size: clamp(20px, 2.4vw, 28px);
+  letter-spacing: 0.01em;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  color: currentColor;
+}
+.split-panel.design .panel-label {
+  left: auto;
+  right: 40px;
+}
+
 .split-panel.photo { background: var(--ink); color: var(--paper); }
 .split-panel.design { background: var(--paper); color: var(--ink); border-left: 1px solid var(--stone-line); }
+
 .split-panel .placeholder-block {
   position: absolute;
   inset: 0;
   z-index: 0;
-  opacity: 0.5;
 }
 
 /* background images for photography and graphic design split*/
