@@ -227,14 +227,21 @@ nav.main-nav a[aria-current="page"] {
 .intro-statement {
   padding: 96px 0 48px;
 }
+.intro-statement .wrap {
+  display: flex;
+  flex-direction: column;
+}
 
+/* p a is the link for montreal, qc in my intro statement on my home p*/
 p a {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
+/* this is a more about me button linking to my about me p */
 .intro-btn {
   margin-top: 8px;
+  align-self: flex-end;
 }
 .intro-btn:hover {
   background: var(--ink);
