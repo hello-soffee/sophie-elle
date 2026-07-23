@@ -7,6 +7,19 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  var splitPanels = document.querySelectorAll('.split-panel');
+  splitPanels.forEach(function (panel) {
+    panel.addEventListener('click', function (e) {
+      if (e.target.closest('.btn')) return;
+      var alreadyExpanded = panel.classList.contains('expanded');
+      splitPanels.forEach(function (p) { p.classList.remove('expanded'); });
+      if (!alreadyExpanded) {
+        panel.classList.add('expanded');
+      }
+    });
+  });
+});
+
   var triggers = document.querySelectorAll('.accordion-trigger');
   triggers.forEach(function (btn) {
     btn.addEventListener('click', function () {
