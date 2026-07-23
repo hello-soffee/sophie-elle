@@ -227,9 +227,18 @@ nav.main-nav a[aria-current="page"] {
 .intro-statement {
   padding: 96px 0 48px;
 }
+
 p a {
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+.intro-btn {
+  margin-top: 8px;
+}
+.intro-btn:hover {
+  background: var(--ink);
+  color: var(--paper);
 }
 
 .section-head.center {
