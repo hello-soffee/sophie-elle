@@ -144,7 +144,7 @@ nav.main-nav a[aria-current="page"] {
 
 /* ---------- top intro (home) ---------- */
 .lead-text {
-  padding: 56px 0;
+  padding: 96px 0 48px;
   text-align: center;
 }
 .lead-text p {
