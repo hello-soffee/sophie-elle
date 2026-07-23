@@ -169,6 +169,7 @@ nav.main-nav a[aria-current="page"] {
     flex: 6 1 0;
   }
 }
+
 .split-panel.photo { background: var(--ink); color: var(--paper); }
 .split-panel.design { background: var(--paper); color: var(--ink); border-left: 1px solid var(--stone-line); }
 .split-panel .placeholder-block {
@@ -177,15 +178,22 @@ nav.main-nav a[aria-current="page"] {
   z-index: 0;
   opacity: 0.5;
 }
+
 .split-panel.photo .placeholder-block {
-  background: repeating-linear-gradient(135deg, #1c1e24 0px, #1c1e24 2px, #14151A 2px, #14151A 26px);
+  background-image:
+    linear-gradient(rgba(20,21,26,0.45), rgba(20,21,26,0.45)),
+    url('images/photography-hero.jpg');
+  background-size: cover;
+  background-position: center;
 }
 .split-panel.design .placeholder-block {
   background-image:
-    linear-gradient(var(--stone-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--stone-line) 1px, transparent 1px);
-  background-size: 28px 28px;
+    linear-gradient(rgba(242,241,236,0.55), rgba(242,241,236,0.55)),
+    url('images/design-hero.jpg');
+  background-size: cover;
+  background-position: center;
 }
+
 .split-panel .content { position: relative; z-index: 1; }
 .split-panel .tag { display: block; margin-bottom: 14px; }
 .split-panel h2 { font-size: clamp(32px, 4vw, 52px); margin-bottom: 18px; }
