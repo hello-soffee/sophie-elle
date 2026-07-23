@@ -215,8 +215,8 @@ nav.main-nav a[aria-current="page"] {
 .split-panel.design .btn:hover { background: var(--ink); color: var(--paper); }
 
 @media (max-width: 800px) {
-  .split-hero { grid-template-columns: 1fr; min-height: unset; }
-  .split-panel { min-height: 320px; padding: 36px 28px; }
+  .split-hero { flex-direction: column; min-height: unset; }
+  .split-panel { flex: 1 1 auto; min-height: 320px; padding: 36px 28px; }
 }
 
 /* ---------- Sections ---------- */
