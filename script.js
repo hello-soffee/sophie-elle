@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   initLightbox();
+  initDragGallery();
 
   var navLinks = document.querySelectorAll('.main-nav a');
   var currentFile = window.location.pathname.split('/').pop() || 'index.html';
@@ -65,8 +66,12 @@ function initLightbox() {
     lightbox.classList.remove('open');
   }
 
-  items.forEach(function (item, index) {
+items.forEach(function (item, index) {
     item.addEventListener('click', function () {
+      if (item.dataset.dragged === 'true') {
+        item.dataset.dragged = 'false';
+        return;
+      }
       show(index);
     });
   });
@@ -83,5 +88,68 @@ function initLightbox() {
     if (e.key === 'Escape') closeLightbox();
     if (e.key === 'ArrowLeft') show(currentIndex - 1);
     if (e.key === 'ArrowRight') show(currentIndex + 1);
+  });
+}
+
+function initDragGallery() {
+  if (window.innerWidth <= 800) return;
+
+  var containers = document.querySelectorAll('.masonry');
+  containers.forEach(function (container) {
+    var items = container.querySelectorAll('.masonry-item');
+    if (!items.length) return;
+
+    var containerRect = container.getBoundingClientRect();
+    var positions = [];
+    items.forEach(function (item) {
+      var r = item.getBoundingClientRect();
+      positions.push({
+        left: r.left - containerRect.left,
+        top: r.top - containerRect.top,
+        width: r.width
+      });
+    });
+
+    container.style.height = container.scrollHeight + 'px';
+    container.classList.add('drag-gallery');
+
+    items.forEach(function (item, i) {
+      item.style.left = positions[i].left + 'px';
+      item.style.top = positions[i].top + 'px';
+      item.style.width = positions[i].width + 'px';
+      makeDraggable(item);
+    });
+  });
+}
+
+function makeDraggable(item) {
+  var dragging = false;
+  var startX, startY, originLeft, originTop;
+
+  item.addEventListener('pointerdown', function (e) {
+    dragging = true;
+    item.dataset.dragged = 'false';
+    startX = e.clientX;
+    startY = e.clientY;
+    originLeft = parseFloat(item.style.left) || 0;
+    originTop = parseFloat(item.style.top) || 0;
+    item.setPointerCapture(e.pointerId);
+    item.style.zIndex = 999;
+  });
+
+  item.addEventListener('pointermove', function (e) {
+    if (!dragging) return;
+    var dx = e.clientX - startX;
+    var dy = e.clientY - startY;
+    if (Math.abs(dx) > 4 || Math.abs(dy) > 4) {
+      item.dataset.dragged = 'true';
+      item.style.left = (originLeft + dx) + 'px';
+      item.style.top = (originTop + dy) + 'px';
+    }
+  });
+
+  item.addEventListener('pointerup', function () {
+    dragging = false;
+    item.style.zIndex = '';
   });
 }
