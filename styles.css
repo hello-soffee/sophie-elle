@@ -425,6 +425,9 @@ p a {
 .footer-links { display: flex; gap: 28px; }
 .footer-links a { font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
 .footer-fine { font-family: var(--mono); font-size: 11px; color: var(--stone); margin-top: 40px; }
+.footer-bottom {
+  text-align: center;
+}
 
 /* ---------- Page header (non-home pages) ---------- */
 .page-head {
