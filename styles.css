@@ -429,6 +429,26 @@ p a {
   text-align: center;
 }
 
+.footer-links-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: flex-start;
+  gap: 14px;
+}
+.footer-links-col .tag {
+  margin-bottom: 2px;
+}
+.footer-links-col a {
+  font-family: var(--body);
+  font-size: clamp(18px, 2vw, 22px);
+  color: var(--ink);
+  transition: opacity 0.2s ease;
+}
+.footer-links-col a:hover {
+  opacity: 0.6;
+}
+
 /* ---------- Page header (non-home pages) ---------- */
 .page-head {
   padding: 64px 0 40px;
