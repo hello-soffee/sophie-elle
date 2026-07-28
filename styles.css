@@ -230,10 +230,10 @@ nav.main-nav a[aria-current="page"] {
   padding: 12px 22px;
   border: 1px solid currentColor;
   transition: background 0.2s ease, color 0.2s ease;
+}
   .footer-btn:hover {
   background: var(--ink);
   color: var(--paper);
-}
 }
 .split-panel .btn {
   position: absolute;
