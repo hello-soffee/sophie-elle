@@ -329,7 +329,8 @@ p a {
   transition: color 0.2s ease;
 }
 .accordion-trigger:hover .accordion-label {
-  color: var(--safelight);
+  /* color: var(--safelight); */
+  opacity: 0.6;
 }
 
 .accordion-toggle {
