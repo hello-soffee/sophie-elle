@@ -459,6 +459,25 @@ p a {
 .masonry-item:nth-child(6n+5) .thumb-m { height: 440px; }
 .masonry-item:nth-child(6n+6) .thumb-m { height: 320px; }
 
+/* ---------- Draggable gallery (desktop only) ---------- */
+.masonry.drag-gallery {
+  position: relative;
+  column-count: initial;
+  column-gap: initial;
+}
+.masonry.drag-gallery .masonry-item {
+  position: absolute;
+  margin: 0;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  transition: box-shadow 0.2s ease;
+}
+.masonry.drag-gallery .masonry-item:active {
+  cursor: grabbing;
+  box-shadow: 0 16px 36px rgba(20, 21, 26, 0.28);
+}
+
 /* ---------- Lightbox ---------- */
 .lightbox {
   position: fixed;
