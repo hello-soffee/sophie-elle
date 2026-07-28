@@ -407,6 +407,105 @@ p a {
 /* wide card for design case studies */
 .card.wide .thumb { aspect-ratio: 16 / 10; }
 
+/* ---------- Masonry gallery ---------- */
+.masonry {
+  column-count: 3;
+  column-gap: 28px;
+}
+@media (max-width: 900px) {
+  .masonry { column-count: 2; }
+}
+@media (max-width: 600px) {
+  .masonry { column-count: 1; }
+}
+
+.masonry-item {
+  display: block;
+  width: 100%;
+  break-inside: avoid;
+  margin: 0 0 28px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.thumb-m {
+  width: 100%;
+  background-color: var(--stone-line);
+  background-image: repeating-linear-gradient(45deg, #e6e4da 0px, #e6e4da 1px, transparent 1px, transparent 12px);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.thumb-m span {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--stone);
+  text-align: center;
+  padding: 12px;
+}
+
+/* Varied heights for the staggered masonry look — swap these for your
+   own values once real photos are in, or leave as-is for a natural mix */
+.masonry-item:nth-child(6n+1) .thumb-m { height: 420px; }
+.masonry-item:nth-child(6n+2) .thumb-m { height: 300px; }
+.masonry-item:nth-child(6n+3) .thumb-m { height: 380px; }
+.masonry-item:nth-child(6n+4) .thumb-m { height: 260px; }
+.masonry-item:nth-child(6n+5) .thumb-m { height: 440px; }
+.masonry-item:nth-child(6n+6) .thumb-m { height: 320px; }
+
+/* ---------- Lightbox ---------- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 21, 26, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.lightbox.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.lightbox-stage {
+  width: 70vw;
+  height: 80vh;
+  max-width: 900px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  background: none;
+  border: none;
+  color: var(--paper);
+  font-family: var(--mono);
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 8px;
+}
+.lightbox-close { top: 24px; right: 28px; font-size: 32px; }
+.lightbox-prev { left: 20px; top: 50%; transform: translateY(-50%); }
+.lightbox-next { right: 20px; top: 50%; transform: translateY(-50%); }
+
+@media (max-width: 700px) {
+  .lightbox-stage { width: 88vw; height: 60vh; }
+  .lightbox-prev, .lightbox-next { font-size: 22px; }
+}
+
 /* ---------- Footer ---------- */
 .site-footer {
   border-top: 1px solid var(--stone-line);
