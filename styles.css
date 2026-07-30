@@ -616,6 +616,69 @@ p a {
   .about-layout { grid-template-columns: 1fr; }
 }
 
+/* ---------- Testimonials (envelope letters) ---------- */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+}
+@media (max-width: 700px) {
+  .testimonials-grid { grid-template-columns: 1fr; }
+}
+
+.envelope-card {
+  position: relative;
+  padding-top: 85%;
+}
+
+.letter {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  bottom: 0;
+  z-index: 1;
+  aspect-ratio: 1 / 1;
+  background: var(--mist);
+  padding: 24px;
+  box-sizing: border-box;
+  text-align: left;
+  transform: translateY(0);
+  transition: transform 0.45s ease;
+  box-shadow: 0 -8px 20px rgba(20, 21, 26, 0.12);
+}
+.envelope-card.open .letter {
+  transform: translateY(calc(-100% + 34px));
+}
+
+.letter p {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0 0 14px;
+}
+.letter .tag {
+  display: block;
+}
+
+.envelope-flap {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background-color: var(--stone-line);
+  background-size: cover;
+  background-position: center;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.envelope-flap:hover {
+  transform: translateY(-3px);
+}
+
 /* ---------- Contact ---------- */
 .contact-layout {
   display: grid;
