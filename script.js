@@ -159,9 +159,16 @@ function initEnvelopes() {
   var cards = document.querySelectorAll('.envelope-card');
   cards.forEach(function (card) {
     var flap = card.querySelector('.envelope-flap');
+    var letter = card.querySelector('.letter');
+
     flap.addEventListener('click', function () {
       var isOpen = card.classList.toggle('open');
       flap.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    letter.addEventListener('click', function () {
+      card.classList.remove('open');
+      flap.setAttribute('aria-expanded', 'false');
     });
   });
 }
