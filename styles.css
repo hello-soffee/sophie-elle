@@ -549,7 +549,7 @@ p a {
 }
 .about-photo {
   aspect-ratio: 3 / 4;
-  background: var(--stone-line);
+  background-color: var(--paper);
   background-size: cover;
   background-position: center;
   position: relative;
