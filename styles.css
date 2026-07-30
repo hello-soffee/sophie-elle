@@ -637,7 +637,7 @@ p a {
 .letter p {
   font-family: var(--display);
   font-style: italic;
-  font-size: 16px;
+  font-size: 13px;
   line-height: 1.5;
   margin: 0 0 14px;
 }
