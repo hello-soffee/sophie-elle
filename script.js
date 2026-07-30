@@ -153,3 +153,14 @@ function makeDraggable(item) {
     item.style.zIndex = '';
   });
 }
+
+function initEnvelopes() {
+  var cards = document.querySelectorAll('.envelope-card');
+  cards.forEach(function (card) {
+    var flap = card.querySelector('.envelope-flap');
+    flap.addEventListener('click', function () {
+      var isOpen = card.classList.toggle('open');
+      flap.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+  });
+}
