@@ -550,6 +550,8 @@ p a {
 .about-photo {
   aspect-ratio: 3 / 4;
   background: var(--stone-line);
+  background-size: cover;
+  background-position: center;
   position: relative;
 }
 .about-photo::after {
@@ -565,6 +567,9 @@ p a {
   color: var(--stone);
   text-align: center;
   padding: 12px;
+}
+.about-photo.has-image::after {
+  content: none;
 }
 .about-body p { max-width: 62ch; margin: 0 0 20px; font-size: 16px; }
 .skills-list { list-style: none; padding: 0; margin: 32px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 32px; }
