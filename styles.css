@@ -645,6 +645,12 @@ p a {
   display: block;
 }
 
+/*----skills list on photography and design pages ---*/
+
+.page-wrap {
+  padding-bottom: 96px;
+}
+
 /* ---------- Contact ---------- */
 .contact-layout {
   display: grid;
