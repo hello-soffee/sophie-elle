@@ -97,7 +97,7 @@ nav.main-nav a {
   font-family: var(--mono);
   font-size: 12px;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
+  text-transform: none;
   padding-bottom: 4px;
   border-bottom: 1px solid transparent;
   transition: border-color 0.2s ease, color 0.2s ease;
