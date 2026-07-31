@@ -99,12 +99,10 @@ nav.main-nav a {
   letter-spacing: 0.08em;
   text-transform: none;
   padding-bottom: 4px;
-  border-bottom: 1px solid transparent;
   transition: border-color 0.2s ease, color 0.2s ease;
 }
 nav.main-nav a:hover,
 nav.main-nav a[aria-current="page"] {
-  border-bottom-color: var(--ink);
 }
 .nav-toggle {
   display: none;
@@ -128,14 +126,13 @@ nav.main-nav a[aria-current="page"] {
     left: 0;
     right: 0;
     background: var(--paper);
-    border-bottom: 1px solid var(--stone-line);
     flex-direction: column;
     gap: 0;
     padding: 8px 32px 20px;
     display: none;
   }
   nav.main-nav.open { display: flex; }
-  nav.main-nav a { padding: 12px 0; border-bottom: 1px solid var(--stone-line); }
+  nav.main-nav a { padding: 12px 0; }
   .nav-toggle { display: block; }
   .site-header:hover .wrap {
     height: 76px;
