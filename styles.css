@@ -341,7 +341,7 @@ p a {
   font-weight: 600;
   letter-spacing: 0.04em;
 }
-.accordion-toggle .plus { display: inline-block; width: 13px; text-align: center; }
+.accordion-toggle .plus { display: inline-block; width: 10px; text-align: center; }
 
 .accordion-panel {
   display: grid;
