@@ -201,8 +201,7 @@ nav.main-nav a[aria-current="page"] {
 /* background images for photography and graphic design split*/
 
 .split-panel.photo .placeholder-block {
-   /* background-image: url('images/62720019-2.jpg'); */
-    background-image: url('images/Artboard 1.png');
+    background-image: url('images/Artboard 7.png'); 
          background-size: cover;
           background-position: center;
             background-color: var(--paper);
