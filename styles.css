@@ -205,7 +205,7 @@ nav.main-nav a[aria-current="page"] {
     background-image: url('images/Artboard 1.png');
          background-size: cover;
           background-position: center;
-  /* background: 55A25F; */
+            background: var(--paper);
  
 }
 .split-panel.design .placeholder-block {
