@@ -189,7 +189,7 @@ nav.main-nav a[aria-current="page"] {
   right: 40px;
 }
 
-.split-panel.photo { background:  var(--paper); color: var(--paper); }
+.split-panel.photo { background:  var(--ink); color: var(--paper); }
 .split-panel.design { background: var(--paper); color: var(--ink); border-left: 1px solid var(--stone-line); }
 
 .split-panel .placeholder-block {
@@ -205,14 +205,14 @@ nav.main-nav a[aria-current="page"] {
     background-image: url('images/Artboard 1.png');
          background-size: cover;
           background-position: center;
-  background: 55A25F;
+  /* background: 55A25F; */
  
 }
 .split-panel.design .placeholder-block {
    background-image: url('images/62720003.jpg');
       background-size: cover;
         background-position: center;
-  background: 61AFC9;
+  /*background: 61AFC9; */
 }
 
 .split-panel .content { position: relative; z-index: 1; }
