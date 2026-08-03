@@ -208,7 +208,7 @@ nav.main-nav a[aria-current="page"] {
  
 }
 .split-panel.design .placeholder-block {
-   background-image: url('images/laptop-small.png');
+   background-image: url('images/laptop.png');
       background-size: cover;
         background-position: center;
 }
