@@ -207,10 +207,11 @@ nav.main-nav a[aria-current="page"] {
             background-color: var(--paper);
  
 }
-.split-panel.design .placeholder-block {
+  .split-panel.design .placeholder-block {
    background-image: url('images/laptop.png');
-      background-size: cover;
-        background-position: center;
+   background-size: 60%;
+   background-position: center;
+   background-repeat: no-repeat;
 }
 
 .split-panel .content { position: relative; z-index: 1; }
