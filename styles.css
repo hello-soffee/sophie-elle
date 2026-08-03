@@ -141,16 +141,7 @@ nav.main-nav a[aria-current="page"] {
 
 
 /* ---------- Hero split (home) ---------- */
-.split-hero {
-  display: flex;
-  min-height: 640px;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-}
+
 .split-panel {
   position: relative;
   display: flex;
@@ -189,29 +180,37 @@ nav.main-nav a[aria-current="page"] {
   right: 40px;
 }
 
-.split-panel.photo { background:  var(--ink); color: var(--ink); }
-.split-panel.design { background: var(--paper); color: var(--ink); border-left: 1px solid var(--stone-line); }
+/* deleted a section from here */
+
+.split-hero {
+  background-image: url('images/62210016-2.jpg');
+  background-size: cover;
+  background-position: center;
+  
+  display: flex;
+  min-height: 640px;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+
+.split-panel.photo { color: var(--paper); }
+.split-panel.design { color: var(--ink); border-left: 1px solid var(--stone-line); }
 
 .split-panel .placeholder-block {
   position: absolute;
   inset: 0;
   z-index: 0;
 }
-
-/* background images for photography and graphic design split*/
-
 .split-panel.photo .placeholder-block {
-    background-image: url('images/Artboard 7.png'); 
-         background-size: cover;
-          background-position: center;
-            background-color: var(--paper);
- 
+  background: rgba(20, 21, 26, 0.55);
 }
-  .split-panel.design .placeholder-block {
-   background-image: url('images/laptop.png');
-   background-size: 60%;
-   background-position: center;
-   background-repeat: no-repeat;
+.split-panel.design .placeholder-block {
+  background: rgba(242, 241, 236, 0.55);
 }
 
 .split-panel .content { position: relative; z-index: 1; }
