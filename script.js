@@ -1,11 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
-  var toggle = document.querySelector('.nav-toggle');
+var toggle = document.querySelector('.nav-toggle');
   var nav = document.querySelector('.main-nav');
   if (toggle && nav) {
     toggle.addEventListener('click', function () {
       nav.classList.toggle('open');
+      toggle.classList.toggle('open');
+      document.body.classList.toggle('nav-open');
     });
   }
+}
 
   var splitPanels = document.querySelectorAll('.split-panel');
   splitPanels.forEach(function (panel) {
