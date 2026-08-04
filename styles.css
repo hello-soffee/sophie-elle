@@ -207,7 +207,7 @@ body.nav-open {
   letter-spacing: 0.01em;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
-  color: currentColor;
+  color: var(--paper);
 }
 .split-panel.design .panel-label {
   left: auto;
