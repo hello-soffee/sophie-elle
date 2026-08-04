@@ -285,9 +285,17 @@ body.nav-open {
   border-color: var(--slate);
   color: var(--paper);
 }
+
 @media (max-width: 800px) {
   .split-hero { flex-direction: column; min-height: unset; }
   .split-panel { flex: 1 1 auto; min-height: 320px; padding: 36px 28px; }
+  .split-panel .btn {
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+  }
 }
 
 /* ---------- Sections ---------- */
@@ -311,6 +319,7 @@ body.nav-open {
 .intro-statement .wrap {
   display: flex;
   flex-direction: column;
+  max-width: 760px;
 }
 
 /* p a is the link for montreal, qc in my intro statement on my home p*/
