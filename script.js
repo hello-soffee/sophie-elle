@@ -6,9 +6,9 @@ var toggle = document.querySelector('.nav-toggle');
       nav.classList.toggle('open');
       toggle.classList.toggle('open');
       document.body.classList.toggle('nav-open');
-    });
+});
   }
-}
+});
 
   var splitPanels = document.querySelectorAll('.split-panel');
   splitPanels.forEach(function (panel) {
