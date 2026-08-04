@@ -240,7 +240,7 @@ body.nav-open {
 .split-panel h2 { font-size: clamp(32px, 4vw, 52px); margin-bottom: 18px; }
 .split-panel p { max-width: 34ch; margin: 0 0 24px; opacity: 0.85; }
 
-/* universal buttons */
+/*  ----- universal buttons  ----- */
 .btn {
   display: inline-block;
   font-family: var(--mono);
@@ -252,13 +252,13 @@ body.nav-open {
   transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
-/* universal footer buttons */
+/*  ----- universal footer buttons ----- */
 .footer-btn:hover {
   background: var(--ink); 
   color: var(--paper);
 }
 
-/* home page buttons */
+/*  ----- home page buttons ----- */
 .split-panel .btn {
   position: absolute;
   bottom: 40px;
@@ -334,6 +334,7 @@ body.nav-open {
   gap: 32px;
   max-width: 900px;
 }
+
 .intro-photo {
   flex: 0 0 160px;
   aspect-ratio: 1 / 1;
@@ -341,6 +342,7 @@ body.nav-open {
   background-position: center;
   background-color: none;
 }
+
 .intro-text {
   display: flex;
   flex-direction: column;
@@ -393,8 +395,7 @@ p a {
   justify-content: center;
   max-width: 700px;
   border-bottom: none;
-  /* text-align: center; */
-  text-align: left;
+  text-align: center;
   padding-bottom: 0;
   margin-bottom: 40px;
   gap: 16px;
