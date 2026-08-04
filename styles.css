@@ -325,10 +325,34 @@ body.nav-open {
 .intro-statement {
   padding: 96px 0 48px;
 }
+
 .intro-statement .wrap {
   display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 32px;
+  max-width: 900px;
+}
+.intro-photo {
+  flex: 0 0 160px;
+  aspect-ratio: 1 / 1;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--stone-line);
+}
+.intro-text {
+  display: flex;
   flex-direction: column;
-  max-width: 680px;
+  flex: 1;
+}
+@media (max-width: 700px) {
+  .intro-statement .wrap {
+    flex-direction: column;
+  }
+  .intro-photo {
+    flex: 0 0 auto;
+    width: 120px;
+  }
 }
 
 /* p a is the link for montreal, qc in my intro statement on my home p*/
