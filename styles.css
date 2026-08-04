@@ -787,6 +787,8 @@ form.contact-form { display: flex; flex-direction: column; gap: 20px; max-width:
   border: 1px solid var(--stone-line);
   background: #fff;
   color: var(--ink);
+  width: 100%;
+  box-sizing: border-box;
 }
 .field textarea { resize: vertical; min-height: 120px; }
 .field input:focus, .field textarea:focus { outline: 2px solid var(--ink); outline-offset: 1px; }
