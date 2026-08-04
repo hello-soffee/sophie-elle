@@ -328,7 +328,7 @@ body.nav-open {
 .intro-statement .wrap {
   display: flex;
   flex-direction: column;
-  max-width: 760px;
+  max-width: 680px;
 }
 
 /* p a is the link for montreal, qc in my intro statement on my home p*/
