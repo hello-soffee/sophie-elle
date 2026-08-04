@@ -8,7 +8,7 @@
   --slate: #FF94D9; /* pink */
   --stone: #7CDBEB; /* blue */
   --stone-line: #D8D6CC;
-  --mist: #EFEDE5;
+  --mist: #FFDCD3; /* misty pink */
 
   --display: 'Amiko', sans-serif;
   --body: 'Amiko', sans-serif;
@@ -408,6 +408,7 @@ p a {
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.04em;
+  color: 222222; /* i added this let's see if it works */
 }
 .accordion-toggle .plus { display: inline-block; width: 10px; text-align: center; }
 
