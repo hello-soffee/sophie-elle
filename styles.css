@@ -249,24 +249,31 @@ body.nav-open {
 .split-panel h2 { font-size: clamp(32px, 4vw, 52px); margin-bottom: 18px; }
 .split-panel p { max-width: 34ch; margin: 0 0 24px; opacity: 0.85; }
 
+/* universal buttons */
 .btn {
   display: inline-block;
   font-family: var(--mono);
   font-size: 12px;
   letter-spacing: 0.06em;
   padding: 12px 22px;
-  border: 1px solid var(--paper);
-  color: var(--paper);
+  border: 1px solid var(--ink);
+  color: var(--ink);
   transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
-  .footer-btn:hover {
+
+/* universal footer buttons */
+.footer-btn:hover {
   background: var(--ink); 
   color: var(--paper);
 }
+
+/* home page buttons */
 .split-panel .btn {
   position: absolute;
   bottom: 40px;
   z-index: 1;
+  border-color: var(--paper);
+  color: var(--paper);
 }
 .split-panel.photo .btn {
   right: 40px;
