@@ -121,7 +121,7 @@ nav.main-nav a[aria-current="page"] {
 @media (max-width: 800px) {
   nav.main-nav {
     position: absolute;
-    top: 76px;
+    top: 100%;
     left: 0;
     right: 0;
     background: var(--paper);
@@ -129,6 +129,7 @@ nav.main-nav a[aria-current="page"] {
     gap: 0;
     padding: 8px 32px 20px;
     display: none;
+    box-shadow: 0 12px 24px rgba(20, 21, 26, 0.12);
   }
   nav.main-nav.open { display: flex; }
   nav.main-nav a { padding: 12px 0; }
