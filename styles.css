@@ -118,6 +118,10 @@ nav.main-nav a[aria-current="page"] {
   margin: 5px 0;
 }
 
+.nav-heart {
+  display: none;
+}
+
 @media (max-width: 800px) {
   nav.main-nav {
     position: fixed;
@@ -137,6 +141,15 @@ nav.main-nav a[aria-current="page"] {
     padding: 16px 0;
     border-bottom: none;
   }
+  
+.nav-heart {
+    display: block;
+    margin-top: 24px;
+    font-family: var(--display);
+    font-size: 20px;
+    color: var(--stone);
+  }
+  
   .nav-toggle {
     display: block;
     position: relative;
