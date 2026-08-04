@@ -72,10 +72,6 @@ h1, h2, h3 {
   justify-content: space-between;
   height: 160px;
 }
-
-.site-header:hover .wrap {
-  height: 160px;
-}
 .logo {
   font-family: var(--display);
   font-size: 20px;
@@ -98,11 +94,15 @@ nav.main-nav a {
   letter-spacing: 0.08em;
   text-transform: none;
   padding-bottom: 4px;
+  border-bottom: 1px solid transparent;
   transition: border-color 0.2s ease, color 0.2s ease;
 }
+
 nav.main-nav a:hover,
 nav.main-nav a[aria-current="page"] {
+  border-bottom-color: var(--ink);
 }
+
 .nav-toggle {
   display: none;
   background: none;
@@ -133,11 +133,7 @@ nav.main-nav a[aria-current="page"] {
   nav.main-nav.open { display: flex; }
   nav.main-nav a { padding: 12px 0; }
   .nav-toggle { display: block; }
-  .site-header:hover .wrap {
-    height: 76px;
-  }
 }
-
 
 /* ---------- Hero split (home) ---------- */
 
@@ -574,6 +570,7 @@ p a {
 @media (max-width: 800px) {
   .about-layout { grid-template-columns: 1fr; }
 }
+
 
 /* ---------- Testimonials (envelope letters) ---------- */
 .testimonials-grid {
