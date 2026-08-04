@@ -3,10 +3,10 @@
 :root {
   --ink: #222222;
   /* --paper: #F2F1EC; */
-  --paper: #fffff2;
-  --safelight: #55A25F;
-  --slate: #3C5068;
-  --stone: #7CDBEB;
+  --paper: #fffff2; /* light yellow */
+  --safelight: #55A25F; /* green */
+  --slate: #FF94D9; /* pink */
+  --stone: #7CDBEB; /* blue */
   --stone-line: #D8D6CC;
   --mist: #EFEDE5;
 
