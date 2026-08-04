@@ -274,7 +274,7 @@ body.nav-open {
   right: 40px;
 }
 .split-panel.design .btn {
-  left: 40px;
+  right: 40px;
 }
 .split-panel.photo .btn:hover {
   background: var(--safelight);
