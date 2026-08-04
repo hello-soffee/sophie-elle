@@ -8,7 +8,6 @@ var toggle = document.querySelector('.nav-toggle');
       document.body.classList.toggle('nav-open');
 });
   }
-});
 
   var splitPanels = document.querySelectorAll('.split-panel');
   splitPanels.forEach(function (panel) {
