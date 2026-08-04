@@ -285,6 +285,18 @@ body.nav-open {
   color: var(--paper);
 }
 
+.home-hero-band {
+  background-image: url('images/62720003.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.home-header.site-header {
+  background: none;
+}
+.home-hero-band .split-hero {
+  background: none;
+}
+
 @media (max-width: 800px) {
   .split-hero { flex-direction: column; min-height: unset; }
   .split-panel { flex: 1 1 auto; min-height: 320px; padding: 36px 28px; }
