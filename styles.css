@@ -483,7 +483,8 @@ p a {
   margin-bottom: 14px;
   position: relative;
   overflow: hidden;
-  background: var(--stone-line);
+  /* background: var(--stone-line);  */
+  background: none;
   background-size: cover;
   background-position: center;
 }
