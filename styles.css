@@ -2,7 +2,8 @@
 
 :root {
   --ink: #222222;
-  --paper: #F2F1EC;
+  /* --paper: #F2F1EC; */
+  --paper: #fffff2;
   --safelight: #55A25F;
   --slate: #3C5068;
   --stone: #7CDBEB;
