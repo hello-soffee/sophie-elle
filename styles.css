@@ -231,8 +231,7 @@ body.nav-open {
 
 
 .split-panel.photo { color: var(--slate); }
-.split-panel.design { color: var(--safelight); border-left: 1px solid var(--stone-line); }
-
+.split-panel.design { color: var(--slate); }
 
 .split-panel .placeholder-block {
   position: absolute;
