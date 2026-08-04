@@ -484,6 +484,8 @@ p a {
   position: relative;
   overflow: hidden;
   background: var(--stone-line);
+  background-size: cover;
+  background-position: center;
 }
 .card .thumb::after {
   content: 'REPLACE WITH IMAGE';
@@ -499,6 +501,9 @@ p a {
   text-align: center;
   padding: 12px;
   background: repeating-linear-gradient(45deg, #e6e4da 0px, #e6e4da 1px, transparent 1px, transparent 12px);
+}
+.card .thumb.has-image::after {
+  content: none;
 }
 .card h3 { font-size: 19px; margin-bottom: 6px; }
 .card .tag { margin-top: 4px; }
