@@ -439,7 +439,7 @@ p a {
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.04em;
-  color: 222222; /* i added this let's see if it works */
+  color: var(--ink);
 }
 .accordion-toggle .plus { display: inline-block; width: 10px; text-align: center; }
 
