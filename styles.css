@@ -256,10 +256,10 @@ body.nav-open {
   font-family: var(--mono);
   font-size: 12px;
   letter-spacing: 0.06em;
-
   padding: 12px 22px;
-  border: 1px solid currentColor;
-  transition: background 0.2s ease, color 0.2s ease;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
   .footer-btn:hover {
   background: var(--ink);
@@ -276,9 +276,16 @@ body.nav-open {
 .split-panel.design .btn {
   left: 40px;
 }
-.split-panel.photo .btn:hover { background: var(--paper); color: var(--ink); }
-.split-panel.design .btn:hover { background: var(--ink); color: var(--paper); }
-
+.split-panel.photo .btn:hover {
+  background: var(--safelight);
+  border-color: var(--safelight);
+  color: var(--paper);
+}
+.split-panel.design .btn:hover {
+  background: var(--slate);
+  border-color: var(--slate);
+  color: var(--paper);
+}
 @media (max-width: 800px) {
   .split-hero { flex-direction: column; min-height: unset; }
   .split-panel { flex: 1 1 auto; min-height: 320px; padding: 36px 28px; }
