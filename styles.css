@@ -188,15 +188,6 @@ body.nav-open {
   transition: flex 0.5s ease;
 }
 
-@media (min-width: 801px) {
-  .split-panel {
-    cursor: pointer;
-  }
-  .split-panel.expanded {
-    flex: 6 1 0;
-  }
-}
-
 .panel-label {
   position: absolute;
   top: 40px;
