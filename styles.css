@@ -120,22 +120,46 @@ nav.main-nav a[aria-current="page"] {
 
 @media (max-width: 800px) {
   nav.main-nav {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
+    position: fixed;
+    inset: 0;
     background: var(--paper);
     flex-direction: column;
-    gap: 0;
-    padding: 8px 32px 20px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0;
     display: none;
-    box-shadow: 0 12px 24px rgba(20, 21, 26, 0.12);
+    z-index: 100;
   }
   nav.main-nav.open { display: flex; }
-  nav.main-nav a { padding: 12px 0; }
-  .nav-toggle { display: block; }
+  nav.main-nav a {
+    font-size: 28px;
+    padding: 16px 0;
+    border-bottom: none;
+  }
+  .nav-toggle {
+    display: block;
+    position: relative;
+    z-index: 101;
+  }
 }
 
+body.nav-open {
+  overflow: hidden;
+}
+
+.nav-toggle span {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.nav-toggle.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
 /* ---------- Hero split (home) ---------- */
 
 .split-panel {
