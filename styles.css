@@ -229,7 +229,6 @@ body.nav-open {
   margin-right: -50vw;
 }
 
-
 .split-panel.photo { color: var(--slate); }
 .split-panel.design { color: var(--slate); }
 
@@ -256,12 +255,12 @@ body.nav-open {
   font-size: 12px;
   letter-spacing: 0.06em;
   padding: 12px 22px;
-  border: 1px solid var(--ink);
-  color: var(--ink);
+  border: 1px solid var(--paper);
+  color: var(--paper);
   transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
   .footer-btn:hover {
-  background: var(--ink);
+  background: var(--ink); 
   color: var(--paper);
 }
 .split-panel .btn {
