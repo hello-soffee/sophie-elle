@@ -634,7 +634,7 @@ p a {
 .page-head p.lede {
   margin-top: 18px;
   /* max-width: 56ch; */
-  max-width: 680 px;
+  max-width: 600 px;
   font-size: 15px;
   color: #3a3a38;
 }
