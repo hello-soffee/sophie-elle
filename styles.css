@@ -322,6 +322,7 @@ body.nav-open {
 }
 .section-head h2 { font-size: clamp(28px, 3vw, 40px); }
 
+/* home page intro section */
 .intro-statement {
   padding: 96px 0 48px;
 }
@@ -338,7 +339,7 @@ body.nav-open {
   aspect-ratio: 1 / 1;
   background-size: cover;
   background-position: center;
-  background-color: var(--stone-line);
+  background-color: none;
 }
 .intro-text {
   display: flex;
