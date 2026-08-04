@@ -320,6 +320,17 @@ p a {
   text-underline-offset: 3px;
 }
 
+.link-photo,
+.link-design {
+  transition: color 0.2s ease;
+}
+.link-photo:hover {
+  color: var(--safelight);
+}
+.link-design:hover {
+  color: var(--slate);
+}
+
 /* this is a more about me button linking to my about me p */
 .intro-btn {
   margin-top: 8px;
