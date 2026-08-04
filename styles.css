@@ -214,8 +214,6 @@ body.nav-open {
   right: 40px;
 }
 
-/* deleted a section from here */
-
 .split-hero {
   background-image: url('images/62720003.jpg');
   background-size: cover;
@@ -232,8 +230,9 @@ body.nav-open {
 }
 
 
-.split-panel.photo { color: var(--paper); }
-.split-panel.design { color: var(--ink); border-left: 1px solid var(--stone-line); }
+.split-panel.photo { color: var(--slate); }
+.split-panel.design { color: var(--safelight); border-left: 1px solid var(--stone-line); }
+
 
 .split-panel .placeholder-block {
   position: absolute;
@@ -257,7 +256,7 @@ body.nav-open {
   font-family: var(--mono);
   font-size: 12px;
   letter-spacing: 0.06em;
-  /*---- text-transform: uppercase; ---*/
+
   padding: 12px 22px;
   border: 1px solid currentColor;
   transition: background 0.2s ease, color 0.2s ease;
