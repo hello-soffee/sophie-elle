@@ -266,10 +266,14 @@ body.nav-open {
 }
 .split-panel .btn {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  bottom: 40px;
   z-index: 1;
+}
+.split-panel.photo .btn {
+  right: 40px;
+}
+.split-panel.design .btn {
+  right: 40px;
 }
 .split-panel.photo .btn:hover {
   background: var(--safelight);
