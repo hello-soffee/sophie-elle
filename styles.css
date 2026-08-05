@@ -870,7 +870,7 @@ form.contact-form { display: flex; flex-direction: column; gap: 20px; width: 100
   transition: color 0.2s ease;
 }
 .project-link a:hover {
-  color: var(--slate);
+  color: var(--stone);
 }
 .project-description p {
   font-size: 17px;
