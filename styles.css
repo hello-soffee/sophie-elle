@@ -488,6 +488,10 @@ p a {
   background-size: cover;
   background-position: center;
 }
+.card .thumb.contain {
+  background-size: contain;
+  background-repeat: no-repeat;
+}
 .card .thumb::after {
   content: 'REPLACE WITH IMAGE';
   position: absolute;
