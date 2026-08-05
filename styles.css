@@ -807,6 +807,85 @@ form.contact-form { display: flex; flex-direction: column; gap: 20px; width: 100
   * { transition: none !important; }
 }
 
+/* ---------- Project detail pages ---------- */
+.project-head {
+  padding: 64px 0 48px;
+}
+.project-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.project-hero-image {
+  aspect-ratio: 4 / 3;
+  background-color: var(--stone-line);
+  background-size: cover;
+  background-position: center;
+}
+.project-meta h1 {
+  font-size: clamp(44px, 6vw, 84px);
+  margin-bottom: 32px;
+}
+.detail-line {
+  font-family: var(--body);
+  font-size: 18px;
+  margin: 0 0 12px;
+  color: var(--ink);
+}
+.detail-label {
+  text-transform: uppercase;
+  margin-right: 4px;
+}
+
+@media (max-width: 800px) {
+  .project-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+/* project asset grid — reuses .grid, adds the image treatment */
+.project-asset {
+  aspect-ratio: 4 / 5;
+  background-color: var(--stone-line);
+  background-size: cover;
+  background-position: center;
+}
+
+.project-writeup {
+  padding-top: 48px;
+}
+.project-writeup-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 48px;
+  align-items: start;
+}
+.project-link a {
+  font-family: var(--display);
+  font-size: 18px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+.project-link a:hover {
+  color: var(--slate);
+}
+.project-description p {
+  font-size: 17px;
+  line-height: 1.6;
+  max-width: 60ch;
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .project-writeup-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
 /* ---------- Footer ---------- */
 .site-footer {
   padding: 56px 0;
