@@ -819,7 +819,7 @@ form.contact-form { display: flex; flex-direction: column; gap: 20px; width: 100
 }
 .project-hero-image {
   aspect-ratio: 4 / 3;
-  background-color: var(--stone-line);
+  background-color: none;
   background-size: cover;
   background-position: center;
 }
@@ -848,7 +848,7 @@ form.contact-form { display: flex; flex-direction: column; gap: 20px; width: 100
 /* project asset grid — reuses .grid, adds the image treatment */
 .project-asset {
   aspect-ratio: 4 / 5;
-  /* background-color: var(--stone-line); */
+  background-color: none;
   background-size: cover;
   background-position: center;
 }
