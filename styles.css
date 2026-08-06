@@ -910,6 +910,25 @@ form.contact-form { display: flex; flex-direction: column; gap: 20px; width: 100
   }
 }
 
+/* ---------- bevida project addition, photo beside project description ---------- */
+.project-description-media {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.project-description-photo {
+  aspect-ratio: 4 / 5;
+  background-size: cover;
+  background-position: center;
+}
+
+@media (max-width: 700px) {
+  .project-description-media {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ---------- Footer ---------- */
 .site-footer {
   padding: 56px 0;
