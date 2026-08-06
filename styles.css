@@ -853,6 +853,35 @@ form.contact-form { display: flex; flex-direction: column; gap: 20px; width: 100
   background-position: center;
 }
 
+.project-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  align-items: center;
+  justify-items: center;
+}
+.menu-card {
+  width: 100%;
+  max-width: 220px;
+  aspect-ratio: 3 / 4;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--stone-line);
+  box-shadow: 0 20px 40px rgba(20, 21, 26, 0.18);
+}
+
+@media (max-width: 900px) {
+  .project-menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+}
+@media (max-width: 500px) {
+  .project-menu-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .project-writeup {
   padding-top: 48px;
 }
