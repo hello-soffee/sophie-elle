@@ -640,11 +640,12 @@ p a {
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;       
   align-items: center;
-  gap: 10px;
-  text-align: center;
+  gap: 20px;                  
+  text-align: left;         
 }
+
 .lightbox-caption {
   font-family: var(--mono);
   font-size: 12px;
