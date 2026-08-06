@@ -634,11 +634,28 @@ p a {
   .lightbox-prev, .lightbox-next { font-size: 22px; }
 }
 
-.lightbox-link {
+.lightbox-info {
   position: absolute;
   bottom: 28px;
   left: 50%;
   transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+.lightbox-caption {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--paper);
+  opacity: 0.75;
+  margin: 0;
+  max-width: 320px;
+  display: none;
+}
+.lightbox-link {
   font-family: var(--mono);
   font-size: 13px;
   letter-spacing: 0.06em;
@@ -652,7 +669,6 @@ p a {
   background: var(--paper);
   color: var(--ink);
 }
-
 
 /* ---------- Page header (non-home pages) ---------- */
 .page-head {
@@ -777,7 +793,7 @@ p a {
   display: block;
 }
 
-/*----skills list on photography and design pages ---*/
+/*---- skills list on photography and design pages ---*/
 
 .page-wrap {
   max-width: var(--max);
@@ -785,7 +801,7 @@ p a {
   padding: 0 32px 96px;
 }
 
-/* ---------- Contact ---------- */
+/* ---------- contact ---------- */
 .contact-layout {
   display: flex;
   flex-direction: column;
