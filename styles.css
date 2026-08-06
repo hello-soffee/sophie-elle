@@ -866,7 +866,7 @@ form.contact-form { display: flex; flex-direction: column; gap: 20px; width: 100
   aspect-ratio: 3 / 4;
   background-size: cover;
   background-position: center;
-  background-color: var(--stone-line);
+  background-color: none;
   box-shadow: 0 20px 40px rgba(20, 21, 26, 0.18);
 }
 
