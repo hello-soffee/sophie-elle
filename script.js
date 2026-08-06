@@ -56,12 +56,23 @@ function initLightbox() {
   var closeBtn = lightbox.querySelector('.lightbox-close');
   var prevBtn = lightbox.querySelector('.lightbox-prev');
   var nextBtn = lightbox.querySelector('.lightbox-next');
+  var linkBtn = lightbox.querySelector('.lightbox-link');
   var currentIndex = 0;
 
   function show(index) {
     currentIndex = (index + items.length) % items.length;
-    var thumb = items[currentIndex].querySelector('.thumb-m');
+    var currentItem = items[currentIndex];
+    var thumb = currentItem.querySelector('.thumb-m');
     stage.style.backgroundImage = window.getComputedStyle(thumb).backgroundImage;
+
+    var link = currentItem.getAttribute('data-link');
+    if (link) {
+      linkBtn.href = link;
+      linkBtn.style.display = 'inline-block';
+    } else {
+      linkBtn.style.display = 'none';
+    }
+
     lightbox.classList.add('open');
   }
 
