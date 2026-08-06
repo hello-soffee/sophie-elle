@@ -634,6 +634,25 @@ p a {
   .lightbox-prev, .lightbox-next { font-size: 22px; }
 }
 
+.lightbox-link {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: var(--paper);
+  border: 1px solid var(--paper);
+  padding: 10px 20px;
+  display: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.lightbox-link:hover {
+  background: var(--paper);
+  color: var(--ink);
+}
+
 
 /* ---------- Page header (non-home pages) ---------- */
 .page-head {
