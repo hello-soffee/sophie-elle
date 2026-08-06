@@ -72,10 +72,28 @@
   <button class="lightbox-close" aria-label="Close">&times;</button>
   <button class="lightbox-prev" aria-label="Previous">&#8592;</button>
   <div class="lightbox-stage"></div>
-  <a class="lightbox-link" id="lightboxLink" href="#" target="_blank">take me there &rarr;</a>
+  <div class="lightbox-info">
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+    <a class="lightbox-link" id="lightboxLink" href="#" target="_blank">view / shop this &rarr;</a>
+  </div>
   <button class="lightbox-next" aria-label="Next">&#8594;</button>
 </div>
+  
 
+<!----- if you want to add a button to link where the image was taken, use this:
+  
+  <button class="masonry-item"
+    data-link="https://maps.app.goo.gl/91DZEEnzHjuNR5Yr7"><div class="thumb-m" style="background-image: url('images/62210010.jpg');"></div></button> 
+  
+  <!----- :) ----> 
+  
+<!----- if you want to add info when you click to enlarge, use this:
+  
+  <button class="masonry-item" data-link="https://yourshop.com/postcard-01" data-caption="Shot on Portra 400 · processed at Photo Service Boutique,
+    Montreal"><div class="thumb-m" style="background-image: url('images/postcard-01.jpg');"></div></button>
+  
+  <!----- :)  ----> 
+  
 <script src="script.js"></script>
 </body>
 </html>
