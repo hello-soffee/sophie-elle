@@ -545,6 +545,9 @@ p a {
 .masonry-item img {
   width: 100%;
   display: block;
+  -webkit-user-drag: none;
+  user-drag: none;
+  pointer-events: none;
 }
 
 /* ---------- Draggable gallery (desktop only) ---------- */
