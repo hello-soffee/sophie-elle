@@ -32,9 +32,7 @@ var toggle = document.querySelector('.nav-toggle');
     });
   });
 
-  initLightbox();
   initDragGallery();
-  initEnvelopes();
 
   var navLinks = document.querySelectorAll('.main-nav a');
   var currentFile = window.location.pathname.split('/').pop() || 'index.html';
@@ -187,3 +185,7 @@ function initEnvelopes() {
     });
   });
 }
+
+window.addEventListener('load', function () {
+  initDragGallery();
+});
