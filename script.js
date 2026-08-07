@@ -133,6 +133,10 @@ function initDragGallery() {
 
     container.style.height = container.scrollHeight + 'px';
     container.classList.add('drag-gallery');
+    
+    container.addEventListener('dragstart', function (e) {
+  e.preventDefault();
+});
 
     items.forEach(function (item, i) {
       item.style.left = positions[i].left + 'px';
