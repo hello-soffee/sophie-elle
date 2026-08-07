@@ -59,12 +59,12 @@ function initLightbox() {
   var linkBtn = lightbox.querySelector('.lightbox-link');
   var captionEl = lightbox.querySelector('.lightbox-caption');
   var currentIndex = 0;
-
-  function show(index) {
+  
+function show(index) {
     currentIndex = (index + items.length) % items.length;
     var currentItem = items[currentIndex];
-    var thumb = currentItem.querySelector('.thumb-m');
-    stage.style.backgroundImage = window.getComputedStyle(thumb).backgroundImage;
+    var img = currentItem.querySelector('img');
+    stage.style.backgroundImage = 'url(' + img.src + ')';
 
     var link = currentItem.getAttribute('data-link');
     if (link) {
