@@ -540,34 +540,12 @@ p a {
   cursor: pointer;
 }
 
-.thumb-m {
-  width: 100%;
-  background-color: var(--stone-line);
-  background-image: repeating-linear-gradient(45deg, #e6e4da 0px, #e6e4da 1px, transparent 1px, transparent 12px);
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.thumb-m span {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--stone);
-  text-align: center;
-  padding: 12px;
-}
+/* ---------- all images in gallery set their own height/width depending on whether they are portrait/landscape ---------- */
 
-/* Varied heights for the staggered masonry look — swap these for your
-   own values once real photos are in, or leave as-is for a natural mix */
-.masonry-item:nth-child(6n+1) .thumb-m { height: 420px; }
-.masonry-item:nth-child(6n+2) .thumb-m { height: 300px; }
-.masonry-item:nth-child(6n+3) .thumb-m { height: 380px; }
-.masonry-item:nth-child(6n+4) .thumb-m { height: 260px; }
-.masonry-item:nth-child(6n+5) .thumb-m { height: 440px; }
-.masonry-item:nth-child(6n+6) .thumb-m { height: 320px; }
+.masonry-item img {
+  width: 100%;
+  display: block;
+}
 
 /* ---------- Draggable gallery (desktop only) ---------- */
 .masonry.drag-gallery {
