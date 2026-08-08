@@ -116,6 +116,7 @@ function show(index) {
 function initDragGallery() {
   if (window.innerWidth <= 800) return;
 
+  var zCounter = 10;
   var containers = document.querySelectorAll('.masonry');
   containers.forEach(function (container) {
     var items = container.querySelectorAll('.masonry-item');
@@ -134,21 +135,25 @@ function initDragGallery() {
 
     container.style.height = container.scrollHeight + 'px';
     container.classList.add('drag-gallery');
-    
+
     container.addEventListener('dragstart', function (e) {
-  e.preventDefault();
-});
+      e.preventDefault();
+    });
 
     items.forEach(function (item, i) {
       item.style.left = positions[i].left + 'px';
       item.style.top = positions[i].top + 'px';
       item.style.width = positions[i].width + 'px';
-      makeDraggable(item);
+      item.style.zIndex = zCounter;
+      makeDraggable(item, function () {
+        zCounter++;
+        return zCounter;
+      });
     });
   });
 }
 
-function makeDraggable(item) {
+function makeDraggable(item, getNextZ) {
   var dragging = false;
   var startX, startY, originLeft, originTop;
 
@@ -160,7 +165,7 @@ function makeDraggable(item) {
     originLeft = parseFloat(item.style.left) || 0;
     originTop = parseFloat(item.style.top) || 0;
     item.setPointerCapture(e.pointerId);
-    item.style.zIndex = 999;
+    item.style.zIndex = getNextZ();
   });
 
   item.addEventListener('pointermove', function (e) {
@@ -176,7 +181,6 @@ function makeDraggable(item) {
 
   item.addEventListener('pointerup', function () {
     dragging = false;
-    item.style.zIndex = '';
   });
 }
 
