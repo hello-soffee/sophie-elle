@@ -877,12 +877,6 @@ p a {
 .about-photo.has-image::after {
   content: none;
 }
-.another-about-photo {
-    background-size: cover;
-  background-position: center;
-  position: center;
-  
-}
 .about-body p { max-width: 62ch; margin: 0 0 20px; font-size: 16px; }
 .skills-list { list-style: none; padding: 0; margin: 32px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 32px; }
 .skills-list li { font-family: var(--mono); font-size: 13px; 
