@@ -308,7 +308,7 @@ body.nav-open {
   }
 }
 
-/* ---------- Sections ---------- */
+/* ---------- sections ---------- */
 .section {
   padding: 96px 0;
 }
@@ -401,7 +401,7 @@ p a {
   gap: 16px;
 }
 
-/* ---------- Accordion (services) ---------- */
+/* ---------- accordion (home page services) ---------- */
 .accordion-item {
   margin-bottom: 12px;
 }
@@ -465,7 +465,7 @@ p a {
 }
 .accordion-panel-inner p:last-child { margin-bottom: 0; }
 
-/* ---------- Work grid ---------- */
+/* ---------- work grid ---------- */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -517,16 +517,29 @@ p a {
 /* wide card for design case studies */
 .card.wide .thumb { aspect-ratio: 16 / 10; }
 
-/* ---------- Masonry gallery ---------- */
+/* =========================================================
+   PHOTOGRAPHY GALLERY
+   Tight overlapping / draggable photo pile
+   ========================================================= */
+
+/* The normal masonry layout is still used as the
+   underlying layout before the gallery is initialized. */
+
 .masonry {
   column-count: 3;
   column-gap: 28px;
 }
+
 @media (max-width: 900px) {
-  .masonry { column-count: 2; }
+  .masonry {
+    column-count: 2;
+  }
 }
+
 @media (max-width: 600px) {
-  .masonry { column-count: 1; }
+  .masonry {
+    column-count: 1;
+  }
 }
 
 .masonry-item {
@@ -540,33 +553,172 @@ p a {
   cursor: pointer;
 }
 
-/* ---------- all images in gallery set their own height/width depending on whether they are portrait/landscape ---------- */
-
 .masonry-item img {
   width: 100%;
+  height: auto;
   display: block;
+
   -webkit-user-drag: none;
   user-drag: none;
+
   pointer-events: none;
 }
 
-/* ---------- Draggable gallery (desktop only) ---------- */
-.masonry.drag-gallery {
-  position: relative;
-  column-count: initial;
-  column-gap: initial;
+
+/* =========================================================
+   DESKTOP DRAG GALLERY
+   ========================================================= */
+
+@media (min-width: 801px) {
+
+  /*
+     Once JavaScript initializes the gallery, masonry is
+     completely removed and replaced with a free-positioned
+     photo field.
+  */
+
+  .masonry.drag-gallery {
+    position: relative;
+
+    display: block;
+
+    width: 100%;
+
+    /*
+      This is the size of the "table" the photographs
+      are sitting on.
+
+      The photos are intentionally packed into this area
+      rather than spread across a huge canvas.
+    */
+    min-height: 720px;
+
+    /*
+      Allows photographs to sit slightly outside the
+      normal edge of the composition.
+    */
+    overflow: visible;
+
+    column-count: initial;
+    column-gap: initial;
+
+    margin: 0;
+    padding: 0;
+  }
+
+
+  /*
+     Individual photographs become free-floating objects.
+  */
+
+  .masonry.drag-gallery .masonry-item {
+    position: absolute;
+
+    margin: 0;
+    padding: 0;
+
+    /*
+      Important:
+      width is assigned by JavaScript.
+    */
+    max-width: none;
+
+    break-inside: initial;
+
+    cursor: grab;
+
+    touch-action: none;
+    user-select: none;
+
+    transform-origin: center center;
+
+    /*
+      Don't animate position while dragging.
+      The transform is used for the slight initial rotation.
+    */
+    transition:
+      box-shadow 180ms ease,
+      filter 180ms ease;
+
+    will-change: left, top, transform;
+  }
+
+
+  /*
+     The image itself should never intercept the pointer.
+     This makes dragging much more reliable.
+  */
+
+  .masonry.drag-gallery .masonry-item img {
+    width: 100%;
+    height: auto;
+
+    display: block;
+
+    pointer-events: none;
+
+    -webkit-user-drag: none;
+    user-drag: none;
+  }
+
+
+  /*
+     Subtle lift when the user is holding a photograph.
+  */
+
+  .masonry.drag-gallery .masonry-item.is-dragging {
+    cursor: grabbing;
+
+    filter: none;
+
+    box-shadow:
+      0 18px 40px rgba(20, 21, 26, 0.22);
+  }
+
+
+  /*
+     Slight visual depth for photographs sitting in
+     the pile.
+  */
+
+  .masonry.drag-gallery .masonry-item:not(.is-dragging) {
+    box-shadow:
+      0 3px 10px rgba(20, 21, 26, 0.08);
+  }
+
 }
-.masonry.drag-gallery .masonry-item {
-  position: absolute;
-  margin: 0;
-  cursor: grab;
-  touch-action: none;
-  user-select: none;
-  transition: box-shadow 0.2s ease;
-}
-.masonry.drag-gallery .masonry-item:active {
-  cursor: grabbing;
-  box-shadow: 0 16px 36px rgba(20, 21, 26, 0.28);
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+/*
+   On mobile we intentionally do NOT turn the gallery into
+   the freeform draggable pile.
+
+   The regular one-column masonry layout remains much easier
+   to browse on a phone.
+*/
+
+@media (max-width: 800px) {
+
+  .masonry {
+    column-count: 1;
+    column-gap: 0;
+  }
+
+  .masonry-item {
+    width: 100%;
+    margin-bottom: 28px;
+    position: relative;
+  }
+
+  .masonry-item img {
+    width: 100%;
+    height: auto;
+  }
+
 }
 
 /* ---------- Lightbox ---------- */
