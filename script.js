@@ -572,21 +572,21 @@ function createPhotoPile(count) {
         x: 4,
         y: 13,
         width: 38,
-        rotation: -2
+       /* rotation: -2 */
       },
 
       {
         x: 31,
         y: 4,
         width: 39,
-        rotation: 1.5
+        /* rotation: 1.5 */
       },
 
       {
         x: 59,
         y: 19,
         width: 37,
-        rotation: -1
+       /* rotation: -1 */
       }
 
     ],
@@ -602,28 +602,28 @@ function createPhotoPile(count) {
         x: 3,
         y: 12,
         width: 35,
-        rotation: -2
+        /* rotation: -2 */
       },
 
       {
         x: 28,
         y: 4,
         width: 36,
-        rotation: 1.5
+       /* rotation: 1.5 */
       },
 
       {
         x: 55,
         y: 12,
         width: 39,
-        rotation: -1.5
+      /*  rotation: -1.5 */
       },
 
       {
         x: 17,
         y: 47,
         width: 38,
-        rotation: 1.5
+       /* rotation: 1.5 */
       }
 
     ],
@@ -639,35 +639,35 @@ function createPhotoPile(count) {
         x: 3,
         y: 13,
         width: 34,
-        rotation: -2
+       /* rotation: -2 */
       },
 
       {
         x: 26,
         y: 4,
         width: 34,
-        rotation: 1
+       /* rotation: 1 */
       },
 
       {
         x: 51,
         y: 9,
         width: 36,
-        rotation: -1
+       /* rotation: -1 */
       },
 
       {
         x: 64,
         y: 39,
         width: 32,
-        rotation: 2
+        /* rotation: 2 */
       },
 
       {
         x: 17,
         y: 45,
         width: 36,
-        rotation: -1
+       /* rotation: -1 */
       }
 
     ],
@@ -683,42 +683,42 @@ function createPhotoPile(count) {
         x: 2,
         y: 10,
         width: 31,
-        rotation: -2
+       /* rotation: -2 */
       },
 
       {
         x: 25,
         y: 3,
         width: 32,
-        rotation: 1.5
+       /* rotation: 1.5 */
       },
 
       {
         x: 49,
         y: 8,
         width: 34,
-        rotation: -1
+       /* rotation: -1 */
       },
 
       {
         x: 70,
         y: 25,
         width: 28,
-        rotation: 2
+       /* rotation: 2 */
       },
 
       {
         x: 43,
         y: 48,
         width: 34,
-        rotation: -2
+     /*   rotation: -2 */
       },
 
       {
         x: 12,
         y: 48,
         width: 34,
-        rotation: 1
+       /* rotation: 1 */
       }
 
     ],
@@ -734,49 +734,49 @@ function createPhotoPile(count) {
         x: 2,
         y: 11,
         width: 29,
-        rotation: -2
+      /*  rotation: -2 */
       },
 
       {
         x: 24,
         y: 3,
         width: 31,
-        rotation: 1
+      /*  rotation: 1 */
       },
 
       {
         x: 47,
         y: 7,
         width: 31,
-        rotation: -1
+     /*   rotation: -1 */
       },
 
       {
         x: 69,
         y: 20,
         width: 29,
-        rotation: 2
+     /*   rotation: 2 */
       },
 
       {
         x: 51,
         y: 48,
         width: 32,
-        rotation: -2
+      /*  rotation: -2 */
       },
 
       {
         x: 27,
         y: 51,
         width: 31,
-        rotation: 1
+     /*   rotation: 1 */
       },
 
       {
         x: 4,
         y: 46,
         width: 29,
-        rotation: -1
+    /*    rotation: -1 */
       }
 
     ],
@@ -792,56 +792,56 @@ function createPhotoPile(count) {
         x: 2,
         y: 10,
         width: 28,
-        rotation: -2
+       /* rotation: -2 */
       },
 
       {
         x: 23,
         y: 3,
         width: 30,
-        rotation: 1
+       /* rotation: 1 */
       },
 
       {
         x: 46,
         y: 6,
         width: 30,
-        rotation: -1
+       /* rotation: -1 */
       },
 
       {
         x: 69,
         y: 18,
         width: 29,
-        rotation: 2
+      /*  rotation: 2 */
       },
 
       {
         x: 56,
         y: 43,
         width: 31,
-        rotation: -1.5
+       /* rotation: -1.5 */
       },
 
       {
         x: 33,
         y: 51,
         width: 30,
-        rotation: 1
+      /*  rotation: 1 */
       },
 
       {
         x: 11,
         y: 48,
         width: 30,
-        rotation: -2
+       /* rotation: -2 */
       },
 
       {
         x: 2,
         y: 29,
         width: 27,
-        rotation: 1
+      /*  rotation: 1 */
       }
 
     ]
