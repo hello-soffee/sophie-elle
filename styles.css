@@ -1046,8 +1046,6 @@ form.contact-form { display: flex; flex-direction: column; gap: 20px; width: 100
 /* project asset grid — reuses .grid, adds the image treatment */
 .project-asset {
     background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 .project-menu-grid {
