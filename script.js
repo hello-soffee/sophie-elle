@@ -1,3 +1,26 @@
+/* ============================================================
+   HIDE DESKTOP MASONRY BEFORE INITIALIZATION
+   ============================================================ */
+
+(function () {
+
+  if (window.innerWidth <= 800) {
+    return;
+  }
+
+  var galleries =
+    document.querySelectorAll('.masonry');
+
+  galleries.forEach(function (gallery) {
+
+    gallery.classList.add(
+      'drag-gallery-pending'
+    );
+
+  });
+
+})();
+
 document.addEventListener('DOMContentLoaded', function () {
 
   /* ========================================================
@@ -390,10 +413,13 @@ function initDragGallery() {
        Turn the masonry container into our photo canvas
        -------------------------------------------------------- */
 
-    container.classList.add(
-      'drag-gallery'
-    );
+  container.classList.add(
+  'drag-gallery'
+);
 
+container.classList.remove(
+  'drag-gallery-pending'
+);
 
     /*
        Give the composition enough vertical space.
@@ -1157,8 +1183,8 @@ function initEnvelopes() {
    INITIALIZE DRAG GALLERY AFTER IMAGES HAVE LOADED
    ============================================================ */
 
-window.addEventListener(
-  'load',
+document.addEventListener(
+  'DOMContentLoaded',
   function () {
 
     initDragGallery();
