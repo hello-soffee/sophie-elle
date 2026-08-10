@@ -606,6 +606,17 @@ p a {
     padding: 0;
   }
 
+  @media (min-width: 801px) {
+
+  .masonry.drag-gallery-pending {
+    visibility: hidden;
+  }
+
+  .masonry.drag-gallery {
+    visibility: visible;
+  }
+
+}
 
   /*
      Individual photographs become free-floating objects.
