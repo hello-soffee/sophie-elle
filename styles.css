@@ -1014,9 +1014,12 @@ form.contact-form { display: flex; flex-direction: column; gap: 20px; width: 100
   align-items: center;
 }
 .project-hero-image {
-  aspect-ratio: 4 / 3;
-  background-size: cover;
-  background-position: center;
+    width: 100%;
+    min-height: 500px;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .project-meta h1 {
   font-size: clamp(44px, 6vw, 84px);
