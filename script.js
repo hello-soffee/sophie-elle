@@ -1191,3 +1191,57 @@ document.addEventListener(
 
   }
 );
+
+/* ============================================================
+   contact form
+   ============================================================ */
+
+const contactForm = document.getElementById("contact-form");
+
+if (contactForm) {
+  const formStatus = document.getElementById("form-status");
+  const submitButton = contactForm.querySelector('button[type="submit"]');
+
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    submitButton.disabled = true;
+    submitButton.textContent = "sending...";
+    formStatus.textContent = "";
+
+    const formData = new FormData(contactForm);
+
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      project: formData.get("project"),
+      message: formData.get("message"),
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Something went wrong.");
+      }
+
+      contactForm.reset();
+      formStatus.textContent = "thank you! i'll be in touch soon ♡";
+    } catch (error) {
+      console.error(error);
+      formStatus.textContent =
+        "oops! something went wrong. please email me directly at hellosoffee@gmail.com";
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = "send";
+    }
+  });
+}
