@@ -33,9 +33,8 @@
   </section>
 
   <section class="wrap contact-layout">
-    <form class="contact-form" action="mailto:hellosoffee@gmail.com" method="post" enctype="text/plain"> 
+    <form class="contact-form" id="contact-form">
 
-      
       <div class="field">
         <label for="name">name</label>
         <input type="text" id="name" name="name" required>
@@ -53,7 +52,9 @@
         <textarea id="message" name="message" required></textarea>
       </div>
       <button type="submit" class="btn" style="background:var(--ink); color:var(--paper); border:none; cursor:pointer; width:fit-content;">send</button>
+    <p id="form-status" aria-live="polite"></p>
     </form>
+  
     
 <div class="contact-info-below contact-info">
       <p class="reach-out-lede">feel free to reach out directly</p>
