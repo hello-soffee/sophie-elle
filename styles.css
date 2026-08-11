@@ -20,9 +20,12 @@
   .font-accent {
   font-family: var(--accent-font);
   }
-  /* to use your accent font, do this wherever you want to use example;
+  /* to use your accent font, do this wherever you want to use examples;
     <h2 class="font-accent">this heading uses the new font</h2>
-        <p>this paragraph stays in your normal site font</p> */
+        <p>this paragraph stays in your normal site font</p>
+    <p class="font-accent"> paragraph text here </p>
+    <h2 class="font-accent"> heading text here </h2>
+  */
   
   --max: 1180px;
 }
