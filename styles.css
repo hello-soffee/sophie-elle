@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Amiko:wght@400;600;700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap');
+
 :root {
   --ink: #222222;
   /* --paper: #F2F1EC; */
@@ -14,6 +16,14 @@
   --body: 'Amiko', sans-serif;
   --mono: 'Amiko', sans-serif;
 
+  --accent-font: 'Inconsolata', serif;
+  .font-accent {
+  font-family: var(--accent-font);
+  }
+  /* to use your accent font, do this wherever you want to use example;
+    <h2 class="font-accent">this heading uses the new font</h2>
+        <p>this paragraph stays in your normal site font</p> */
+  
   --max: 1180px;
 }
 
