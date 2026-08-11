@@ -9,18 +9,18 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "Please fill in all required fields." });
   }
 
-  try {
- const response = await fetch("https://api.resend.com/emails", {
-  method: "POST",
-  headers: {
-    Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
-    "Content-Type": "application/json",
-    "User-Agent": "sophieelle-contact-form/1.0",
-  },
-      body: JSON.stringify({
-        from: "Sophie Elle Website <hello@sophieelle.com>",
-        to: ["hellosoffee@gmail.com"],
-        reply_to: email,
+try {
+  const response = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+      "Content-Type": "application/json",
+      "User-Agent": "sophieelle-contact-form/1.0",
+    },
+    body: JSON.stringify({
+      from: "Sophie Elle Website <hello@sophieelle.com>",
+      to: ["hellosoffee@gmail.com"],
+      reply_to: email,
         subject: `new website inquiry from ${name}`,
         html: `
           <h2>new inquiry from sophieelle.com</h2>
