@@ -1234,11 +1234,11 @@ if (contactForm) {
       }
 
       contactForm.reset();
-      formStatus.textContent = "thank you! i'll be in touch soon ♡";
+      formStatus.textContent = "thank you! i'll be in touch soon <3 ";
     } catch (error) {
       console.error(error);
       formStatus.textContent =
-        "oops! something went wrong. please email me directly at hellosoffee@gmail.com";
+        "oops! something went wrong here. please email me directly at hellosoffee@gmail.com";
     } finally {
       submitButton.disabled = false;
       submitButton.textContent = "send";
