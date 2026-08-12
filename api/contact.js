@@ -3,7 +3,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { name, email, project, message } = req.body;
+const { name, email, phone, project, message } = req.body;
 
   if (!name || !email || !message) {
     return res.status(400).json({
