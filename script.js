@@ -1211,12 +1211,13 @@ if (contactForm) {
 
     const formData = new FormData(contactForm);
 
-    const data = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      project: formData.get("project"),
-      message: formData.get("message"),
-    };
+const data = {
+  name: formData.get("name"),
+  email: formData.get("email"),
+  phone: formData.get("phone"),
+  project: formData.get("project"),
+  message: formData.get("message"),
+};
 
     try {
       const response = await fetch("/api/contact", {
