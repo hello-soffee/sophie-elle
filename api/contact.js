@@ -5,7 +5,7 @@ export default async function handler(req, res) {
 
 const { name, email, phone, project, message } = req.body;
 
-  if (!name || !email || !message) {
+  if (!name || !email || !phone || !message) {
     return res.status(400).json({
       error: "Please fill in all required fields.",
     });
@@ -29,6 +29,7 @@ const { name, email, phone, project, message } = req.body;
 
           <p><strong>name:</strong> ${name}</p>
           <p><strong>email:</strong> ${email}</p>
+          <p><strong>phone:</strong> ${phone}</p>
           <p><strong>inquiring about:</strong> ${project || "not specified"}</p>
 
           <p><strong>message:</strong></p>
