@@ -1092,6 +1092,8 @@ form.contact-form { display: flex; flex-direction: column; gap: 20px; width: 100
   }
 }
 
+
+
 .project-writeup {
   padding-top: 48px;
 }
@@ -1195,12 +1197,15 @@ form.contact-form { display: flex; flex-direction: column; gap: 20px; width: 100
 .footer-contact {
   display: flex;
   flex-direction: column;
+  margin-top: 14px;
   gap: 3px;
-  margin-top: 10px;
 }
 
-.footer-contact a {
+.footer-contact a,
+.footer-contact span {
   font-size: 0.75rem;
+  color: inherit;
+  text-decoration: none;
 }
 
 .footer-bottom {
