@@ -1193,3 +1193,23 @@ form.contact-form { display: flex; flex-direction: column; gap: 20px; width: 100
 .footer-links-col a:hover {
   opacity: 0.6;
 }
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  margin-top: 14px;
+  gap: 3px;
+}
+
+.footer-contact a {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--ink);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.footer-contact a:hover {
+  opacity: 0.6;
+  text-decoration: underline;
+}
