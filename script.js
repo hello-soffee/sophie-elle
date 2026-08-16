@@ -1,4 +1,17 @@
 /* ============================================================
+   VERCEL ANALYTICS
+   ============================================================ */
+
+window.va = window.va || function () {
+  (window.vaq = window.vaq || []).push(arguments);
+};
+
+const vercelAnalytics = document.createElement("script");
+vercelAnalytics.src = "/_vercel/insights/script.js";
+vercelAnalytics.defer = true;
+document.head.appendChild(vercelAnalytics);
+   
+   /* ============================================================
    HIDE DESKTOP MASONRY BEFORE INITIALIZATION
    ============================================================ */
 
