@@ -1219,3 +1219,38 @@ form.contact-form { display: flex; flex-direction: column; gap: 20px; width: 100
   color: var(--stone);
   margin: 0;
 }
+
+.photo-includes-section {
+  padding: 60px 0 100px;
+}
+
+.photo-includes-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+}
+
+.photo-includes-title {
+  margin-bottom: 22px;
+}
+
+.photo-includes-column .font-accent {
+  margin: 0 0 14px;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .photo-includes-section {
+    padding: 40px 0 70px;
+  }
+
+  .photo-includes-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 0 24px;
+  }
+}
