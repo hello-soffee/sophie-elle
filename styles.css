@@ -549,10 +549,6 @@ p a {
   margin: 0 0 10px;
 }
 
-.photo-intro-heading h1 {
-  font-size: clamp(54px, 8vw, 100px);
-}
-
 .photo-intro-toggle {
   position: absolute;
   right: 40px;
@@ -610,10 +606,6 @@ p a {
   .photo-intro-header {
     padding: 30px 24px 36px;
     min-height: 170px;
-  }
-
-  .photo-intro-heading h1 {
-    font-size: clamp(46px, 15vw, 72px);
   }
 
   .photo-intro-toggle {
