@@ -530,6 +530,106 @@ p a {
 /* wide card for design case studies */
 .card.wide .thumb { aspect-ratio: 16 / 10; }
 
+
+/* ---------- PHOTOGRAPHY INTRO ACCORDION ---------- */
+
+.photo-intro-accordion {
+  max-width: var(--max);
+  margin: 64px auto 96px;
+  background: var(--mist);
+}
+
+.photo-intro-header {
+  position: relative;
+  padding: 38px 40px 42px;
+  min-height: 190px;
+}
+
+.photo-intro-heading .tag {
+  margin: 0 0 10px;
+}
+
+.photo-intro-heading h1 {
+  font-size: clamp(54px, 8vw, 100px);
+}
+
+.photo-intro-toggle {
+  position: absolute;
+  right: 40px;
+  bottom: 28px;
+
+  background: none;
+  border: none;
+  padding: 0;
+
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+
+  cursor: pointer;
+}
+
+/* CLOSED */
+
+.photo-intro-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.photo-intro-content-inner {
+  overflow: hidden;
+  padding: 0 40px;
+}
+
+/* OPEN */
+
+.photo-intro-accordion.open .photo-intro-content {
+  grid-template-rows: 1fr;
+}
+
+.photo-intro-accordion.open .photo-intro-content-inner {
+  padding: 0 40px 42px;
+}
+
+.photo-intro-content p {
+  max-width: 48ch;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+@media (max-width: 800px) {
+
+  .photo-intro-accordion {
+    margin: 40px 24px 70px;
+  }
+
+  .photo-intro-header {
+    padding: 30px 24px 36px;
+    min-height: 170px;
+  }
+
+  .photo-intro-heading h1 {
+    font-size: clamp(46px, 15vw, 72px);
+  }
+
+  .photo-intro-toggle {
+    right: 24px;
+    bottom: 22px;
+  }
+
+  .photo-intro-content-inner {
+    padding: 0 24px;
+  }
+
+  .photo-intro-accordion.open .photo-intro-content-inner {
+    padding: 0 24px 32px;
+  }
+}
+
 /* =========================================================
    PHOTOGRAPHY GALLERY
    Tight overlapping / draggable photo pile
@@ -744,6 +844,8 @@ p a {
   }
 
 }
+
+
 
 /* ---------- Lightbox ---------- */
 .lightbox {
