@@ -1022,14 +1022,8 @@ form.contact-form { display: flex; flex-direction: column; gap: 20px; width: 100
   background: transparent;
   color: var(--ink);
   border: 1px solid var(--ink);
-
-  padding: 18px 45px;
-  width: fit-content;
-
-  font: inherit;
-  letter-spacing: 2px;
-
   cursor: pointer;
+
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 
