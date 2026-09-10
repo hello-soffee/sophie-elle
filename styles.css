@@ -532,6 +532,9 @@ p a {
 
 
 /* ---------- PHOTOGRAPHY INTRO ACCORDION ---------- */
+.photo-intro-header {
+  cursor: pointer;
+}
 
 .photo-intro-accordion {
   max-width: var(--max);
@@ -553,16 +556,12 @@ p a {
   right: 40px;
   bottom: 20px;
 
-  background: none;
-  border: none;
-  padding: 0;
 
   font-family: var(--mono);
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.04em;
   color: var(--ink);
-  cursor: pointer;
 }
 
 /* CLOSED */
@@ -937,6 +936,9 @@ p a {
 }
 
 /* ---------- DESIGN INTRO ACCORDION ---------- */
+.design-intro-header {
+  cursor: pointer;
+}
 
 .design-intro-accordion {
   max-width: var(--max);
@@ -958,17 +960,11 @@ p a {
   right: 40px;
   bottom: 20px;
 
-  background: none;
-  border: none;
-  padding: 0;
-
   font-family: var(--mono);
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.04em;
   color: var(--ink);
-
-  cursor: pointer;
 }
 
 .design-intro-content {
