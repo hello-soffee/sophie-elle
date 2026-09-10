@@ -1321,16 +1321,29 @@ if (designIntro && designIntroHeader && designIntroToggle) {
    ============================================================ */
 
 
-const spiralCursor = document.createElement('img');
+/* ---------- ANIMATED SPIRAL CURSOR ---------- */
 
-spiralCursor.src = 'images/swirls.gif';
-spiralCursor.className = 'spiral-cursor';
-spiralCursor.alt = '';
-spiralCursor.setAttribute('aria-hidden', 'true');
+function initSpiralCursor() {
+  const spiralCursor = document.createElement('img');
 
-document.body.appendChild(spiralCursor);
+  spiralCursor.src = 'images/swirls.gif';
+  spiralCursor.className = 'spiral-cursor';
+  spiralCursor.alt = '';
+  spiralCursor.setAttribute('aria-hidden', 'true');
 
-document.addEventListener('mousemove', (event) => {
-  spiralCursor.style.left = `${event.clientX}px`;
-  spiralCursor.style.top = `${event.clientY}px`;
-});
+  document.body.appendChild(spiralCursor);
+
+  // Only hide the normal cursor once the spiral exists
+  document.body.classList.add('custom-cursor-active');
+
+  document.addEventListener('mousemove', (event) => {
+    spiralCursor.style.left = `${event.clientX}px`;
+    spiralCursor.style.top = `${event.clientY}px`;
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initSpiralCursor);
+} else {
+  initSpiralCursor();
+}
