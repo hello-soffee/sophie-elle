@@ -1237,16 +1237,15 @@ form.contact-form { display: flex; flex-direction: column; gap: 20px; width: 100
 }
 
 .photo-includes-section {
-  padding: 60px 0 100px;
+  max-width: var(--max);
+  margin: 0 auto 100px;
+  padding: 50px 40px;
+  background: var(--mist);
 }
 
 .photo-includes-grid {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 40px;
-
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.4fr 0.8fr;
   gap: 70px;
 }
 
@@ -1261,13 +1260,13 @@ form.contact-form { display: flex; flex-direction: column; gap: 20px; width: 100
 
 @media (max-width: 768px) {
   .photo-includes-section {
-    padding: 40px 0 70px;
+    margin: 0 24px 70px;
+    padding: 35px 24px;
   }
 
   .photo-includes-grid {
     grid-template-columns: 1fr;
     gap: 40px;
-    padding: 0 24px;
   }
 }
 
