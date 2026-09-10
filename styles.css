@@ -1164,6 +1164,10 @@ p a {
 
 
 /* ---------- contact ---------- */
+.contact-title {
+  font-size: clamp(36px, 5vw, 64px);
+}
+
 .contact-layout {
   display: flex;
   flex-direction: column;
