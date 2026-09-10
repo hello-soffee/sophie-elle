@@ -1260,17 +1260,38 @@ const data = {
   });
 }
 
+/* ============================================================
+   photography accordion header
+   ============================================================ */
+
 const photoIntro = document.querySelector('.photo-intro-accordion');
+const photoIntroHeader = document.querySelector('.photo-intro-header');
 const photoIntroToggle = document.querySelector('.photo-intro-toggle');
 
-if (photoIntro && photoIntroToggle) {
-  photoIntroToggle.addEventListener('click', () => {
+if (photoIntro && photoIntroHeader && photoIntroToggle) {
+
+  function togglePhotoIntro() {
     const isOpen = photoIntro.classList.toggle('open');
 
-    photoIntroToggle.setAttribute('aria-expanded', isOpen);
+    photoIntroHeader.setAttribute('aria-expanded', isOpen);
     photoIntroToggle.textContent = isOpen ? 'details −' : 'details +';
+  }
+
+  photoIntroHeader.addEventListener('click', togglePhotoIntro);
+
+  photoIntroHeader.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      togglePhotoIntro();
+    }
   });
 }
+
+
+/* ============================================================
+   design accordion header
+   ============================================================ */
+
 
 const designIntro = document.querySelector('.design-intro-accordion');
 const designIntroToggle = document.querySelector('.design-intro-toggle');
