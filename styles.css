@@ -1468,3 +1468,9 @@ form.contact-form { display: flex; flex-direction: column; gap: 20px; width: 100
 .contact-title {
   font-size: 2em;
 }
+
+/* SPIRAL CUSTOM CURSOR */
+
+body {
+  cursor: url('images/swirls.gif') 16 16, auto;
+}
