@@ -541,8 +541,7 @@ p a {
 
 .photo-intro-header {
   position: relative;
-  padding: 38px 40px 42px;
-  min-height: 190px;
+  padding: 38px 40px 20px;
 }
 
 .photo-intro-heading .tag {
@@ -552,7 +551,7 @@ p a {
 .photo-intro-toggle {
   position: absolute;
   right: 40px;
-  bottom: 28px;
+  bottom: 20px;
 
   background: none;
   border: none;
@@ -563,7 +562,6 @@ p a {
   font-weight: 600;
   letter-spacing: 0.04em;
   color: var(--ink);
-
   cursor: pointer;
 }
 
