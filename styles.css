@@ -1470,13 +1470,36 @@ form.contact-form { display: flex; flex-direction: column; gap: 20px; width: 100
 }
 
 
-/* SPIRAL CUSTOM CURSOR */
+/* ---------- ANIMATED SPIRAL CURSOR ---------- */
 
-body,
-a,
-button,
-[role="button"],
-.photo-intro-header,
-.design-intro-header {
-  cursor: url('images/swirls.gif') 24 24, auto !important;
+@media (hover: hover) and (pointer: fine) {
+
+  body,
+  a,
+  button,
+  [role="button"] {
+    cursor: none !important;
+  }
+
+  .spiral-cursor {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    width: 50px;
+    height: auto;
+
+    pointer-events: none;
+    z-index: 9999;
+
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* don't show custom cursor on phones/tablets */
+
+@media (hover: none), (pointer: coarse) {
+  .spiral-cursor {
+    display: none;
+  }
 }
