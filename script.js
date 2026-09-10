@@ -1271,3 +1271,15 @@ if (photoIntro && photoIntroToggle) {
     photoIntroToggle.textContent = isOpen ? 'details −' : 'details +';
   });
 }
+
+const designIntro = document.querySelector('.design-intro-accordion');
+const designIntroToggle = document.querySelector('.design-intro-toggle');
+
+if (designIntro && designIntroToggle) {
+  designIntroToggle.addEventListener('click', () => {
+    const isOpen = designIntro.classList.toggle('open');
+
+    designIntroToggle.setAttribute('aria-expanded', isOpen);
+    designIntroToggle.textContent = isOpen ? 'details −' : 'details +';
+  });
+}
