@@ -1016,6 +1016,28 @@ form.contact-form { display: flex; flex-direction: column; gap: 20px; width: 100
   * { transition: none !important; }
 }
 
+/* CONTACT — SEND BUTTON */
+
+.contact-form button[type="submit"] {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+
+  padding: 18px 45px;
+  width: fit-content;
+
+  font: inherit;
+  letter-spacing: 2px;
+
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.contact-form button[type="submit"]:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
 /* ---------- Project detail pages ---------- */
 .project-head {
   padding: 64px 0 48px;
