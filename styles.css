@@ -1254,3 +1254,34 @@ form.contact-form { display: flex; flex-direction: column; gap: 20px; width: 100
     padding: 0 24px;
   }
 }
+
+/* DESIGN — ONE-OFFS & BUNDLES */
+
+.design-extras-section {
+  padding: 20px 0 100px;
+}
+
+.design-extras-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.design-extras-title {
+  margin: 0 0 22px;
+}
+
+.design-extras-inner .font-accent {
+  margin: 0 0 14px;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .design-extras-section {
+    padding: 10px 0 70px;
+  }
+
+  .design-extras-inner {
+    padding: 0 24px;
+  }
+}
