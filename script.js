@@ -1259,3 +1259,15 @@ const data = {
     }
   });
 }
+
+const photoIntro = document.querySelector('.photo-intro-accordion');
+const photoIntroToggle = document.querySelector('.photo-intro-toggle');
+
+if (photoIntro && photoIntroToggle) {
+  photoIntroToggle.addEventListener('click', () => {
+    const isOpen = photoIntro.classList.toggle('open');
+
+    photoIntroToggle.setAttribute('aria-expanded', isOpen);
+    photoIntroToggle.textContent = isOpen ? 'details −' : 'details +';
+  });
+}
