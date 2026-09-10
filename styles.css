@@ -1035,10 +1035,6 @@ p a {
 }
 
 /* ---------- About ---------- */
-.about-title {
-  font-size: clamp(36px, 5vw, 64px);
-}
-
 
 .about-layout {
   display: grid;
@@ -1160,9 +1156,6 @@ p a {
 
 
 /* ---------- contact ---------- */
-.contact-title {
-  font-size: clamp(36px, 5vw, 64px);
-}
 
 .contact-layout {
   display: flex;
@@ -1462,4 +1455,13 @@ form.contact-form { display: flex; flex-direction: column; gap: 20px; width: 100
 
 .design-extras-section {
   padding-top: 60px;
+}
+
+/* match About + Contact titles to Photography/Design */
+
+.page-head .about-title,
+.page-head .contact-title,
+.about-title,
+.contact-title {
+  font-size: 2em;
 }
