@@ -1314,3 +1314,19 @@ if (designIntro && designIntroHeader && designIntroToggle) {
     }
   });
 }
+
+
+/* ============================================================
+   animated custom spiral cursor
+   ============================================================ */
+
+const spiralCursor = document.querySelector('.spiral-cursor');
+
+if (spiralCursor) {
+
+  document.addEventListener('mousemove', (event) => {
+    spiralCursor.style.left = `${event.clientX}px`;
+    spiralCursor.style.top = `${event.clientY}px`;
+  });
+
+}
