@@ -373,15 +373,7 @@ body.nav-open {
   }
 }
 
-.intro-gif {
-  position: absolute;
-  width: 90px;
-  height: auto;
-  right: 8%;
-  top: -25px;
-  z-index: 2;
-  pointer-events: none;
-}
+
 
 /* ----- p a is the link for montreal, qc in my intro statement on my home p ----- */
 
