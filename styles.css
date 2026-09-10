@@ -1472,5 +1472,11 @@ form.contact-form { display: flex; flex-direction: column; gap: 20px; width: 100
 /* SPIRAL CUSTOM CURSOR */
 
 body {
-  cursor: url('images/swirls.gif') 16 16, auto;
+body,
+a,
+button,
+[role="button"],
+.photo-intro-header,
+.design-intro-header {
+  cursor: url('images/swirls.gif') 16 16, auto !important;
 }
