@@ -1320,13 +1320,17 @@ if (designIntro && designIntroHeader && designIntroToggle) {
    animated custom spiral cursor
    ============================================================ */
 
-const spiralCursor = document.querySelector('.spiral-cursor');
 
-if (spiralCursor) {
+const spiralCursor = document.createElement('img');
 
-  document.addEventListener('mousemove', (event) => {
-    spiralCursor.style.left = `${event.clientX}px`;
-    spiralCursor.style.top = `${event.clientY}px`;
-  });
+spiralCursor.src = 'images/swirls.gif';
+spiralCursor.className = 'spiral-cursor';
+spiralCursor.alt = '';
+spiralCursor.setAttribute('aria-hidden', 'true');
 
-}
+document.body.appendChild(spiralCursor);
+
+document.addEventListener('mousemove', (event) => {
+  spiralCursor.style.left = `${event.clientX}px`;
+  spiralCursor.style.top = `${event.clientY}px`;
+});
