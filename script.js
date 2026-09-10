@@ -1292,15 +1292,25 @@ if (photoIntro && photoIntroHeader && photoIntroToggle) {
    design accordion header
    ============================================================ */
 
-
 const designIntro = document.querySelector('.design-intro-accordion');
+const designIntroHeader = document.querySelector('.design-intro-header');
 const designIntroToggle = document.querySelector('.design-intro-toggle');
 
-if (designIntro && designIntroToggle) {
-  designIntroToggle.addEventListener('click', () => {
+if (designIntro && designIntroHeader && designIntroToggle) {
+
+  function toggleDesignIntro() {
     const isOpen = designIntro.classList.toggle('open');
 
-    designIntroToggle.setAttribute('aria-expanded', isOpen);
+    designIntroHeader.setAttribute('aria-expanded', isOpen);
     designIntroToggle.textContent = isOpen ? 'details −' : 'details +';
+  }
+
+  designIntroHeader.addEventListener('click', toggleDesignIntro);
+
+  designIntroHeader.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      toggleDesignIntro();
+    }
   });
 }
