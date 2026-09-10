@@ -1277,17 +1277,37 @@ form.contact-form { display: flex; flex-direction: column; gap: 20px; width: 100
   padding: 20px 0 100px;
 }
 
-.design-extras-title {
-  margin-bottom: 22px;
+.design-extras-heading {
+  text-align: center;
+  font-size: inherit;
+  font-weight: 600;
+  margin: 0 0 45px;
 }
 
-.design-extras-section .font-accent {
-  margin: 0 0 14px;
-  line-height: 1.6;
+.design-extras-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 45px;
+}
+
+.design-extras-column .font-accent {
+  margin: 0;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+  line-height: 1.4;
 }
 
 @media (max-width: 768px) {
   .design-extras-section {
     padding: 10px 0 70px;
+  }
+
+  .design-extras-heading {
+    margin-bottom: 30px;
+  }
+
+  .design-extras-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
   }
 }
