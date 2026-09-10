@@ -1039,6 +1039,11 @@ p a {
 }
 
 /* ---------- About ---------- */
+.about-title {
+  font-size: clamp(36px, 5vw, 64px);
+}
+
+
 .about-layout {
   display: grid;
   grid-template-columns: 380px 1fr;
