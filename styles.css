@@ -2,9 +2,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap');
 
+
 :root {
   --ink: #222222;
-  /* --paper: #F2F1EC; */
   --paper: #fffff2; /* light yellow */
   --safelight: #55A25F; /* green */
   --slate: #FF94D9; /* pink */
@@ -15,11 +15,14 @@
   --display: 'Amiko', sans-serif;
   --body: 'Amiko', sans-serif;
   --mono: 'Amiko', sans-serif;
-
   --accent-font: 'Inconsolata', serif;
-  .font-accent {
+
+  --max: 1180px;
+}
+
+.font-accent {
   font-family: var(--accent-font);
-  }
+}
   /* to use your accent font, do this wherever you want to use examples;
     <h2 class="font-accent">this heading uses the new font</h2>
         <p>this paragraph stays in your normal site font</p>
@@ -27,9 +30,6 @@
     <h2 class="font-accent"> heading text here </h2>
   */
   
-  --max: 1180px;
-}
-
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
