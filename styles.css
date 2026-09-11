@@ -354,7 +354,6 @@ body.nav-open {
   aspect-ratio: 1 / 1;
   background-size: cover;
   background-position: center;
-  background-color: none;
 }
 
 .intro-text {
@@ -1169,9 +1168,7 @@ p a {
   margin: 0 auto;
   padding: 64px 32px 96px;
 }
-.contact-info-below {
 
-}
 .reach-out-lede {
   font-family: var(--display);
   font-size: 18px;
