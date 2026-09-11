@@ -1114,16 +1114,11 @@ function makeDraggable(
         e.clientY;
 
 
-      originLeft =
-        parseFloat(
-          item.style.left
-        ) || 0;
+     originLeft =
+  item.offsetLeft;
 
-
-      originTop =
-        parseFloat(
-          item.style.top
-        ) || 0;
+originTop =
+  item.offsetTop;
 
 
       item.style.zIndex =
