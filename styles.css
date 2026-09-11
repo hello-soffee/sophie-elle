@@ -3,19 +3,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap');
 
 
+/* =========================================================
+   VARIABLES + GLOBAL
+   ========================================================= */
+
 :root {
   --ink: #222222;
-  --paper: #fffff2; /* light yellow */
-  --safelight: #55A25F; /* green */
-  --slate: #FF94D9; /* pink */
-  --stone: #7CDBEB; /* blue */
+  --paper: #fffff2;
+  --safelight: #55A25F;
+  --slate: #FF94D9;
+  --stone: #7CDBEB;
   --stone-line: #D8D6CC;
-  --mist: #FFDCD3; /* misty pink */
+  --mist: #FFDCD3;
 
   --display: 'Amiko', sans-serif;
   --body: 'Amiko', sans-serif;
   --mono: 'Amiko', sans-serif;
-  --accent-font: 'Inconsolata', serif;
+  --accent-font: 'Inconsolata', monospace;
 
   --max: 1180px;
 }
@@ -23,15 +27,14 @@
 .font-accent {
   font-family: var(--accent-font);
 }
-  /* to use your accent font, do this wherever you want to use examples;
-    <h2 class="font-accent">this heading uses the new font</h2>
-        <p>this paragraph stays in your normal site font</p>
-    <p class="font-accent"> paragraph text here </p>
-    <h2 class="font-accent"> heading text here </h2>
-  */
-  
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
@@ -44,10 +47,19 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-img { max-width: 100%; display: block; }
-a { color: inherit; text-decoration: none; }
+img {
+  max-width: 100%;
+  display: block;
+}
 
-h1, h2, h3 {
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
   font-family: var(--display);
   font-weight: 500;
   line-height: 1.05;
@@ -60,7 +72,11 @@ h1, h2, h3 {
   padding: 0 32px;
 }
 
-/* Spec tag: the recurring EXIF/build-spec device */
+
+/* =========================================================
+   TAGS
+   ========================================================= */
+
 .tag {
   font-family: var(--mono);
   font-size: 11px;
@@ -68,10 +84,20 @@ h1, h2, h3 {
   text-transform: uppercase;
   color: var(--stone);
 }
-.tag.photo { color: var(--safelight); }
-.tag.design { color: var(--slate); }
 
-/* ---------- Header ---------- */
+.tag.photo {
+  color: var(--safelight);
+}
+
+.tag.design {
+  color: var(--slate);
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
 .site-header {
   position: relative;
   z-index: 50;
@@ -86,22 +112,29 @@ h1, h2, h3 {
   justify-content: space-between;
   height: 160px;
 }
+
 .logo {
   font-family: var(--display);
   font-size: 20px;
   font-weight: 600;
   letter-spacing: -0.01em;
 }
-.logo span { color: var(--safelight); }
-nav.main-nav {
-  display: flex;
-  gap: 36px;
+
+.logo span {
+  color: var(--safelight);
 }
+
 .logo-img {
   height: 32px;
   width: auto;
   display: block;
 }
+
+nav.main-nav {
+  display: flex;
+  gap: 36px;
+}
+
 nav.main-nav a {
   font-family: var(--mono);
   font-size: 12px;
@@ -109,13 +142,20 @@ nav.main-nav a {
   text-transform: none;
   padding-bottom: 4px;
   border-bottom: 1px solid transparent;
-  transition: border-color 0.2s ease, color 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
 nav.main-nav a:hover,
 nav.main-nav a[aria-current="page"] {
   border-bottom-color: var(--ink);
 }
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+   ========================================================= */
 
 .nav-toggle {
   display: none;
@@ -124,19 +164,40 @@ nav.main-nav a[aria-current="page"] {
   cursor: pointer;
   padding: 8px;
 }
+
 .nav-toggle span {
   display: block;
   width: 22px;
   height: 2px;
   background: var(--ink);
   margin: 5px 0;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
 
 .nav-heart {
   display: none;
 }
 
+.nav-toggle.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+body.nav-open {
+  overflow: hidden;
+}
+
 @media (max-width: 800px) {
+
   nav.main-nav {
     position: fixed;
     inset: 0;
@@ -149,21 +210,25 @@ nav.main-nav a[aria-current="page"] {
     display: none;
     z-index: 100;
   }
-  nav.main-nav.open { display: flex; }
+
+  nav.main-nav.open {
+    display: flex;
+  }
+
   nav.main-nav a {
     font-size: 28px;
     padding: 16px 0;
     border-bottom: none;
   }
-  
-.nav-heart {
+
+  .nav-heart {
     display: block;
     margin-top: 24px;
     font-family: var(--display);
     font-size: 20px;
     color: var(--stone);
   }
-  
+
   .nav-toggle {
     display: block;
     position: relative;
@@ -171,23 +236,10 @@ nav.main-nav a[aria-current="page"] {
   }
 }
 
-body.nav-open {
-  overflow: hidden;
-}
 
-.nav-toggle span {
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-.nav-toggle.open span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-.nav-toggle.open span:nth-child(2) {
-  opacity: 0;
-}
-.nav-toggle.open span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
-/* ---------- Hero split (home) ---------- */
+/* =========================================================
+   HOME HERO
+   ========================================================= */
 
 .split-panel {
   position: relative;
@@ -213,6 +265,7 @@ body.nav-open {
   transform: rotate(180deg);
   color: var(--paper);
 }
+
 .split-panel.design .panel-label {
   left: auto;
   right: 40px;
@@ -222,38 +275,64 @@ body.nav-open {
   background-image: url('images/62720003.jpg');
   background-size: cover;
   background-position: center;
-  
+
   display: flex;
   min-height: 640px;
   width: 100vw;
+
   position: relative;
   left: 50%;
   right: 50%;
+
   margin-left: -50vw;
   margin-right: -50vw;
 }
 
-.split-panel.photo { color: var(--slate); }
-.split-panel.design { color: var(--slate); }
+.split-panel.photo {
+  color: var(--slate);
+}
+
+.split-panel.design {
+  color: var(--slate);
+}
 
 .split-panel .placeholder-block {
   position: absolute;
   inset: 0;
   z-index: 0;
 }
-.split-panel.photo .placeholder-block {
-  background: none;
-}
+
+.split-panel.photo .placeholder-block,
 .split-panel.design .placeholder-block {
   background: none;
 }
 
-.split-panel .content { position: relative; z-index: 1; }
-.split-panel .tag { display: block; margin-bottom: 14px; }
-.split-panel h2 { font-size: clamp(32px, 4vw, 52px); margin-bottom: 18px; }
-.split-panel p { max-width: 34ch; margin: 0 0 24px; opacity: 0.85; }
+.split-panel .content {
+  position: relative;
+  z-index: 1;
+}
 
-/*  ----- universal buttons  ----- */
+.split-panel .tag {
+  display: block;
+  margin-bottom: 14px;
+}
+
+.split-panel h2 {
+  font-size: clamp(32px, 4vw, 52px);
+  margin-bottom: 18px;
+}
+
+.split-panel p {
+  max-width: 34ch;
+  margin: 0 0 24px;
+  opacity: 0.85;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
 .btn {
   display: inline-block;
   text-align: center;
@@ -263,16 +342,18 @@ body.nav-open {
   padding: 12px 22px;
   border: 1px solid var(--ink);
   color: var(--ink);
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
-/*  ----- universal footer buttons ----- */
 .footer-btn:hover {
-  background: var(--ink); 
+  background: var(--ink);
   color: var(--paper);
 }
 
-/*  ----- home page buttons ----- */
 .split-panel .btn {
   position: absolute;
   bottom: 40px;
@@ -280,17 +361,18 @@ body.nav-open {
   border-color: var(--paper);
   color: var(--paper);
 }
-.split-panel.photo .btn {
-  right: 40px;
-}
+
+.split-panel.photo .btn,
 .split-panel.design .btn {
   right: 40px;
 }
+
 .split-panel.photo .btn:hover {
   background: var(--safelight);
   border-color: var(--safelight);
   color: var(--paper);
 }
+
 .split-panel.design .btn:hover {
   background: var(--slate);
   border-color: var(--slate);
@@ -302,16 +384,28 @@ body.nav-open {
   background-size: cover;
   background-position: center;
 }
+
 .home-header.site-header {
   background: none;
 }
+
 .home-hero-band .split-hero {
   background: none;
 }
 
 @media (max-width: 800px) {
-  .split-hero { flex-direction: column; min-height: unset; }
-  .split-panel { flex: 1 1 auto; min-height: 320px; padding: 36px 28px; }
+
+  .split-hero {
+    flex-direction: column;
+    min-height: unset;
+  }
+
+  .split-panel {
+    flex: 1 1 auto;
+    min-height: 320px;
+    padding: 36px 28px;
+  }
+
   .split-panel .btn {
     top: 50%;
     left: 50%;
@@ -321,10 +415,15 @@ body.nav-open {
   }
 }
 
-/* ---------- sections ---------- */
+
+/* =========================================================
+   GENERAL SECTIONS
+   ========================================================= */
+
 .section {
   padding: 96px 0;
 }
+
 .section-head {
   display: flex;
   align-items: baseline;
@@ -334,9 +433,16 @@ body.nav-open {
   border-bottom: 1px solid var(--stone-line);
   padding-bottom: 24px;
 }
-.section-head h2 { font-size: clamp(28px, 3vw, 40px); }
 
-/* home page intro section */
+.section-head h2 {
+  font-size: clamp(28px, 3vw, 40px);
+}
+
+
+/* =========================================================
+   HOME INTRO
+   ========================================================= */
+
 .intro-statement {
   padding: 96px 0 48px;
 }
@@ -362,19 +468,18 @@ body.nav-open {
   flex: 1;
   position: relative;
 }
+
 @media (max-width: 700px) {
+
   .intro-statement .wrap {
     flex-direction: column;
   }
+
   .intro-photo {
     flex: 0 0 auto;
     width: 120px;
   }
 }
-
-
-
-/* ----- p a is the link for montreal, qc in my intro statement on my home p ----- */
 
 p a {
   text-decoration: underline;
@@ -385,25 +490,29 @@ p a {
 .link-design {
   transition: color 0.2s ease;
 }
+
 .link-photo:hover {
   color: var(--safelight);
 }
+
 .link-design:hover {
   color: var(--slate);
 }
-
-/* ----- this is a more about me button linking to my about me p ----- */
 
 .intro-btn {
   margin-top: 8px;
   align-self: flex-end;
 }
+
 .intro-btn:hover {
   background: var(--ink);
   color: var(--paper);
 }
 
-/* ----- this covers the little bit of text for my services on home page ----- */
+
+/* =========================================================
+   HOME SERVICES
+   ========================================================= */
 
 .section-head.center {
   flex-direction: column;
@@ -416,10 +525,15 @@ p a {
   gap: 16px;
 }
 
-/* ---------- accordion (home page services) ---------- */
+
+/* =========================================================
+   HOME ACCORDION
+   ========================================================= */
+
 .accordion-item {
   margin-bottom: 12px;
 }
+
 .accordion-trigger {
   width: 100%;
   display: block;
@@ -432,7 +546,11 @@ p a {
   min-height: 96px;
   transition: background 0.2s ease;
 }
-.accordion-trigger:focus-visible { outline: 2px solid var(--ink); outline-offset: -2px; }
+
+.accordion-trigger:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: -2px;
+}
 
 .accordion-label {
   display: block;
@@ -442,8 +560,8 @@ p a {
   color: var(--ink);
   transition: color 0.2s ease;
 }
+
 .accordion-trigger:hover .accordion-label {
-  /* color: var(--safelight); */
   opacity: 0.6;
 }
 
@@ -457,7 +575,12 @@ p a {
   letter-spacing: 0.04em;
   color: var(--ink);
 }
-.accordion-toggle .plus { display: inline-block; width: 10px; text-align: center; }
+
+.accordion-toggle .plus {
+  display: inline-block;
+  width: 10px;
+  text-align: center;
+}
 
 .accordion-panel {
   display: grid;
@@ -465,12 +588,19 @@ p a {
   background: var(--mist);
   transition: grid-template-rows 0.35s ease;
 }
+
 .accordion-panel-inner {
   overflow: hidden;
   padding: 0 28px;
 }
-.accordion-item.open .accordion-panel { grid-template-rows: 1fr; }
-.accordion-item.open .accordion-panel-inner { padding: 0 28px 32px; }
+
+.accordion-item.open .accordion-panel {
+  grid-template-rows: 1fr;
+}
+
+.accordion-item.open .accordion-panel-inner {
+  padding: 0 28px 32px;
+}
 
 .accordion-panel-inner p {
   margin: 0 0 14px;
@@ -478,65 +608,103 @@ p a {
   color: #3a3a38;
   max-width: 60ch;
 }
-.accordion-panel-inner p:last-child { margin-bottom: 0; }
 
-/* ---------- work grid ---------- */
+.accordion-panel-inner p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   GENERAL CARD GRID
+   ========================================================= */
+
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
 }
+
 @media (max-width: 900px) {
-  .grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 600px) {
-  .grid { grid-template-columns: 1fr; }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.card { display: block; }
+@media (max-width: 600px) {
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  display: block;
+}
+
 .card .thumb {
   aspect-ratio: 4 / 5;
   margin-bottom: 14px;
   position: relative;
   overflow: hidden;
-  /* background: var(--stone-line);  */
   background: none;
   background-size: cover;
   background-position: center;
 }
+
 .card .thumb.contain {
   background-size: contain;
   background-repeat: no-repeat;
 }
+
 .card .thumb::after {
   content: 'REPLACE WITH IMAGE';
   position: absolute;
   inset: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 0.08em;
   color: var(--stone);
+
   text-align: center;
   padding: 12px;
-  background: repeating-linear-gradient(45deg, #e6e4da 0px, #e6e4da 1px, transparent 1px, transparent 12px);
+
+  background:
+    repeating-linear-gradient(
+      45deg,
+      #e6e4da 0px,
+      #e6e4da 1px,
+      transparent 1px,
+      transparent 12px
+    );
 }
+
 .card .thumb.has-image::after {
   content: none;
 }
-.card h3 { font-size: 19px; margin-bottom: 6px; }
-.card .tag { margin-top: 4px; }
 
-/* wide card for design case studies */
-.card.wide .thumb { aspect-ratio: 16 / 10; }
-
-
-/* ---------- PHOTOGRAPHY INTRO ACCORDION ---------- */
-.photo-intro-header {
-  cursor: pointer;
+.card h3 {
+  font-size: 19px;
+  margin-bottom: 6px;
 }
+
+.card .tag {
+  margin-top: 4px;
+}
+
+.card.wide .thumb {
+  aspect-ratio: 16 / 10;
+}
+
+
+/* =========================================================
+   PHOTOGRAPHY INTRO ACCORDION
+   ========================================================= */
 
 .photo-intro-accordion {
   max-width: var(--max);
@@ -547,6 +715,7 @@ p a {
 .photo-intro-header {
   position: relative;
   padding: 38px 40px 20px;
+  cursor: pointer;
 }
 
 .photo-intro-heading .tag {
@@ -558,15 +727,12 @@ p a {
   right: 40px;
   bottom: 20px;
 
-
   font-family: var(--mono);
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.04em;
   color: var(--ink);
 }
-
-/* CLOSED */
 
 .photo-intro-content {
   display: grid;
@@ -578,8 +744,6 @@ p a {
   overflow: hidden;
   padding: 0 40px;
 }
-
-/* OPEN */
 
 .photo-intro-accordion.open .photo-intro-content {
   grid-template-rows: 1fr;
@@ -621,154 +785,229 @@ p a {
   }
 }
 
-/* =========================================================
-   PHOTOGRAPHY GALLERY
-   Tight overlapping / draggable photo pile
-   ========================================================= */
 
-/* The normal masonry layout is still used as the
-   underlying layout before the gallery is initialized. */
+/* =========================================================
+   PHOTOGRAPHY GALLERIES
+   Standard masonry + desktop drag layouts
+   ========================================================= */
 
 .masonry {
   column-count: 3;
   column-gap: 28px;
 }
 
-@media (max-width: 900px) {
+.masonry-item {
+  display: block;
+  width: 100%;
+  break-inside: avoid;
+
+  margin: 0 0 28px;
+  padding: 0;
+
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.masonry-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+
+  pointer-events: none;
+
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
+@media (max-width: 900px) and (min-width: 801px) {
+
   .masonry {
     column-count: 2;
   }
 }
 
-@media (max-width: 600px) {
-  .masonry {
-    column-count: 1;
-  }
-}
-
-.masonry-item {
-  display: block;
-  width: 100%;
-  break-inside: avoid;
-  margin: 0 0 28px;
-  padding: 0;
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-
-.masonry-item img {
-  width: 100%;
-  height: auto;
-  display: block;
-
-  -webkit-user-drag: none;
-  user-drag: none;
-
-  pointer-events: none;
-}
-
 
 /* =========================================================
-   DESKTOP DRAG GALLERY
+   DESKTOP — NORMAL FREE-DRAG GALLERIES
    ========================================================= */
 
 @media (min-width: 801px) {
-
-  /*
-     Once JavaScript initializes the gallery, masonry is
-     completely removed and replaced with a free-positioned
-     photo field.
-  */
-
-  .masonry.drag-gallery {
-    position: relative;
-
-    display: block;
-
-    width: 100%;
-
-    /*
-      This is the size of the "table" the photographs
-      are sitting on.
-
-      The photos are intentionally packed into this area
-      rather than spread across a huge canvas.
-    */
-    min-height: 720px;
-
-    /*
-      Allows photographs to sit slightly outside the
-      normal edge of the composition.
-    */
-    overflow: visible;
-
-    column-count: initial;
-    column-gap: initial;
-
-    margin: 0;
-    padding: 0;
-  }
-
-  @media (min-width: 801px) {
 
   .masonry.drag-gallery-pending {
     visibility: hidden;
   }
 
   .masonry.drag-gallery {
+    position: relative;
+    display: block;
+
+    width: 100%;
+    min-height: 720px;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: visible;
+
+    column-count: initial;
+    column-gap: initial;
+
     visibility: visible;
   }
 
-}
 
   /*
-     Individual photographs become free-floating objects.
+     IMPORTANT:
+     this rule only affects normal galleries,
+     NOT the Events stacks.
   */
 
-  .masonry.drag-gallery .masonry-item {
+  .masonry.drag-gallery:not(.event-gallery) > .masonry-item {
     position: absolute;
 
     margin: 0;
     padding: 0;
 
-    /*
-      Important:
-      width is assigned by JavaScript.
-    */
     max-width: none;
-
     break-inside: initial;
 
     cursor: grab;
-
     touch-action: none;
     user-select: none;
 
     transform-origin: center center;
 
-    /*
-      Don't animate position while dragging.
-      The transform is used for the slight initial rotation.
-    */
     transition:
       box-shadow 180ms ease,
       filter 180ms ease;
 
-    will-change: left, top, transform;
+    will-change:
+      left,
+      top,
+      transform;
+  }
+
+  .masonry.drag-gallery:not(.event-gallery) > .masonry-item img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+    max-width: none;
+
+    pointer-events: none;
+
+    -webkit-user-drag: none;
+    user-drag: none;
+  }
+
+  .masonry.drag-gallery:not(.event-gallery) > .masonry-item.is-dragging {
+    cursor: grabbing;
+
+    box-shadow:
+      0 18px 40px rgba(20, 21, 26, 0.18);
+  }
+
+  .masonry.drag-gallery:not(.event-gallery) > .masonry-item:not(.is-dragging) {
+    box-shadow:
+      0 3px 10px rgba(20, 21, 26, 0.08);
+  }
+
+
+  /* =======================================================
+     EVENTS PAGE — GROUPED PHOTO STACKS
+     ======================================================= */
+
+  .event-gallery.drag-gallery {
+    position: relative;
+    display: block;
+
+    width: 100%;
+    min-height: 850px;
+
+    overflow: visible;
+
+    column-count: initial;
+    column-gap: initial;
   }
 
 
   /*
-     The image itself should never intercept the pointer.
-     This makes dragging much more reliable.
+     JS moves each entire stack around.
+
+     Photos inside the stack are positioned relative
+     to this box.
   */
 
-  .masonry.drag-gallery .masonry-item img {
+  .event-gallery .event-stack {
+    position: absolute;
+
+    width: 340px;
+    height: 430px;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: visible;
+
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
+  }
+
+  .event-gallery .event-stack.is-dragging {
+    cursor: grabbing;
+  }
+
+
+  /*
+     CRITICAL EVENT RESET
+
+     Normal gallery photos must NOT position themselves
+     against the full gallery.
+
+     They are positioned inside their event-stack instead.
+  */
+
+  .event-gallery.drag-gallery .event-stack > .masonry-item {
+    position: absolute;
+    display: block;
+
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+    background: transparent;
+
+    max-width: none;
+    break-inside: initial;
+
+    cursor: pointer;
+    touch-action: none;
+
+    transform-origin: center center;
+
+    box-shadow:
+      0 4px 12px rgba(20, 21, 26, 0.10);
+  }
+
+
+  /*
+     NO CROPPING.
+
+     Width changes the display scale only.
+     Height always follows the photograph's real ratio.
+  */
+
+  .event-gallery.drag-gallery .event-stack > .masonry-item img {
+    display: block;
+
     width: 100%;
     height: auto;
+    max-width: none;
 
-    display: block;
+    object-fit: unset;
 
     pointer-events: none;
 
@@ -777,170 +1016,322 @@ p a {
   }
 
 
-  /*
-     Subtle lift when the user is holding a photograph.
-  */
+  /* -------------------------------------------------------
+     PHOTO 1
+     ------------------------------------------------------- */
 
-  .masonry.drag-gallery .masonry-item.is-dragging {
-    cursor: grabbing;
+  .event-gallery .event-stack > .masonry-item:nth-child(1) {
+    width: 54%;
+    left: 1%;
+    top: 2%;
 
-    filter: none;
+    transform: rotate(-3deg);
 
-    box-shadow:
-      0 18px 40px rgba(20, 21, 26, 0.22);
+    z-index: 1;
   }
 
 
-  /*
-     Slight visual depth for photographs sitting in
-     the pile.
-  */
+  /* -------------------------------------------------------
+     PHOTO 2
+     ------------------------------------------------------- */
 
-  .masonry.drag-gallery .masonry-item:not(.is-dragging) {
-    box-shadow:
-      0 3px 10px rgba(20, 21, 26, 0.08);
+  .event-gallery .event-stack > .masonry-item:nth-child(2) {
+    width: 56%;
+    left: 39%;
+    top: 11%;
+
+    transform: rotate(2.5deg);
+
+    z-index: 2;
   }
 
+
+  /* -------------------------------------------------------
+     PHOTO 3
+     ------------------------------------------------------- */
+
+  .event-gallery .event-stack > .masonry-item:nth-child(3) {
+    width: 53%;
+    left: 12%;
+    top: 32%;
+
+    transform: rotate(-1.5deg);
+
+    z-index: 3;
+  }
+
+
+  /* -------------------------------------------------------
+     PHOTO 4
+     ------------------------------------------------------- */
+
+  .event-gallery .event-stack > .masonry-item:nth-child(4) {
+    width: 55%;
+    left: 42%;
+    top: 43%;
+
+    transform: rotate(2deg);
+
+    z-index: 4;
+  }
+
+
+  /* -------------------------------------------------------
+     PHOTO 5
+     ------------------------------------------------------- */
+
+  .event-gallery .event-stack > .masonry-item:nth-child(5) {
+    width: 51%;
+    left: 3%;
+    top: 58%;
+
+    transform: rotate(1.5deg);
+
+    z-index: 5;
+  }
+
+
+  /* -------------------------------------------------------
+     PHOTO 6
+     ------------------------------------------------------- */
+
+  .event-gallery .event-stack > .masonry-item:nth-child(6) {
+    width: 53%;
+    left: 42%;
+    top: 67%;
+
+    transform: rotate(-2deg);
+
+    z-index: 6;
+  }
 }
 
 
 /* =========================================================
-   MOBILE
+   MOBILE GALLERIES
    ========================================================= */
-
-/*
-   On mobile we intentionally do NOT turn the gallery into
-   the freeform draggable pile.
-
-   The regular one-column masonry layout remains much easier
-   to browse on a phone.
-*/
 
 @media (max-width: 800px) {
 
-  .masonry {
+  .masonry,
+  .event-gallery {
+    display: block;
+
     column-count: 1;
     column-gap: 0;
+
+    height: auto !important;
+    min-height: 0;
   }
 
-  .masonry-item {
-    width: 100%;
-    margin-bottom: 28px;
-    position: relative;
+  .event-stack {
+    position: static !important;
+
+    display: block;
+
+    width: 100% !important;
+    height: auto !important;
+
+    margin: 0;
+    padding: 0;
   }
 
-  .masonry-item img {
+  .masonry-item,
+  .event-gallery .event-stack > .masonry-item {
+    position: relative !important;
+
+    left: auto !important;
+    top: auto !important;
+
+    display: block;
+
+    width: 100% !important;
+
+    margin: 0 0 28px;
+
+    transform: none !important;
+
+    box-shadow: none;
+  }
+
+  .masonry-item img,
+  .event-gallery .event-stack > .masonry-item img {
+    display: block;
+
     width: 100%;
     height: auto;
+    max-width: 100%;
   }
-
 }
 
 
+/* =========================================================
+   LIGHTBOX
+   ========================================================= */
 
-/* ---------- Lightbox ---------- */
 .lightbox {
   position: fixed;
   inset: 0;
+
   background: rgba(20, 21, 26, 0.92);
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   z-index: 200;
+
   opacity: 0;
   pointer-events: none;
+
   transition: opacity 0.3s ease;
 }
+
 .lightbox.open {
   opacity: 1;
   pointer-events: auto;
 }
+
 .lightbox-stage {
   width: 70vw;
   height: 80vh;
   max-width: 900px;
+
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
+
 .lightbox-close,
 .lightbox-prev,
 .lightbox-next {
   position: absolute;
+
   background: none;
   border: none;
+
   color: var(--paper);
+
   font-family: var(--mono);
   font-size: 28px;
   line-height: 1;
+
   cursor: pointer;
   padding: 8px;
 }
-.lightbox-close { top: 24px; right: 28px; font-size: 32px; }
-.lightbox-prev { left: 20px; top: 50%; transform: translateY(-50%); }
-.lightbox-next { right: 20px; top: 50%; transform: translateY(-50%); }
+
+.lightbox-close {
+  top: 24px;
+  right: 28px;
+  font-size: 32px;
+}
+
+.lightbox-prev {
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox-next {
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
 
 .lightbox-info {
   position: absolute;
+
   bottom: 28px;
   left: 50%;
+
   transform: translateX(-50%);
+
   display: flex;
   flex-direction: row;
   align-items: center;
+
   gap: 20px;
+
   text-align: left;
 }
+
 .lightbox-caption {
   font-family: var(--mono);
+
   font-size: 12px;
   letter-spacing: 0.04em;
+
   color: var(--paper);
+
   opacity: 0.75;
+
   margin: 0;
+
   max-width: 420px;
+
   display: none;
 }
+
 .lightbox-link {
   font-family: var(--mono);
+
   font-size: 13px;
   letter-spacing: 0.06em;
+
   color: var(--paper);
+
   border: 1px solid var(--paper);
+
   padding: 10px 20px;
+
   display: none;
-  transition: background 0.2s ease, color 0.2s ease;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
+
 .lightbox-link:hover {
   background: var(--paper);
   color: var(--ink);
 }
 
 @media (max-width: 700px) {
+
   .lightbox {
     flex-direction: column;
   }
+
   .lightbox-stage {
     width: 88vw;
     height: 50vh;
   }
-  .lightbox-prev, .lightbox-next { font-size: 22px; }
+
+  .lightbox-prev,
+  .lightbox-next {
+    font-size: 22px;
+  }
 
   .lightbox-info {
     position: static;
+
     transform: none;
+
     left: auto;
     bottom: auto;
+
     margin-top: 16px;
+
     flex-direction: column;
+
     text-align: center;
   }
 }
 
-/* ---------- DESIGN INTRO ACCORDION ---------- */
-.design-intro-header {
-  cursor: pointer;
-}
+
+/* =========================================================
+   DESIGN INTRO ACCORDION
+   ========================================================= */
 
 .design-intro-accordion {
   max-width: var(--max);
@@ -951,6 +1342,7 @@ p a {
 .design-intro-header {
   position: relative;
   padding: 38px 40px 20px;
+  cursor: pointer;
 }
 
 .design-intro-heading .tag {
@@ -959,24 +1351,32 @@ p a {
 
 .design-intro-toggle {
   position: absolute;
+
   right: 40px;
   bottom: 20px;
 
   font-family: var(--mono);
+
   font-size: 12px;
   font-weight: 600;
+
   letter-spacing: 0.04em;
+
   color: var(--ink);
 }
 
 .design-intro-content {
   display: grid;
+
   grid-template-rows: 0fr;
-  transition: grid-template-rows 0.35s ease;
+
+  transition:
+    grid-template-rows 0.35s ease;
 }
 
 .design-intro-content-inner {
   overflow: hidden;
+
   padding: 0 40px;
 }
 
@@ -990,7 +1390,9 @@ p a {
 
 .design-intro-content p {
   max-width: 48ch;
+
   margin: 0 0 20px;
+
   font-size: 16px;
   line-height: 1.6;
 }
@@ -1023,12 +1425,23 @@ p a {
   }
 }
 
-/* ---------- Page header (non-home pages) ---------- */
+
+/* =========================================================
+   PAGE HEAD
+   ========================================================= */
+
 .page-head {
   padding: 64px 0 40px;
 }
-.page-head .tag { margin-bottom: 14px; }
-.page-head h1 { font-size: clamp(36px, 5vw, 64px); }
+
+.page-head .tag {
+  margin-bottom: 14px;
+}
+
+.page-head h1 {
+  font-size: clamp(36px, 5vw, 64px);
+}
+
 .page-head p.lede {
   margin-top: 18px;
   max-width: 42ch;
@@ -1036,59 +1449,131 @@ p a {
   color: #3a3a38;
 }
 
-/* ---------- About ---------- */
+
+/* =========================================================
+   ABOUT
+   ========================================================= */
 
 .about-layout {
   display: grid;
-  grid-template-columns: 380px 1fr;
+
+  grid-template-columns:
+    380px
+    1fr;
+
   gap: 64px;
+
   max-width: var(--max);
+
   margin: 0 auto;
-  padding: 64px 32px;
+
+  padding:
+    64px
+    32px;
 }
+
 .about-photo {
   aspect-ratio: 3 / 4;
+
   background-color: var(--paper);
   background-size: cover;
   background-position: center;
+
   position: relative;
 }
+
 .about-photo::after {
   content: 'REPLACE WITH PORTRAIT';
+
   position: absolute;
+
   inset: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   font-family: var(--mono);
+
   font-size: 11px;
+
   letter-spacing: 0.08em;
+
   color: var(--stone);
+
   text-align: center;
+
   padding: 12px;
 }
+
 .about-photo.has-image::after {
   content: none;
 }
-.about-body p { max-width: 62ch; margin: 0 0 20px; font-size: 16px; }
-.skills-list { list-style: none; padding: 0; margin: 32px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 32px; }
-.skills-list li { font-family: var(--mono); font-size: 13px; 
-                 border-bottom: 1px solid var(--stone-line);
-                 padding-bottom: 10px; }
+
+.about-body p {
+  max-width: 62ch;
+
+  margin: 0 0 20px;
+
+  font-size: 16px;
+}
+
+.skills-list {
+  list-style: none;
+
+  padding: 0;
+
+  margin: 32px 0 0;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  gap:
+    10px
+    32px;
+}
+
+.skills-list li {
+  font-family: var(--mono);
+
+  font-size: 13px;
+
+  border-bottom:
+    1px solid
+    var(--stone-line);
+
+  padding-bottom: 10px;
+}
 
 @media (max-width: 800px) {
-  .about-layout { grid-template-columns: 1fr; }
+
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
 }
 
 
-/* ---------- Testimonials (envelope letters) ---------- */
+/* =========================================================
+   TESTIMONIALS / ENVELOPES
+   ========================================================= */
+
 .testimonials-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
   gap: 48px;
 }
+
 @media (max-width: 700px) {
-  .testimonials-grid { grid-template-columns: 1fr; }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .envelope-card {
@@ -1097,115 +1582,250 @@ p a {
 
 .envelope-flap {
   position: relative;
+
   z-index: 1;
+
   display: block;
+
   width: 100%;
+
   aspect-ratio: 7 / 4;
+
   background-color: var(--paper);
   background-size: cover;
   background-position: center;
+
   border: none;
+
   padding: 0;
+
   cursor: pointer;
-  transition: transform 0.2s ease;
+
+  transition:
+    transform 0.2s ease;
 }
+
 .envelope-flap:hover {
   transform: translateY(-3px);
 }
 
 .letter {
   position: absolute;
+
   inset: 0;
+
   z-index: 2;
+
   background: var(--mist);
+
   padding: 24px;
+
   box-sizing: border-box;
+
   text-align: left;
+
   overflow-y: auto;
+
   opacity: 0;
+
   transform: scale(0.85);
-  transform-origin: center bottom;
+
+  transform-origin:
+    center
+    bottom;
+
   pointer-events: none;
+
   cursor: pointer;
-  box-shadow: 0 10px 26px rgba(20, 21, 26, 0.18);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  box-shadow:
+    0 10px 26px
+    rgba(20, 21, 26, 0.18);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
 }
+
 .envelope-card.open .letter {
   opacity: 1;
+
   transform: scale(1);
+
   pointer-events: auto;
 }
 
 .letter p {
   font-family: var(--display);
+
   font-style: italic;
+
   font-size: 13px;
+
   line-height: 1.5;
+
   margin: 0 0 14px;
 }
+
 .letter .tag {
   display: block;
 }
 
 
-/*---- skills list on photography and design pages ---*/
+/* =========================================================
+   PHOTO / DESIGN PAGE WRAP
+   ========================================================= */
 
 .page-wrap {
   max-width: var(--max);
+
   margin: 0 auto;
-  padding: 0 32px 96px;
+
+  padding:
+    0
+    32px
+    96px;
 }
 
 
-/* ---------- contact ---------- */
+/* =========================================================
+   CONTACT
+   ========================================================= */
 
 .contact-layout {
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
+
   gap: 48px;
+
   max-width: var(--max);
+
   margin: 0 auto;
-  padding: 64px 32px 96px;
+
+  padding:
+    64px
+    32px
+    96px;
 }
 
 .reach-out-lede {
   font-family: var(--display);
+
   font-size: 18px;
+
   margin: 0 0 20px;
 }
-.contact-info dt { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--stone); margin-top: 24px; }
-.contact-info dt:first-child { margin-top: 0; }
-.contact-info dd { margin: 6px 0 0; font-size: 18px; font-family: var(--display); }
-form.contact-form { display: flex; flex-direction: column; gap: 20px; width: 100%; max-width: 680px; }
-.field { display: flex; flex-direction: column; gap: 8px; }
-.field label { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--stone); }
-.field input, .field textarea {
-  font-family: var(--body);
-  font-size: 15px;
-  padding: 12px 14px;
-  border: 1px solid var(--stone-line);
-  background: #fff;
-  color: var(--ink);
-  width: 100%;
-  box-sizing: border-box;
-}
-.field textarea { resize: vertical; min-height: 120px; }
-.field input:focus, .field textarea:focus { outline: 2px solid var(--ink); outline-offset: 1px; }
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  * { transition: none !important; }
+
+.contact-info dt {
+  font-family: var(--mono);
+
+  font-size: 11px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.08em;
+
+  color: var(--stone);
+
+  margin-top: 24px;
 }
 
-/* CONTACT — SEND BUTTON */
+.contact-info dt:first-child {
+  margin-top: 0;
+}
+
+.contact-info dd {
+  margin: 6px 0 0;
+
+  font-size: 18px;
+
+  font-family: var(--display);
+}
+
+form.contact-form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 20px;
+
+  width: 100%;
+
+  max-width: 680px;
+}
+
+.field {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.field label {
+  font-family: var(--mono);
+
+  font-size: 11px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.08em;
+
+  color: var(--stone);
+}
+
+.field input,
+.field textarea {
+  font-family: var(--body);
+
+  font-size: 15px;
+
+  padding: 12px 14px;
+
+  border:
+    1px solid
+    var(--stone-line);
+
+  background: #fff;
+
+  color: var(--ink);
+
+  width: 100%;
+
+  box-sizing: border-box;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline:
+    2px solid
+    var(--ink);
+
+  outline-offset: 1px;
+}
 
 .contact-form button[type="submit"] {
   background: transparent;
+
   color: var(--ink);
-  border: 1px solid var(--ink);
+
+  border:
+    1px solid
+    var(--ink);
+
   cursor: pointer;
 
-  transition: background-color 0.25s ease, color 0.25s ease;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
 }
 
 .contact-form button[type="submit"]:hover {
@@ -1213,49 +1833,71 @@ form.contact-form { display: flex; flex-direction: column; gap: 20px; width: 100
   color: var(--paper);
 }
 
-/* ---------- Project detail pages ---------- */
+
+/* =========================================================
+   PROJECT DETAIL PAGES
+   ========================================================= */
+
 .project-head {
   padding: 64px 0 48px;
 }
+
 .project-hero-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
   gap: 64px;
+
   align-items: center;
 }
-.project-hero-image {
-    width: 100%;
-    min-height: 500px;
 
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+.project-hero-image {
+  width: 100%;
+
+  min-height: 500px;
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
+
 .project-meta h1 {
   font-size: clamp(44px, 6vw, 84px);
+
   margin-bottom: 32px;
 }
+
 .detail-line {
   font-family: var(--body);
+
   font-size: 18px;
+
   margin: 0 0 12px;
+
   color: var(--ink);
 }
+
 .detail-label {
   text-transform: uppercase;
+
   margin-right: 4px;
 }
 
 @media (max-width: 800px) {
+
   .project-hero-grid {
     grid-template-columns: 1fr;
+
     gap: 32px;
   }
 }
 
-/* project asset grid — reuses .grid, adds the image treatment */
 .project-asset {
   width: 100%;
+
   min-height: 500px;
 
   background-size: contain;
@@ -1265,85 +1907,143 @@ form.contact-form { display: flex; flex-direction: column; gap: 20px; width: 100
 
 .project-menu-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
   gap: 32px;
+
   align-items: center;
+
   justify-items: center;
 }
+
 .menu-card {
   width: 100%;
+
   max-width: 220px;
+
   height: auto;
-  filter: drop-shadow(0 20px 40px rgba(20, 21, 26, 0.18));
+
+  filter:
+    drop-shadow(
+      0
+      20px
+      40px
+      rgba(20, 21, 26, 0.18)
+    );
 }
 
 @media (max-width: 900px) {
+
   .project-menu-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:
+      repeat(2, 1fr);
+
     gap: 40px;
   }
 }
+
 @media (max-width: 500px) {
+
   .project-menu-grid {
     grid-template-columns: 1fr;
   }
 }
 
 
+/* =========================================================
+   PROJECT WRITEUPS
+   ========================================================= */
 
 .project-writeup {
   padding-top: 48px;
 }
+
 .project-writeup-grid {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+
+  grid-template-columns:
+    1fr
+    2fr;
+
   gap: 48px;
+
   align-items: start;
 }
+
 .project-link a {
   font-family: var(--display);
+
   font-size: 18px;
+
   text-decoration: underline;
+
   text-underline-offset: 3px;
-  transition: color 0.2s ease;
+
+  transition:
+    color 0.2s ease;
 }
+
 .project-link a:hover {
   color: var(--stone);
 }
+
 .project-description p {
   font-size: 17px;
+
   line-height: 1.6;
+
   max-width: 60ch;
+
   margin: 0;
 }
 
 @media (max-width: 700px) {
+
   .project-writeup-grid {
     grid-template-columns: 1fr;
+
     gap: 20px;
   }
 }
 
-/* ---------- bevida project addition, photo beside project description ---------- */
+
+/* =========================================================
+   BEVIDA PROJECT ADDITION
+   ========================================================= */
+
 .project-description-media {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+
+  grid-template-columns:
+    2fr
+    1fr;
+
   gap: 48px;
+
   align-items: start;
 }
+
 .project-description-photo {
   aspect-ratio: 4 / 5;
+
   background-size: cover;
+
   background-position: center;
 }
 
 @media (max-width: 700px) {
+
   .project-description-media {
     grid-template-columns: 1fr;
   }
 }
 
-/* ---------- Footer ---------- */
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
 
 .site-footer {
   padding: 56px 0;
@@ -1351,8 +2051,11 @@ form.contact-form { display: flex; flex-direction: column; gap: 20px; width: 100
 
 .site-footer .wrap {
   display: flex;
+
   justify-content: space-between;
+
   flex-wrap: wrap;
+
   gap: 24px;
 }
 
@@ -1362,29 +2065,40 @@ form.contact-form { display: flex; flex-direction: column; gap: 20px; width: 100
 
 .site-footer h3 {
   font-size: clamp(24px, 3vw, 36px);
+
   margin-bottom: 8px;
 }
 
 .footer-icon {
   display: block;
+
   width: 28px;
   height: 28px;
+
   margin-bottom: 4px;
+
   flex-shrink: 0;
 }
 
 .footer-links-col {
   display: flex;
+
   flex-direction: column;
+
   align-items: flex-start;
+
   gap: 14px;
 }
 
 .footer-links-col a {
   font-family: var(--body);
+
   font-size: clamp(18px, 2vw, 22px);
+
   color: var(--ink);
-  transition: opacity 0.2s ease;
+
+  transition:
+    opacity 0.2s ease;
 }
 
 .footer-links-col a:hover {
@@ -1393,40 +2107,61 @@ form.contact-form { display: flex; flex-direction: column; gap: 20px; width: 100
 
 .footer-contact {
   display: flex;
+
   flex-direction: column;
+
   margin-top: 14px;
+
   gap: 3px;
 }
 
 .footer-contact a,
 .footer-contact span {
   font-size: 0.75rem;
+
   color: inherit;
+
   text-decoration: none;
 }
 
 .footer-bottom {
   display: block !important;
+
   margin-top: 40px;
 }
 
 .footer-fine {
   font-family: var(--mono);
+
   font-size: 11px;
+
   color: var(--stone);
+
   margin: 0;
 }
 
+
+/* =========================================================
+   PHOTOGRAPHY INCLUDES
+   ========================================================= */
+
 .photo-includes-section {
   max-width: var(--max);
+
   margin: 0 auto 100px;
+
   padding: 50px 40px;
+
   background: var(--mist);
 }
 
 .photo-includes-grid {
   display: grid;
-  grid-template-columns: 1.4fr 0.8fr;
+
+  grid-template-columns:
+    1.4fr
+    0.8fr;
+
   gap: 70px;
 }
 
@@ -1436,28 +2171,43 @@ form.contact-form { display: flex; flex-direction: column; gap: 20px; width: 100
 
 .photo-includes-column .font-accent {
   margin: 0 0 14px;
+
   line-height: 1.6;
 }
 
 @media (max-width: 768px) {
+
   .photo-includes-section {
-    margin: 0 24px 70px;
-    padding: 35px 24px;
+    margin:
+      0
+      24px
+      70px;
+
+    padding:
+      35px
+      24px;
   }
 
   .photo-includes-grid {
     grid-template-columns: 1fr;
+
     gap: 40px;
   }
 }
 
-/* DESIGN — ONE-OFFS & BUNDLES */
+
+/* =========================================================
+   DESIGN EXTRAS
+   ========================================================= */
 
 .design-extras-section {
   padding-top: 60px;
 }
 
-/* match About + Contact titles to Photography/Design */
+
+/* =========================================================
+   ABOUT + CONTACT TITLE SIZING
+   ========================================================= */
 
 .page-head .about-title,
 .page-head .contact-title,
@@ -1467,36 +2217,57 @@ form.contact-form { display: flex; flex-direction: column; gap: 20px; width: 100
 }
 
 
-/* ---------- ANIMATED SPIRAL CURSOR ---------- */
+/* =========================================================
+   ANIMATED SPIRAL CURSOR
+   ========================================================= */
 
 @media (hover: hover) and (pointer: fine) {
 
-body.custom-cursor-active,
-body.custom-cursor-active a,
-body.custom-cursor-active button,
-body.custom-cursor-active [role="button"] {
-  cursor: none !important;
-}
+  body.custom-cursor-active,
+  body.custom-cursor-active a,
+  body.custom-cursor-active button,
+  body.custom-cursor-active [role="button"] {
+    cursor: none !important;
+  }
 
   .spiral-cursor {
     position: fixed;
+
     left: 0;
     top: 0;
 
     width: 50px;
+
     height: auto;
 
     pointer-events: none;
+
     z-index: 9999;
 
-    transform: translate(-50%, -50%);
+    transform:
+      translate(-50%, -50%);
   }
 }
 
-/* don't show custom cursor on phones/tablets */
-
 @media (hover: none), (pointer: coarse) {
+
   .spiral-cursor {
     display: none;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    transition: none !important;
   }
 }
