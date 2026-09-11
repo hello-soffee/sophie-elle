@@ -6,33 +6,22 @@ window.va = window.va || function () {
   (window.vaq = window.vaq || []).push(arguments);
 };
 
-const vercelAnalytics = document.createElement("script");
-vercelAnalytics.src = "/_vercel/insights/script.js";
+const vercelAnalytics = document.createElement('script');
+vercelAnalytics.src = '/_vercel/insights/script.js';
 vercelAnalytics.defer = true;
 document.head.appendChild(vercelAnalytics);
 
 
 /* ============================================================
-   HIDE DESKTOP MASONRY BEFORE INITIALIZATION
+   HIDE DESKTOP GALLERIES BEFORE INITIALIZATION
    ============================================================ */
 
 (function () {
+  if (window.innerWidth <= 800) return;
 
-  if (window.innerWidth <= 800) {
-    return;
-  }
-
-  var galleries =
-    document.querySelectorAll('.masonry');
-
-  galleries.forEach(function (gallery) {
-
-    gallery.classList.add(
-      'drag-gallery-pending'
-    );
-
+  document.querySelectorAll('.masonry').forEach(function (gallery) {
+    gallery.classList.add('drag-gallery-pending');
   });
-
 })();
 
 
@@ -41,35 +30,43 @@ document.head.appendChild(vercelAnalytics);
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', function () {
+  initMobileNav();
+  initSplitPanels();
+  initAccordions();
+  initLightbox();
+  initEnvelopes();
+  initActiveNav();
+  initDragGallery();
+});
 
-  /* ========================================================
-     MOBILE NAVIGATION
-     ======================================================== */
 
+/* ============================================================
+   MOBILE NAVIGATION
+   ============================================================ */
+
+function initMobileNav() {
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.querySelector('.main-nav');
 
-  if (toggle && nav) {
+  if (!toggle || !nav) return;
 
-    toggle.addEventListener('click', function () {
-      nav.classList.toggle('open');
-      toggle.classList.toggle('open');
-      document.body.classList.toggle('nav-open');
-    });
+  toggle.addEventListener('click', function () {
+    nav.classList.toggle('open');
+    toggle.classList.toggle('open');
+    document.body.classList.toggle('nav-open');
+  });
+}
 
-  }
 
+/* ============================================================
+   SPLIT PANELS
+   ============================================================ */
 
-  /* ========================================================
-     SPLIT PANELS
-     ======================================================== */
-
+function initSplitPanels() {
   var splitPanels = document.querySelectorAll('.split-panel');
 
   splitPanels.forEach(function (panel) {
-
     panel.addEventListener('click', function (e) {
-
       if (e.target.closest('.btn')) return;
 
       var alreadyExpanded =
@@ -82,24 +79,26 @@ document.addEventListener('DOMContentLoaded', function () {
       if (!alreadyExpanded) {
         panel.classList.add('expanded');
       }
-
     });
-
   });
+}
 
 
-  /* ========================================================
-     ACCORDIONS
-     ======================================================== */
+/* ============================================================
+   HOME ACCORDIONS
+   ============================================================ */
 
+function initAccordions() {
   var triggers =
     document.querySelectorAll('.accordion-trigger');
 
   triggers.forEach(function (btn) {
-
     btn.addEventListener('click', function () {
+      var item =
+        btn.closest('.accordion-item');
 
-      var item = btn.closest('.accordion-item');
+      if (!item) return;
+
       var isOpen =
         item.classList.toggle('open');
 
@@ -115,54 +114,9 @@ document.addEventListener('DOMContentLoaded', function () {
         symbol.textContent =
           isOpen ? '\u2212' : '+';
       }
-
     });
-
   });
-
-
-  /* ========================================================
-     LIGHTBOX
-     ======================================================== */
-
-  initLightbox();
-
-
-  /* ========================================================
-     ENVELOPES
-     ======================================================== */
-
-  initEnvelopes();
-
-
-  /* ========================================================
-     ACTIVE NAVIGATION
-     ======================================================== */
-
-  var navLinks =
-    document.querySelectorAll('.main-nav a');
-
-  var currentFile =
-    window.location.pathname.split('/').pop()
-    || 'index.html';
-
-  navLinks.forEach(function (link) {
-
-    link.removeAttribute('aria-current');
-
-    var linkFile =
-      link.getAttribute('href');
-
-    if (linkFile === currentFile) {
-      link.setAttribute(
-        'aria-current',
-        'page'
-      );
-    }
-
-  });
-
-});
+}
 
 
 /* ============================================================
@@ -170,7 +124,6 @@ document.addEventListener('DOMContentLoaded', function () {
    ============================================================ */
 
 function initLightbox() {
-
   var items =
     document.querySelectorAll('.masonry-item');
 
@@ -178,7 +131,6 @@ function initLightbox() {
     document.getElementById('lightbox');
 
   if (!items.length || !lightbox) return;
-
 
   var stage =
     lightbox.querySelector('.lightbox-stage');
@@ -201,12 +153,7 @@ function initLightbox() {
   var currentIndex = 0;
 
 
-  /* ----------------------------------------------------------
-     Show image
-     ---------------------------------------------------------- */
-
   function show(index) {
-
     currentIndex =
       (index + items.length) % items.length;
 
@@ -216,149 +163,112 @@ function initLightbox() {
     var img =
       currentItem.querySelector('img');
 
-    if (!img) return;
+    if (!img || !stage) return;
 
     stage.style.backgroundImage =
       'url("' + img.src + '")';
 
 
-    /* Project link */
-
     var link =
       currentItem.getAttribute('data-link');
 
-    if (link) {
-
-      linkBtn.href = link;
-
-      linkBtn.style.display =
-        'inline-block';
-
-    } else {
-
-      linkBtn.style.display =
-        'none';
-
+    if (linkBtn) {
+      if (link) {
+        linkBtn.href = link;
+        linkBtn.style.display =
+          'inline-block';
+      } else {
+        linkBtn.style.display =
+          'none';
+      }
     }
 
-
-    /* Caption */
 
     var caption =
       currentItem.getAttribute('data-caption');
 
-    if (caption) {
+    if (captionEl) {
+      if (caption) {
+        captionEl.textContent =
+          caption;
 
-      captionEl.textContent =
-        caption;
-
-      captionEl.style.display =
-        'block';
-
-    } else {
-
-      captionEl.style.display =
-        'none';
-
+        captionEl.style.display =
+          'block';
+      } else {
+        captionEl.style.display =
+          'none';
+      }
     }
 
     lightbox.classList.add('open');
-
   }
 
-
-  /* ----------------------------------------------------------
-     Close
-     ---------------------------------------------------------- */
 
   function closeLightbox() {
     lightbox.classList.remove('open');
   }
 
 
-  /* ----------------------------------------------------------
-     Clicking photographs
+  /*
+     CLICK VS DRAG
 
-     A normal click opens the lightbox.
-     A drag does NOT open the lightbox.
-     ---------------------------------------------------------- */
+     Click = open lightbox.
+     Drag = don't open lightbox afterward.
+  */
 
   items.forEach(function (item, index) {
-
     item.addEventListener('click', function () {
-
       if (item.dataset.dragged === 'true') {
-
         item.dataset.dragged = 'false';
-
         return;
       }
 
       show(index);
-
     });
-
   });
 
 
-  /* ----------------------------------------------------------
-     Lightbox controls
-     ---------------------------------------------------------- */
-
   if (closeBtn) {
-
     closeBtn.addEventListener(
       'click',
       closeLightbox
     );
-
   }
 
 
   lightbox.addEventListener(
     'click',
     function (e) {
-
       if (e.target === lightbox) {
         closeLightbox();
       }
-
     }
   );
 
 
   if (prevBtn) {
-
     prevBtn.addEventListener(
       'click',
       function () {
         show(currentIndex - 1);
       }
     );
-
   }
 
 
   if (nextBtn) {
-
     nextBtn.addEventListener(
       'click',
       function () {
         show(currentIndex + 1);
       }
     );
-
   }
 
-
-  /* ----------------------------------------------------------
-     Keyboard controls
-     ---------------------------------------------------------- */
 
   document.addEventListener(
     'keydown',
     function (e) {
-
       if (!lightbox.classList.contains('open')) {
         return;
       }
@@ -374,10 +284,37 @@ function initLightbox() {
       if (e.key === 'ArrowRight') {
         show(currentIndex + 1);
       }
-
     }
   );
+}
 
+
+/* ============================================================
+   ACTIVE NAVIGATION
+   ============================================================ */
+
+function initActiveNav() {
+  var navLinks =
+    document.querySelectorAll('.main-nav a');
+
+  var currentFile =
+    window.location.pathname
+      .split('/')
+      .pop() || 'index.html';
+
+  navLinks.forEach(function (link) {
+    link.removeAttribute('aria-current');
+
+    if (
+      link.getAttribute('href') ===
+      currentFile
+    ) {
+      link.setAttribute(
+        'aria-current',
+        'page'
+      );
+    }
+  });
 }
 
 
@@ -385,275 +322,286 @@ function initLightbox() {
    DRAG GALLERY
    ============================================================ */
 
-/*
-   Normal photography galleries:
-   each individual photograph is draggable.
-
-   Events gallery:
-   each .event-stack is draggable as ONE collection,
-   while the photographs inside remain individually clickable.
-*/
-
 function initDragGallery() {
-
-  /*
-     Keep the simple masonry layout on phones.
-  */
-
-  if (window.innerWidth <= 800) {
-    return;
-  }
-
+  if (window.innerWidth <= 800) return;
 
   var containers =
     document.querySelectorAll('.masonry');
 
-
   containers.forEach(function (container) {
 
-
-    /* ========================================================
-       EVENTS PAGE
-       ======================================================== */
-
-    if (container.classList.contains('event-gallery')) {
-
-      var stacks =
-        Array.from(
-          container.querySelectorAll('.event-stack')
-        );
-
-
-      if (!stacks.length) {
-
-        container.classList.remove(
-          'drag-gallery-pending'
-        );
-
-        return;
-      }
-
-
-      container.classList.add(
-        'drag-gallery'
-      );
-
-      container.classList.remove(
-        'drag-gallery-pending'
-      );
-
-
-      /*
-         The Events canvas is deliberately larger because
-         each draggable object contains several photographs.
-      */
-
-      var eventCanvasHeight = 850;
-
-      container.style.height =
-        eventCanvasHeight + 'px';
-
-
-      var eventCanvasWidth =
-        container.clientWidth;
-
-
-      /*
-         Starting positions for the event collections.
-
-         x and width are percentages of the gallery width.
-         y is a percentage of the gallery height.
-
-         These positions can be adjusted later without
-         changing the drag system.
-      */
-
-      var stackPositions = [
-
-        /* Jason & Maria */
-        {
-          x: 1,
-          y: 3,
-          width: 34
-        },
-
-        /* Karina */
-        {
-          x: 34,
-          y: 30,
-          width: 31
-        },
-
-        /* Karina & William */
-        {
-          x: 65,
-          y: 5,
-          width: 34
-        }
-
-      ];
-
-
-      var eventZCounter = 10;
-
-
-      stacks.forEach(function (stack, index) {
-
-        var position =
-          stackPositions[index] ||
-          {
-            x: 8 + ((index % 3) * 30),
-            y: 10 + (Math.floor(index / 3) * 35),
-            width: 32
-          };
-
-
-        var stackWidth =
-          eventCanvasWidth *
-          (position.width / 100);
-
-
-        stack.style.width =
-          stackWidth + 'px';
-
-
-        stack.style.left =
-          (
-            eventCanvasWidth *
-            (position.x / 100)
-          ) + 'px';
-
-
-        stack.style.top =
-          (
-            eventCanvasHeight *
-            (position.y / 100)
-          ) + 'px';
-
-
-        stack.style.zIndex =
-          eventZCounter;
-
-
-        makeEventStackDraggable(
-          stack,
-          function () {
-
-            eventZCounter++;
-
-            return eventZCounter;
-
-          }
-        );
-
-      });
-
-
-      /*
-         Prevent native browser image dragging.
-      */
-
-      container.addEventListener(
-        'dragstart',
-        function (e) {
-          e.preventDefault();
-        }
-      );
-
-
-      /*
-         IMPORTANT:
-         Stop here.
-
-         We do NOT want the individual photos inside Events
-         to also receive the normal draggable-photo behavior.
-      */
-
+    if (
+      container.classList.contains(
+        'event-gallery'
+      )
+    ) {
+      initEventGallery(container);
       return;
     }
 
-
-    /* ========================================================
-       ALL OTHER PHOTOGRAPHY GALLERIES
-       ======================================================== */
-
-    var items =
-      Array.from(
-        container.querySelectorAll('.masonry-item')
-      );
+    initNormalDragGallery(container);
+  });
+}
 
 
-    if (!items.length) {
+/* ============================================================
+   EVENTS GALLERY
 
-      container.classList.remove(
-        'drag-gallery-pending'
-      );
+   The EVENT STACK controls the starting arrangement only.
 
-      return;
-    }
+   Every photograph inside:
+   - can be clicked
+   - can be dragged individually
+   - keeps its own original aspect ratio
+   ============================================================ */
 
-
-    container.classList.add(
-      'drag-gallery'
+function initEventGallery(container) {
+  var stacks =
+    Array.from(
+      container.querySelectorAll(
+        '.event-stack'
+      )
     );
+
+  if (!stacks.length) {
+    container.classList.remove(
+      'drag-gallery-pending'
+    );
+
+    return;
+  }
+
+  container.classList.add(
+    'drag-gallery'
+  );
+
+  container.classList.remove(
+    'drag-gallery-pending'
+  );
+
+
+  var canvasHeight = 850;
+
+  var canvasWidth =
+    container.clientWidth;
+
+  container.style.height =
+    canvasHeight + 'px';
+
+
+  /*
+     Starting position of the three EVENT GROUPS.
+  */
+
+  var stackPositions = [
+
+    {
+      x: 2,
+      y: 5,
+      width: 34
+    },
+
+    {
+      x: 36,
+      y: 28,
+      width: 31
+    },
+
+    {
+      x: 67,
+      y: 7,
+      width: 34
+    }
+
+  ];
+
+
+  var stackZCounter = 10;
+
+
+  stacks.forEach(
+    function (stack, index) {
+
+      var position =
+        stackPositions[index] ||
+        {
+          x:
+            10 +
+            ((index % 3) * 28),
+
+          y:
+            12 +
+            (
+              Math.floor(index / 3) *
+              36
+            ),
+
+          width: 32
+        };
+
+
+      var stackWidth =
+        canvasWidth *
+        (position.width / 100);
+
+
+      stack.style.width =
+        stackWidth + 'px';
+
+
+      stack.style.left =
+        (
+          canvasWidth *
+          (position.x / 100)
+        ) + 'px';
+
+
+      stack.style.top =
+        (
+          canvasHeight *
+          (position.y / 100)
+        ) + 'px';
+
+
+      stack.style.zIndex =
+        stackZCounter;
+
+
+      /*
+         EACH PHOTO inside this event group
+         becomes independently draggable.
+      */
+
+      var photos =
+        Array.from(
+          stack.querySelectorAll(
+            '.masonry-item'
+          )
+        );
+
+
+      var photoZCounter = 20;
+
+
+      photos.forEach(
+        function (photo) {
+
+          photo.style.zIndex =
+            photoZCounter;
+
+
+          makeDraggable(
+            photo,
+            function () {
+
+              photoZCounter++;
+              stackZCounter++;
+
+
+              /*
+                 Bring the event group forward
+                 whenever one of its photos
+                 is interacted with.
+              */
+
+              stack.style.zIndex =
+                stackZCounter;
+
+
+              return photoZCounter;
+            }
+          );
+
+        }
+      );
+    }
+  );
+
+
+  container.addEventListener(
+    'dragstart',
+    function (e) {
+      e.preventDefault();
+    }
+  );
+}
+
+
+/* ============================================================
+   NORMAL PHOTOGRAPHY GALLERIES
+   ============================================================ */
+
+function initNormalDragGallery(
+  container
+) {
+
+  var items =
+    Array.from(
+      container.querySelectorAll(
+        '.masonry-item'
+      )
+    );
+
+
+  if (!items.length) {
 
     container.classList.remove(
       'drag-gallery-pending'
     );
 
-
-    /*
-       Give the composition enough vertical space.
-    */
-
-    var canvasHeight =
-      getCanvasHeight(
-        items.length
-      );
+    return;
+  }
 
 
-    container.style.height =
-      canvasHeight + 'px';
+  container.classList.add(
+    'drag-gallery'
+  );
 
 
-    var canvasWidth =
-      container.clientWidth;
+  container.classList.remove(
+    'drag-gallery-pending'
+  );
 
 
-    /*
-       Create the initial scattered arrangement.
-    */
-
-    var positions =
-      createPhotoPile(
-        items.length
-      );
+  var canvasHeight =
+    getCanvasHeight(
+      items.length
+    );
 
 
-    /*
-       The most recently interacted-with photograph
-       comes to the front.
-    */
-
-    var zCounter = 10;
+  var canvasWidth =
+    container.clientWidth;
 
 
-    items.forEach(function (item, index) {
+  var positions =
+    createPhotoPile(
+      items.length
+    );
+
+
+  container.style.height =
+    canvasHeight + 'px';
+
+
+  var zCounter = 10;
+
+
+  items.forEach(
+    function (item, index) {
 
       var position =
         positions[index];
 
 
-      /*
-         Scale width responsively.
+      if (!position) return;
 
-         The image height remains automatic in CSS,
-         so portrait/landscape proportions are preserved.
-      */
 
       var itemWidth =
         canvasWidth *
-        (position.width / 100);
+        (
+          position.width /
+          100
+        );
 
 
       item.style.width =
@@ -663,25 +611,27 @@ function initDragGallery() {
       item.style.left =
         (
           canvasWidth *
-          (position.x / 100)
+          (
+            position.x /
+            100
+          )
         ) + 'px';
 
 
       item.style.top =
         (
           canvasHeight *
-          (position.y / 100)
+          (
+            position.y /
+            100
+          )
         ) + 'px';
 
 
-      /*
-         Some of your original layouts currently have
-         rotation commented out.
-
-         Only apply a rotation when a value actually exists.
-      */
-
-      if (typeof position.rotation === 'number') {
+      if (
+        typeof position.rotation ===
+        'number'
+      ) {
 
         item.style.transform =
           'rotate(' +
@@ -692,7 +642,6 @@ function initDragGallery() {
 
         item.style.transform =
           'none';
-
       }
 
 
@@ -707,22 +656,19 @@ function initDragGallery() {
           zCounter++;
 
           return zCounter;
-
         }
       );
 
-    });
+    }
+  );
 
 
-    container.addEventListener(
-      'dragstart',
-      function (e) {
-        e.preventDefault();
-      }
-    );
-
-  });
-
+  container.addEventListener(
+    'dragstart',
+    function (e) {
+      e.preventDefault();
+    }
+  );
 }
 
 
@@ -735,9 +681,7 @@ function createPhotoPile(count) {
   var layouts = {
 
 
-    /* --------------------------------------------------------
-       3 photographs
-       -------------------------------------------------------- */
+    /* 3 PHOTOS */
 
     3: [
 
@@ -762,9 +706,7 @@ function createPhotoPile(count) {
     ],
 
 
-    /* --------------------------------------------------------
-       4 photographs
-       -------------------------------------------------------- */
+    /* 4 PHOTOS */
 
     4: [
 
@@ -795,9 +737,7 @@ function createPhotoPile(count) {
     ],
 
 
-    /* --------------------------------------------------------
-       5 photographs
-       -------------------------------------------------------- */
+    /* 5 PHOTOS */
 
     5: [
 
@@ -834,9 +774,7 @@ function createPhotoPile(count) {
     ],
 
 
-    /* --------------------------------------------------------
-       6 photographs
-       -------------------------------------------------------- */
+    /* 6 PHOTOS */
 
     6: [
 
@@ -879,9 +817,7 @@ function createPhotoPile(count) {
     ],
 
 
-    /* --------------------------------------------------------
-       7 photographs
-       -------------------------------------------------------- */
+    /* 7 PHOTOS */
 
     7: [
 
@@ -930,9 +866,7 @@ function createPhotoPile(count) {
     ],
 
 
-    /* --------------------------------------------------------
-       8 photographs
-       -------------------------------------------------------- */
+    /* 8 PHOTOS */
 
     8: [
 
@@ -990,40 +924,98 @@ function createPhotoPile(count) {
 
 
   /*
-     Use the hand-composed layouts above when available.
+     FALLBACK FOR 1 PHOTO
   */
 
-  if (layouts[count]) {
-    return layouts[count];
+  if (count === 1) {
+
+    return [
+
+      {
+        x: 30,
+        y: 10,
+        width: 40
+      }
+
+    ];
+
   }
 
 
   /*
-     For galleries containing more than 8 photographs,
-     start with the 8-photo composition and add more
-     photographs into the cluster.
+     FALLBACK FOR 2 PHOTOS
+  */
+
+  if (count === 2) {
+
+    return [
+
+      {
+        x: 12,
+        y: 12,
+        width: 38
+      },
+
+      {
+        x: 50,
+        y: 22,
+        width: 38
+      }
+
+    ];
+
+  }
+
+
+  if (layouts[count]) {
+
+    return layouts[count];
+
+  }
+
+
+  /*
+     MORE THAN 8 PHOTOS
   */
 
   var base =
     layouts[8].slice();
 
 
-  for (var i = 8; i < count; i++) {
+  for (
+    var i = 8;
+    i < count;
+    i++
+  ) {
 
     var column =
       (i - 8) % 3;
 
+
     var row =
-      Math.floor((i - 8) / 3);
+      Math.floor(
+        (i - 8) / 3
+      );
 
 
     base.push({
 
-      x: 10 + (column * 27),
+      x:
+        10 +
+        (
+          column *
+          27
+        ),
 
-      y: 12 + (row * 25),
+      y:
+        12 +
+        (
+          row *
+          25
+        ),
 
-      width: 29,
+      width:
+        29,
 
       rotation:
         column % 2 === 0
@@ -1036,7 +1028,6 @@ function createPhotoPile(count) {
 
 
   return base;
-
 }
 
 
@@ -1059,39 +1050,58 @@ function getCanvasHeight(count) {
   }
 
   return 820;
-
 }
 
 
 /* ============================================================
-   NORMAL INDIVIDUAL PHOTO DRAGGING
+   INDIVIDUAL PHOTO DRAGGING
    ============================================================ */
 
-function makeDraggable(item, getNextZ) {
+function makeDraggable(
+  item,
+  getNextZ
+) {
 
   var dragging = false;
+  var moved = false;
+  var pointerId = null;
 
-  var startX;
-  var startY;
+  var startX = 0;
+  var startY = 0;
 
-  var originLeft;
-  var originTop;
+  var originLeft = 0;
+  var originTop = 0;
 
 
   /* ----------------------------------------------------------
-     Pointer down
+     POINTER DOWN
      ---------------------------------------------------------- */
 
   item.addEventListener(
     'pointerdown',
     function (e) {
 
-      if (e.button !== undefined && e.button !== 0) {
+      if (
+        window.innerWidth <= 800
+      ) {
+        return;
+      }
+
+
+      if (
+        e.button !== undefined &&
+        e.button !== 0
+      ) {
         return;
       }
 
 
       dragging = true;
+      moved = false;
+
+      pointerId =
+        e.pointerId;
+
 
       item.dataset.dragged =
         'false';
@@ -1105,10 +1115,15 @@ function makeDraggable(item, getNextZ) {
 
 
       originLeft =
-        parseFloat(item.style.left) || 0;
+        parseFloat(
+          item.style.left
+        ) || 0;
+
 
       originTop =
-        parseFloat(item.style.top) || 0;
+        parseFloat(
+          item.style.top
+        ) || 0;
 
 
       item.style.zIndex =
@@ -1123,11 +1138,16 @@ function makeDraggable(item, getNextZ) {
       try {
 
         item.setPointerCapture(
-          e.pointerId
+          pointerId
         );
 
       } catch (error) {
-        /* Older browsers can safely ignore this. */
+
+        /*
+           Safe to ignore
+           on older browsers.
+        */
+
       }
 
 
@@ -1138,64 +1158,86 @@ function makeDraggable(item, getNextZ) {
 
 
   /* ----------------------------------------------------------
-     Pointer move
+     POINTER MOVE
      ---------------------------------------------------------- */
 
   item.addEventListener(
     'pointermove',
     function (e) {
 
-      if (!dragging) {
+      if (
+        !dragging ||
+        e.pointerId !== pointerId
+      ) {
         return;
       }
 
 
       var dx =
-        e.clientX - startX;
+        e.clientX -
+        startX;
+
 
       var dy =
-        e.clientY - startY;
+        e.clientY -
+        startY;
 
 
       /*
-         A tiny movement still counts as a click.
+         Tiny mouse movements
+         still count as a click.
 
-         Only after 4px do we consider this an actual drag.
+         After 4px, it becomes
+         an actual drag.
       */
 
       if (
-        Math.abs(dx) > 4 ||
-        Math.abs(dy) > 4
+        !moved &&
+        Math.hypot(
+          dx,
+          dy
+        ) > 4
       ) {
+
+        moved = true;
 
         item.dataset.dragged =
           'true';
-
-
-        item.style.left =
-          (
-            originLeft + dx
-          ) + 'px';
-
-
-        item.style.top =
-          (
-            originTop + dy
-          ) + 'px';
-
       }
+
+
+      if (!moved) {
+        return;
+      }
+
+
+      item.style.left =
+        (
+          originLeft +
+          dx
+        ) + 'px';
+
+
+      item.style.top =
+        (
+          originTop +
+          dy
+        ) + 'px';
 
     }
   );
 
 
   /* ----------------------------------------------------------
-     Pointer up
+     STOP DRAGGING
      ---------------------------------------------------------- */
 
   function stopDragging(e) {
 
-    if (!dragging) {
+    if (
+      !dragging ||
+      e.pointerId !== pointerId
+    ) {
       return;
     }
 
@@ -1210,244 +1252,37 @@ function makeDraggable(item, getNextZ) {
 
     try {
 
-      item.releasePointerCapture(
-        e.pointerId
-      );
-
-    } catch (error) {
-      /* Nothing needed here. */
-    }
-
-  }
-
-
-  item.addEventListener(
-    'pointerup',
-    stopDragging
-  );
-
-
-  item.addEventListener(
-    'pointercancel',
-    stopDragging
-  );
-
-}
-
-
-/* ============================================================
-   EVENT COLLECTION DRAGGING
-   ============================================================ */
-
-/*
-   The entire .event-stack moves together.
-
-   The individual .masonry-item photographs inside the stack
-   remain clickable, so your existing lightbox still works.
-*/
-
-function makeEventStackDraggable(stack, getNextZ) {
-
-  var dragging = false;
-  var actuallyDragged = false;
-
-  var startX;
-  var startY;
-
-  var originLeft;
-  var originTop;
-
-
-  /* ----------------------------------------------------------
-     Pointer down
-     ---------------------------------------------------------- */
-
-  stack.addEventListener(
-    'pointerdown',
-    function (e) {
-
-      if (e.button !== undefined && e.button !== 0) {
-        return;
-      }
-
-
-      dragging = true;
-      actuallyDragged = false;
-
-
-      /*
-         Reset every photo in this collection before
-         beginning a new interaction.
-      */
-
-      var photos =
-        stack.querySelectorAll('.masonry-item');
-
-      photos.forEach(function (photo) {
-        photo.dataset.dragged = 'false';
-      });
-
-
-      startX =
-        e.clientX;
-
-      startY =
-        e.clientY;
-
-
-      originLeft =
-        parseFloat(stack.style.left) || 0;
-
-      originTop =
-        parseFloat(stack.style.top) || 0;
-
-
-      /*
-         Bring the whole collection forward.
-      */
-
-      stack.style.zIndex =
-        getNextZ();
-
-
-      stack.classList.add(
-        'is-dragging'
-      );
-
-
-      try {
-
-        stack.setPointerCapture(
-          e.pointerId
-        );
-
-      } catch (error) {
-        /* Safe to ignore. */
-      }
-
-    }
-  );
-
-
-  /* ----------------------------------------------------------
-     Pointer move
-     ---------------------------------------------------------- */
-
-  stack.addEventListener(
-    'pointermove',
-    function (e) {
-
-      if (!dragging) {
-        return;
-      }
-
-
-      var dx =
-        e.clientX - startX;
-
-      var dy =
-        e.clientY - startY;
-
-
-      /*
-         Don't treat tiny accidental mouse movement as a drag.
-      */
-
       if (
-        Math.abs(dx) > 4 ||
-        Math.abs(dy) > 4
+        item.hasPointerCapture(
+          pointerId
+        )
       ) {
 
-        actuallyDragged = true;
-
-
-        /*
-           Mark every photograph in this stack so the
-           click generated after dragging does not
-           accidentally open the lightbox.
-        */
-
-        var photos =
-          stack.querySelectorAll('.masonry-item');
-
-        photos.forEach(function (photo) {
-          photo.dataset.dragged = 'true';
-        });
-
-
-        stack.style.left =
-          (
-            originLeft + dx
-          ) + 'px';
-
-
-        stack.style.top =
-          (
-            originTop + dy
-          ) + 'px';
-
+        item.releasePointerCapture(
+          pointerId
+        );
       }
 
-    }
-  );
-
-
-  /* ----------------------------------------------------------
-     Pointer up
-     ---------------------------------------------------------- */
-
-  function stopDragging(e) {
-
-    if (!dragging) {
-      return;
-    }
-
-
-    dragging = false;
-
-
-    stack.classList.remove(
-      'is-dragging'
-    );
-
-
-    try {
-
-      stack.releasePointerCapture(
-        e.pointerId
-      );
-
     } catch (error) {
-      /* Safe to ignore. */
-    }
 
-
-    /*
-       If this interaction was just a click, make sure
-       the individual photo can open normally.
-    */
-
-    if (!actuallyDragged) {
-
-      var photos =
-        stack.querySelectorAll('.masonry-item');
-
-      photos.forEach(function (photo) {
-        photo.dataset.dragged = 'false';
-      });
+      /*
+         Nothing needed.
+      */
 
     }
 
+
+    pointerId = null;
   }
 
 
-  stack.addEventListener(
+  item.addEventListener(
     'pointerup',
     stopDragging
   );
 
 
-  stack.addEventListener(
+  item.addEventListener(
     'pointercancel',
     stopDragging
   );
@@ -1467,53 +1302,43 @@ function initEnvelopes() {
     );
 
 
-  cards.forEach(function (card) {
+  cards.forEach(
+    function (card) {
 
-    var flap =
-      card.querySelector(
-        '.envelope-flap'
-      );
-
-
-    card.addEventListener(
-      'click',
-      function () {
-
-        var isOpen =
-          card.classList.toggle(
-            'open'
-          );
+      var flap =
+        card.querySelector(
+          '.envelope-flap'
+        );
 
 
-        if (flap) {
+      card.addEventListener(
+        'click',
+        function () {
 
-          flap.setAttribute(
-            'aria-expanded',
-            isOpen ? 'true' : 'false'
-          );
+          var isOpen =
+            card.classList.toggle(
+              'open'
+            );
+
+
+          if (flap) {
+
+            flap.setAttribute(
+              'aria-expanded',
+              isOpen
+                ? 'true'
+                : 'false'
+            );
+
+          }
 
         }
+      );
 
-      }
-    );
-
-  });
+    }
+  );
 
 }
-
-
-/* ============================================================
-   INITIALIZE DRAG GALLERY
-   ============================================================ */
-
-document.addEventListener(
-  'DOMContentLoaded',
-  function () {
-
-    initDragGallery();
-
-  }
-);
 
 
 /* ============================================================
@@ -1521,13 +1346,18 @@ document.addEventListener(
    ============================================================ */
 
 const contactForm =
-  document.getElementById("contact-form");
+  document.getElementById(
+    'contact-form'
+  );
 
 
 if (contactForm) {
 
   const formStatus =
-    document.getElementById("form-status");
+    document.getElementById(
+      'form-status'
+    );
+
 
   const submitButton =
     contactForm.querySelector(
@@ -1536,37 +1366,65 @@ if (contactForm) {
 
 
   contactForm.addEventListener(
-    "submit",
-    async (event) => {
+    'submit',
+    async function (event) {
 
       event.preventDefault();
 
 
-      submitButton.disabled = true;
-      submitButton.textContent = "sending...";
-      formStatus.textContent = "";
+      if (!submitButton) {
+        return;
+      }
+
+
+      submitButton.disabled =
+        true;
+
+
+      submitButton.textContent =
+        'sending...';
+
+
+      if (formStatus) {
+
+        formStatus.textContent =
+          '';
+
+      }
 
 
       const formData =
-        new FormData(contactForm);
+        new FormData(
+          contactForm
+        );
 
 
       const data = {
 
         name:
-          formData.get("name"),
+          formData.get(
+            'name'
+          ),
 
         email:
-          formData.get("email"),
+          formData.get(
+            'email'
+          ),
 
         phone:
-          formData.get("phone"),
+          formData.get(
+            'phone'
+          ),
 
         project:
-          formData.get("project"),
+          formData.get(
+            'project'
+          ),
 
         message:
-          formData.get("message")
+          formData.get(
+            'message'
+          )
 
       };
 
@@ -1574,18 +1432,27 @@ if (contactForm) {
       try {
 
         const response =
-          await fetch("/api/contact", {
+          await fetch(
+            '/api/contact',
+            {
 
-            method: "POST",
+              method:
+                'POST',
 
-            headers: {
-              "Content-Type": "application/json"
-            },
+              headers: {
 
-            body:
-              JSON.stringify(data)
+                'Content-Type':
+                  'application/json'
 
-          });
+              },
+
+              body:
+                JSON.stringify(
+                  data
+                )
+
+            }
+          );
 
 
         const result =
@@ -1596,7 +1463,7 @@ if (contactForm) {
 
           throw new Error(
             result.error ||
-            "Something went wrong."
+            'Something went wrong.'
           );
 
         }
@@ -1604,24 +1471,38 @@ if (contactForm) {
 
         contactForm.reset();
 
-        formStatus.textContent =
-          "thank you! i'll be in touch soon <3 ";
+
+        if (formStatus) {
+
+          formStatus.textContent =
+            "thank you! i'll be in touch soon <3 ";
+
+        }
 
 
       } catch (error) {
 
-        console.error(error);
+        console.error(
+          error
+        );
 
-        formStatus.textContent =
-          "oops! something went wrong here. please email me directly at hellosoffee@gmail.com";
+
+        if (formStatus) {
+
+          formStatus.textContent =
+            'oops! something went wrong here. please email me directly at hellosoffee@gmail.com';
+
+        }
 
 
       } finally {
 
-        submitButton.disabled = false;
+        submitButton.disabled =
+          false;
+
 
         submitButton.textContent =
-          "send";
+          'send';
 
       }
 
@@ -1632,7 +1513,7 @@ if (contactForm) {
 
 
 /* ============================================================
-   PHOTOGRAPHY ACCORDION HEADER
+   PHOTOGRAPHY INTRO ACCORDION
    ============================================================ */
 
 const photoIntro =
@@ -1640,10 +1521,12 @@ const photoIntro =
     '.photo-intro-accordion'
   );
 
+
 const photoIntroHeader =
   document.querySelector(
     '.photo-intro-header'
   );
+
 
 const photoIntroToggle =
   document.querySelector(
@@ -1660,7 +1543,9 @@ if (
   function togglePhotoIntro() {
 
     const isOpen =
-      photoIntro.classList.toggle('open');
+      photoIntro.classList.toggle(
+        'open'
+      );
 
 
     photoIntroHeader.setAttribute(
@@ -1685,7 +1570,7 @@ if (
 
   photoIntroHeader.addEventListener(
     'keydown',
-    (event) => {
+    function (event) {
 
       if (
         event.key === 'Enter' ||
@@ -1705,7 +1590,7 @@ if (
 
 
 /* ============================================================
-   DESIGN ACCORDION HEADER
+   DESIGN INTRO ACCORDION
    ============================================================ */
 
 const designIntro =
@@ -1713,10 +1598,12 @@ const designIntro =
     '.design-intro-accordion'
   );
 
+
 const designIntroHeader =
   document.querySelector(
     '.design-intro-header'
   );
+
 
 const designIntroToggle =
   document.querySelector(
@@ -1733,7 +1620,9 @@ if (
   function toggleDesignIntro() {
 
     const isOpen =
-      designIntro.classList.toggle('open');
+      designIntro.classList.toggle(
+        'open'
+      );
 
 
     designIntroHeader.setAttribute(
@@ -1758,7 +1647,7 @@ if (
 
   designIntroHeader.addEventListener(
     'keydown',
-    (event) => {
+    function (event) {
 
       if (
         event.key === 'Enter' ||
@@ -1783,17 +1672,32 @@ if (
 
 function initSpiralCursor() {
 
+  if (
+    document.querySelector(
+      '.spiral-cursor'
+    )
+  ) {
+    return;
+  }
+
+
   const spiralCursor =
-    document.createElement('img');
+    document.createElement(
+      'img'
+    );
 
 
   spiralCursor.src =
     'images/swirls.gif';
 
+
   spiralCursor.className =
     'spiral-cursor';
 
-  spiralCursor.alt = '';
+
+  spiralCursor.alt =
+    '';
+
 
   spiralCursor.setAttribute(
     'aria-hidden',
@@ -1802,11 +1706,8 @@ function initSpiralCursor() {
 
 
   /*
-     Only activate the custom cursor after the GIF
-     successfully loads.
-
-     This prevents the normal cursor from disappearing
-     if the image path ever fails.
+     Hide the normal cursor only
+     if the spiral loads successfully.
   */
 
   spiralCursor.addEventListener(
@@ -1829,6 +1730,7 @@ function initSpiralCursor() {
         'custom-cursor-active'
       );
 
+
       spiralCursor.remove();
 
     }
@@ -1845,10 +1747,13 @@ function initSpiralCursor() {
     function (event) {
 
       spiralCursor.style.left =
-        event.clientX + 'px';
+        event.clientX +
+        'px';
+
 
       spiralCursor.style.top =
-        event.clientY + 'px';
+        event.clientY +
+        'px';
 
     }
   );
@@ -1856,7 +1761,10 @@ function initSpiralCursor() {
 }
 
 
-if (document.readyState === 'loading') {
+if (
+  document.readyState ===
+  'loading'
+) {
 
   document.addEventListener(
     'DOMContentLoaded',
