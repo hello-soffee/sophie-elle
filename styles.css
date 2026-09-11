@@ -943,8 +943,8 @@ p a {
   .event-gallery .event-stack {
     position: absolute;
 
-    width: 340px;
-    height: 430px;
+     width: 340px;
+     height: 500px;
 
     margin: 0;
     padding: 0;
@@ -1016,96 +1016,94 @@ p a {
   }
 
 
-  /* -------------------------------------------------------
-     PHOTO 1
-     ------------------------------------------------------- */
+/* -------------------------------------------------------
+   PHOTO 1
+   ------------------------------------------------------- */
 
-  .event-gallery .event-stack > .masonry-item:nth-child(1) {
-    width: 54%;
-    left: 1%;
-    top: 2%;
+.event-gallery .event-stack > .masonry-item:nth-child(1) {
+  width: 68%;
+  left: 0%;
+  top: 2%;
 
-    transform: rotate(-3deg);
+  transform: rotate(-3deg);
 
-    z-index: 1;
-  }
-
-
-  /* -------------------------------------------------------
-     PHOTO 2
-     ------------------------------------------------------- */
-
-  .event-gallery .event-stack > .masonry-item:nth-child(2) {
-    width: 56%;
-    left: 39%;
-    top: 11%;
-
-    transform: rotate(2.5deg);
-
-    z-index: 2;
-  }
-
-
-  /* -------------------------------------------------------
-     PHOTO 3
-     ------------------------------------------------------- */
-
-  .event-gallery .event-stack > .masonry-item:nth-child(3) {
-    width: 53%;
-    left: 12%;
-    top: 32%;
-
-    transform: rotate(-1.5deg);
-
-    z-index: 3;
-  }
-
-
-  /* -------------------------------------------------------
-     PHOTO 4
-     ------------------------------------------------------- */
-
-  .event-gallery .event-stack > .masonry-item:nth-child(4) {
-    width: 55%;
-    left: 42%;
-    top: 43%;
-
-    transform: rotate(2deg);
-
-    z-index: 4;
-  }
-
-
-  /* -------------------------------------------------------
-     PHOTO 5
-     ------------------------------------------------------- */
-
-  .event-gallery .event-stack > .masonry-item:nth-child(5) {
-    width: 51%;
-    left: 3%;
-    top: 58%;
-
-    transform: rotate(1.5deg);
-
-    z-index: 5;
-  }
-
-
-  /* -------------------------------------------------------
-     PHOTO 6
-     ------------------------------------------------------- */
-
-  .event-gallery .event-stack > .masonry-item:nth-child(6) {
-    width: 53%;
-    left: 42%;
-    top: 67%;
-
-    transform: rotate(-2deg);
-
-    z-index: 6;
-  }
+  z-index: 1;
 }
 
+
+/* -------------------------------------------------------
+   PHOTO 2
+   ------------------------------------------------------- */
+
+.event-gallery .event-stack > .masonry-item:nth-child(2) {
+  width: 66%;
+  left: 34%;
+  top: 12%;
+
+  transform: rotate(2.5deg);
+
+  z-index: 2;
+}
+
+
+/* -------------------------------------------------------
+   PHOTO 3
+   ------------------------------------------------------- */
+
+.event-gallery .event-stack > .masonry-item:nth-child(3) {
+  width: 65%;
+  left: 8%;
+  top: 31%;
+
+  transform: rotate(-1.5deg);
+
+  z-index: 3;
+}
+
+
+/* -------------------------------------------------------
+   PHOTO 4
+   ------------------------------------------------------- */
+
+.event-gallery .event-stack > .masonry-item:nth-child(4) {
+  width: 67%;
+  left: 32%;
+  top: 43%;
+
+  transform: rotate(2deg);
+
+  z-index: 4;
+}
+
+
+/* -------------------------------------------------------
+   PHOTO 5
+   ------------------------------------------------------- */
+
+.event-gallery .event-stack > .masonry-item:nth-child(5) {
+  width: 63%;
+  left: 1%;
+  top: 58%;
+
+  transform: rotate(1.5deg);
+
+  z-index: 5;
+}
+
+
+/* -------------------------------------------------------
+   PHOTO 6
+   ------------------------------------------------------- */
+
+.event-gallery .event-stack > .masonry-item:nth-child(6) {
+  width: 65%;
+  left: 34%;
+  top: 68%;
+
+  transform: rotate(-2deg);
+
+  z-index: 6;
+}
 
 /* =========================================================
    MOBILE GALLERIES
