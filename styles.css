@@ -2138,6 +2138,173 @@ form.contact-form {
   margin: 0;
 }
 
+   /* ============================================================
+   MOBILE FOOTER
+   ============================================================ */
+
+@media (max-width: 800px) {
+
+  .site-footer {
+    padding: 55px 0 35px;
+    overflow: hidden;
+  }
+
+
+  /* ----------------------------------------------------------
+     MAIN FOOTER LAYOUT
+     ---------------------------------------------------------- */
+
+  .site-footer > .wrap:first-child {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+  }
+
+
+  /* ----------------------------------------------------------
+     "TALK SOON!" + BUTTON
+     ---------------------------------------------------------- */
+
+  .site-footer h3 {
+    margin: 0 0 10px;
+  }
+
+  .footer-btn {
+    display: inline-block;
+
+    width: auto;
+    max-width: 100%;
+  }
+
+
+  /* ----------------------------------------------------------
+     FOOTER INFO / LINKS
+     ---------------------------------------------------------- */
+
+  .footer-links-col {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+
+    width: 100%;
+
+    gap: 8px 0;
+  }
+
+
+  /* ----------------------------------------------------------
+     SMALL FOOTER SPIRAL
+
+     This is ONLY the footer spiral.
+     It does not affect the desktop custom cursor.
+     ---------------------------------------------------------- */
+
+  .footer-icon {
+    display: block;
+
+    width: 80px !important;
+    height: 80px !important;
+    max-width: 80px !important;
+
+    object-fit: contain;
+
+    flex: 0 0 80px;
+
+    margin: 0 100% 20px 0;
+  }
+
+
+  /* ----------------------------------------------------------
+     "MONTREAL-BASED PHOTOGRAPHER..."
+     ---------------------------------------------------------- */
+
+  .footer-links-col > p {
+    width: 100%;
+
+    margin: 0 0 15px;
+
+    line-height: 1.5;
+  }
+
+
+  /* ----------------------------------------------------------
+     PHOTOGRAPHY · GRAPHIC DESIGN · INSTAGRAM
+     ---------------------------------------------------------- */
+
+  .footer-links-col > a {
+    display: inline;
+
+    width: auto;
+  }
+
+  .footer-links-col > a:not(:last-of-type)::after {
+    content: " · ";
+
+    display: inline;
+
+    margin: 0 7px;
+
+    text-decoration: none;
+  }
+
+
+  /* ----------------------------------------------------------
+     EMAIL · PHONE
+     ---------------------------------------------------------- */
+
+  .footer-contact {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    width: 100%;
+
+    margin-top: 8px;
+  }
+
+  .footer-contact span {
+    display: inline;
+  }
+
+  .footer-contact span::after {
+    content: " · ";
+
+    margin: 0 7px;
+  }
+
+  .footer-contact a {
+    display: inline;
+  }
+
+
+  /* ----------------------------------------------------------
+     COPYRIGHT / WEBSITE CREDIT
+     CENTERED ON MOBILE
+     ---------------------------------------------------------- */
+
+  .footer-bottom {
+    display: flex;
+
+    width: 100%;
+
+    justify-content: center;
+
+    margin-top: 38px;
+  }
+
+  .footer-fine {
+    width: 100%;
+
+    margin: 0;
+
+    text-align: center;
+
+    line-height: 1.5;
+  }
+
+}
 
 /* =========================================================
    PHOTOGRAPHY INCLUDES
