@@ -415,56 +415,56 @@ var photoPattern = [
   {
     left: 0,
     top: 0,
-    width: 78,
+    width: 96,
     rotation: -3
   },
 
   {
-    left: 24,
-    top: 65,
-    width: 76,
+    left: 12,
+    top: 80,
+    width: 94,
     rotation: 2.5
   },
 
   {
-    left: 6,
-    top: 165,
-    width: 76,
+    left: 3,
+    top: 195,
+    width: 95,
     rotation: -1.5
   },
 
   {
-    left: 21,
-    top: 245,
-    width: 78,
+    left: 10,
+    top: 300,
+    width: 97,
     rotation: 2
   },
 
   {
     left: 0,
-    top: 330,
-    width: 74,
+    top: 405,
+    width: 93,
     rotation: 1.5
   },
 
   {
-    left: 24,
-    top: 410,
-    width: 76,
+    left: 12,
+    top: 510,
+    width: 96,
     rotation: -2
   },
 
   {
-    left: 6,
-    top: 490,
-    width: 75,
+    left: 3,
+    top: 615,
+    width: 94,
     rotation: 2.5
   },
 
   {
-    left: 21,
-    top: 560,
-    width: 77,
+    left: 10,
+    top: 720,
+    width: 96,
     rotation: -1
   }
 
@@ -482,65 +482,57 @@ var photoPattern = [
 
 function getStackColumns(count) {
 
-  /*
-     ONE STACK
-  */
+  /* ONE GROUP */
 
   if (count === 1) {
     return [
       {
-        x: 29,
-        width: 42,
+        x: 25,
+        width: 50,
         offsetY: 0
       }
     ];
   }
 
 
-  /*
-     TWO STACKS
-     Used by Branding right now.
-  */
+  /* TWO GROUPS — BRANDING */
 
   if (count === 2) {
     return [
       {
-        x: 4,
-        width: 42,
+        x: 1,
+        width: 48,
         offsetY: 0
       },
 
       {
-        x: 54,
-        width: 42,
-        offsetY: 120
+        x: 52,
+        width: 47,
+        offsetY: 150
       }
     ];
   }
 
 
-  /*
-     THREE STACKS
-     Used by Events right now.
-  */
+  /* THREE GROUPS — EVENTS */
 
   return [
     {
-      x: 0,
-      width: 38,
+      x: -2,
+      width: 44,
       offsetY: 0
     },
 
     {
-      x: 31,
-      width: 36,
-      offsetY: 150
+      x: 28,
+      width: 44,
+      offsetY: 180
     },
 
     {
-      x: 62,
-      width: 38,
-      offsetY: 20
+      x: 59,
+      width: 44,
+      offsetY: 35
     }
   ];
 }
@@ -760,11 +752,11 @@ function getStackColumns(count) {
          are inside it.
       */
 
-      var stackHeight =
-        Math.max(
-          360,
-          maxPhotoTop + 320
-        );
+ var stackHeight =
+  Math.max(
+    500,
+    maxPhotoTop + 450
+  );
 
 
       stack.style.height =
