@@ -638,9 +638,20 @@ var photoZCounter = 100;
      Start the first row near the top.
   */
 
-  var rowTop = 20;
+/*
+   Each column keeps track of its own bottom.
 
-  var canvasBottom = 0;
+   Left column begins at 20px.
+   Right column begins 80px lower for the
+   slightly staggered look.
+*/
+
+var columnBottoms = [
+  20,
+  100
+];
+
+var canvasBottom = 0;
 
 /*
    Maximum TWO stacks per row.
@@ -662,9 +673,6 @@ for (
     var columns =
       getStackColumns(rowCount);
 
-
-    var rowBottom =
-      rowTop;
 
 
     for (
@@ -708,9 +716,8 @@ for (
         (column.x / 100);
 
 
-      var stackTop =
-        rowTop +
-        column.offsetY;
+var stackTop =
+  columnBottoms[columnIndex];
 
 
       stack.style.width =
@@ -846,13 +853,15 @@ photo.style.zIndex =
         stackHeight + 'px';
 
 
-      rowBottom =
-        Math.max(
-          rowBottom,
-          stackTop +
-          stackHeight
-        );
+/*
+   The next collection in THIS column
+   starts shortly below this collection.
+*/
 
+columnBottoms[columnIndex] =
+  stackTop +
+  stackHeight +
+  45;
 
       canvasBottom =
         Math.max(
@@ -862,15 +871,7 @@ photo.style.zIndex =
         );
 
     }
-
-
-    /*
-       Start another row below the tallest
-       pile from the current row.
-    */
-
-    rowTop =
-      rowBottom + 80;
+ 
 
   }
 
