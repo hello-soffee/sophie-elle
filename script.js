@@ -410,65 +410,65 @@ function initStackGallery(container) {
      naturally makes the pile taller.
   */
 
-  var photoPattern = [
+var photoPattern = [
 
-    {
-      left: 0,
-      top: 0,
-      width: 68,
-      rotation: -3
-    },
+  {
+    left: 0,
+    top: 0,
+    width: 78,
+    rotation: -3
+  },
 
-    {
-      left: 34,
-      top: 65,
-      width: 66,
-      rotation: 2.5
-    },
+  {
+    left: 24,
+    top: 65,
+    width: 76,
+    rotation: 2.5
+  },
 
-    {
-      left: 8,
-      top: 165,
-      width: 65,
-      rotation: -1.5
-    },
+  {
+    left: 6,
+    top: 165,
+    width: 76,
+    rotation: -1.5
+  },
 
-    {
-      left: 32,
-      top: 245,
-      width: 67,
-      rotation: 2
-    },
+  {
+    left: 21,
+    top: 245,
+    width: 78,
+    rotation: 2
+  },
 
-    {
-      left: 1,
-      top: 330,
-      width: 63,
-      rotation: 1.5
-    },
+  {
+    left: 0,
+    top: 330,
+    width: 74,
+    rotation: 1.5
+  },
 
-    {
-      left: 34,
-      top: 410,
-      width: 65,
-      rotation: -2
-    },
+  {
+    left: 24,
+    top: 410,
+    width: 76,
+    rotation: -2
+  },
 
-    {
-      left: 8,
-      top: 490,
-      width: 64,
-      rotation: 2.5
-    },
+  {
+    left: 6,
+    top: 490,
+    width: 75,
+    rotation: 2.5
+  },
 
-    {
-      left: 32,
-      top: 560,
-      width: 66,
-      rotation: -1
-    }
+  {
+    left: 21,
+    top: 560,
+    width: 77,
+    rotation: -1
+  }
 
-  ];
+];
 
 
   /*
@@ -480,57 +480,70 @@ function initStackGallery(container) {
      Three stacks = scattered like Events.
   */
 
-  function getStackColumns(count) {
+function getStackColumns(count) {
 
-    if (count === 1) {
-      return [
-        {
-          x: 31,
-          width: 38,
-          offsetY: 0
-        }
-      ];
-    }
+  /*
+     ONE STACK
+  */
 
-
-    if (count === 2) {
-      return [
-        {
-          x: 6,
-          width: 37,
-          offsetY: 0
-        },
-
-        {
-          x: 58,
-          width: 35,
-          offsetY: 140
-        }
-      ];
-    }
-
-
+  if (count === 1) {
     return [
       {
-        x: 2,
-        width: 34,
+        x: 29,
+        width: 42,
         offsetY: 0
-      },
-
-      {
-        x: 36,
-        width: 31,
-        offsetY: 160
-      },
-
-      {
-        x: 67,
-        width: 34,
-        offsetY: 20
       }
     ];
   }
 
+
+  /*
+     TWO STACKS
+     Used by Branding right now.
+  */
+
+  if (count === 2) {
+    return [
+      {
+        x: 4,
+        width: 42,
+        offsetY: 0
+      },
+
+      {
+        x: 54,
+        width: 42,
+        offsetY: 120
+      }
+    ];
+  }
+
+
+  /*
+     THREE STACKS
+     Used by Events right now.
+  */
+
+  return [
+    {
+      x: 0,
+      width: 38,
+      offsetY: 0
+    },
+
+    {
+      x: 31,
+      width: 36,
+      offsetY: 150
+    },
+
+    {
+      x: 62,
+      width: 38,
+      offsetY: 20
+    }
+  ];
+}
 
   var stackZCounter = 10;
 
