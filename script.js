@@ -30,6 +30,7 @@ document.head.appendChild(vercelAnalytics);
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', function () {
+  initFooter();
   initMobileNav();
   initSplitPanels();
   initAccordions();
@@ -39,6 +40,92 @@ document.addEventListener('DOMContentLoaded', function () {
   initDragGallery();
 });
 
+/* ============================================================
+   SHARED FOOTER
+   ============================================================ */
+
+function initFooter() {
+
+  var footer =
+    document.querySelector('.site-footer');
+
+  if (!footer) return;
+
+
+  footer.innerHTML = `
+    <div class="wrap footer-main">
+
+      <div>
+        <h3>talk soon!</h3>
+
+        <a
+          href="contact.html"
+          class="btn footer-btn"
+        >
+          let's work together
+        </a>
+      </div>
+
+
+      <div class="footer-links-col">
+
+        <img
+          src="images/swirls.gif"
+          alt=""
+          class="footer-icon"
+        >
+
+        <p>
+          montreal-based photographer & graphic designer
+        </p>
+
+        <a href="photography.html">
+          photography
+        </a>
+
+        <a href="design.html">
+          graphic design
+        </a>
+
+        <a
+          href="https://www.instagram.com/sophie___elle"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          instagram
+        </a>
+
+
+        <div class="footer-contact">
+
+          <span>
+            hellosoffee@gmail.com
+          </span>
+
+          <a href="tel:+15146994726">
+            +1 514 699 4726
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="wrap footer-bottom">
+
+      <p class="footer-fine">
+        sophie elle 2026 /
+        <a href="https://sophieelle.com">
+          website by sophie elle
+        </a>
+      </p>
+
+    </div>
+  `;
+
+}
 
 /* ============================================================
    MOBILE NAVIGATION
