@@ -2050,6 +2050,7 @@ form.contact-form {
 
 .site-footer {
   padding: 56px 0;
+   border-top: 0.5px solid #222222;
 }
 
 .site-footer .wrap {
