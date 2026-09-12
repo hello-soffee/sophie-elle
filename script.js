@@ -479,57 +479,44 @@ var photoPattern = [
 
 function getStackColumns(count) {
 
-  /* ONE PILE */
+  /*
+     ONE PILE
+     If a row only has one item left,
+     place it on the left.
+  */
 
   if (count === 1) {
     return [
       {
-        x: 24,
-        width: 52,
-        offsetY: 0
-      }
-    ];
-  }
-
-
-  /* TWO PILES — BRANDING */
-
-  if (count === 2) {
-    return [
-      {
         x: 0,
-        width: 52,
+        width: 44,
         offsetY: 0
-      },
-
-      {
-        x: 48,
-        width: 52,
-        offsetY: 150
       }
     ];
   }
 
 
-  /* THREE PILES — EVENTS */
+  /*
+     TWO PILES
+
+     Left pile:  0% → 44%
+     Gap:       44% → 56%
+     Right pile:56% → 100%
+
+     Gives us a clear space between collections.
+  */
 
   return [
     {
-      x: -3,
-      width: 50,
+      x: 0,
+      width: 44,
       offsetY: 0
     },
 
     {
-      x: 25,
-      width: 50,
-      offsetY: 230
-    },
-
-    {
-      x: 53,
-      width: 50,
-      offsetY: 50
+      x: 56,
+      width: 44,
+      offsetY: 80
     }
   ];
 }
@@ -544,22 +531,21 @@ var photoZCounter = 100;
 
   var canvasBottom = 0;
 
+/*
+   Maximum TWO stacks per row.
+*/
 
-  /*
-     Maximum three stacks per row.
-  */
+for (
+  var rowStart = 0;
+  rowStart < stacks.length;
+  rowStart += 2
+) {
 
-  for (
-    var rowStart = 0;
-    rowStart < stacks.length;
-    rowStart += 3
-  ) {
-
-    var rowCount =
-      Math.min(
-        3,
-        stacks.length - rowStart
-      );
+  var rowCount =
+    Math.min(
+      2,
+      stacks.length - rowStart
+    );
 
 
     var columns =
