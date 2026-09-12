@@ -1668,9 +1668,23 @@ if (
 
 function initSpiralCursor() {
 
-  if (window.innerWidth <= 800) {
+  /*
+     Do not create the custom cursor
+     on touch / coarse-pointer devices.
+  */
+
+  if (
+    window.matchMedia(
+      '(hover: none), (pointer: coarse)'
+    ).matches
+  ) {
     return;
   }
+
+
+  /*
+     Prevent duplicate cursor images.
+  */
 
   if (
     document.querySelector(
@@ -1679,6 +1693,7 @@ function initSpiralCursor() {
   ) {
     return;
   }
+
 
   const spiralCursor =
     document.createElement(
@@ -1721,6 +1736,12 @@ function initSpiralCursor() {
   );
 
 
+  /*
+     If the GIF cannot load,
+     restore the normal cursor
+     and remove the broken image.
+  */
+
   spiralCursor.addEventListener(
     'error',
     function () {
@@ -1741,6 +1762,10 @@ function initSpiralCursor() {
   );
 
 
+  /*
+     Follow the mouse.
+  */
+
   document.addEventListener(
     'mousemove',
     function (event) {
@@ -1759,6 +1784,11 @@ function initSpiralCursor() {
 
 }
 
+
+/*
+   Start the cursor once the page
+   is ready.
+*/
 
 if (
   document.readyState ===
