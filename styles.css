@@ -2103,10 +2103,6 @@ form.contact-form {
     opacity 0.2s ease;
 }
 
-.footer-links-col a:hover {
-  opacity: 0.6;
-}
-
 .footer-contact {
   display: flex;
 
@@ -2341,6 +2337,41 @@ form.contact-form {
     text-align: center !important;
 
     line-height: 1.5 !important;
+  }
+
+}
+
+/* =========================================================
+   FOOTER LINK STATES
+   ========================================================= */
+
+
+/* MOBILE — underline the 3 main footer links */
+
+@media (max-width: 800px) {
+
+  .site-footer .footer-links-col > a {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+
+}
+
+
+/* DESKTOP — turn the 3 main footer links blue */
+
+@media (min-width: 801px) {
+
+  .site-footer .footer-links-col > a {
+    transition:
+      color 0.2s ease,
+      opacity 0.2s ease;
+  }
+
+  .site-footer .footer-links-col > a:hover {
+    color: var(--stone);
+    opacity: 1;
   }
 
 }
