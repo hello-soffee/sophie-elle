@@ -2306,6 +2306,130 @@ form.contact-form {
 
 }
 
+   /* ============================================================
+   MOBILE PHOTOGRAPHY + LIGHTBOX FIX
+   ============================================================ */
+
+@media (max-width: 800px) {
+
+  /* Normal photography galleries */
+
+  .masonry {
+    column-count: 1;
+    column-gap: 0;
+
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+
+  /* Events collections */
+
+  .event-gallery {
+    display: block;
+
+    height: auto !important;
+    min-height: 0 !important;
+
+    column-count: 1;
+    column-gap: 0;
+  }
+
+  .event-stack {
+    position: static !important;
+
+    display: block;
+
+    width: 100% !important;
+    height: auto !important;
+
+    margin: 0;
+    padding: 0;
+  }
+
+
+  /* Individual clickable photographs */
+
+  .masonry-item,
+  .event-gallery .event-stack > .masonry-item {
+    position: relative !important;
+
+    left: auto !important;
+    top: auto !important;
+
+    display: block;
+
+    width: 100% !important;
+
+    margin: 0 0 28px;
+
+    transform: none !important;
+
+    cursor: pointer;
+
+    pointer-events: auto !important;
+
+    touch-action: manipulation;
+  }
+
+
+  /* Image itself doesn't intercept the tap.
+     The button around it receives the tap instead. */
+
+  .masonry-item img,
+  .event-gallery .event-stack > .masonry-item img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    max-width: 100%;
+
+    pointer-events: none;
+  }
+
+
+  /* ----------------------------------------------------------
+     MOBILE LIGHTBOX
+     ---------------------------------------------------------- */
+
+  .lightbox {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100vw;
+    height: 100dvh;
+
+    z-index: 9999;
+  }
+
+  .lightbox-stage {
+    width: 90vw;
+    height: 75dvh;
+
+    max-width: none;
+
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .lightbox-close {
+    top: 18px;
+    right: 18px;
+  }
+
+  .lightbox-prev {
+    left: 10px;
+  }
+
+  .lightbox-next {
+    right: 10px;
+  }
+
+}
+
 /* =========================================================
    PHOTOGRAPHY INCLUDES
    ========================================================= */
