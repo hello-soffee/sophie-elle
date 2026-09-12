@@ -1665,7 +1665,12 @@ if (
    ANIMATED SPIRAL CURSOR
    ============================================================ */
 
+
 function initSpiralCursor() {
+
+  if (window.innerWidth <= 800) {
+    return;
+  }
 
   if (
     document.querySelector(
@@ -1674,7 +1679,6 @@ function initSpiralCursor() {
   ) {
     return;
   }
-
 
   const spiralCursor =
     document.createElement(
