@@ -2138,111 +2138,128 @@ form.contact-form {
   margin: 0;
 }
 
-   /* ============================================================
-   MOBILE FOOTER
+
+
+/* ============================================================
+   MOBILE FOOTER — FINAL OVERRIDE
    ============================================================ */
 
 @media (max-width: 800px) {
 
+  /* ----------------------------------------------------------
+     FOOTER
+     ---------------------------------------------------------- */
+
   .site-footer {
-    padding: 55px 0 35px;
+    padding: 55px 0 30px !important;
     overflow: hidden;
   }
 
 
-  /* ----------------------------------------------------------
-     MAIN FOOTER LAYOUT
-     ---------------------------------------------------------- */
-
   .site-footer > .wrap:first-child {
-    display: grid;
-    grid-template-columns: 1fr;
-
-    gap: 45px;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
   }
 
 
   /* ----------------------------------------------------------
-     "TALK SOON!" + BUTTON
+     TALK SOON
      ---------------------------------------------------------- */
 
   .site-footer h3 {
-    margin: 0 0 10px;
-  }
-
-  .footer-btn {
-    display: inline-block;
-
-    width: auto;
-    max-width: 100%;
+    margin: 0 0 10px !important;
   }
 
 
-  /* ----------------------------------------------------------
-     FOOTER INFO / LINKS
-     ---------------------------------------------------------- */
+  .site-footer .footer-btn {
+    display: inline-block !important;
 
-  .footer-links-col {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
+    width: auto !important;
+    max-width: 100% !important;
 
-    width: 100%;
-
-    gap: 8px 0;
+    margin: 0 !important;
   }
 
 
   /* ----------------------------------------------------------
-     SMALL FOOTER SPIRAL
-
-     This is ONLY the footer spiral.
-     It does not affect the desktop custom cursor.
+     RIGHT / INFO SIDE
      ---------------------------------------------------------- */
 
-  .footer-icon {
-    display: block;
+  .site-footer .footer-links-col {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
 
-    width: 80px !important;
-    height: 80px !important;
-    max-width: 80px !important;
+    width: 100% !important;
 
-    object-fit: contain;
+    gap: 8px 0 !important;
 
-    flex: 0 0 80px;
-
-    margin: 0 100% 20px 0;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
 
   /* ----------------------------------------------------------
-     "MONTREAL-BASED PHOTOGRAPHER..."
+     SMALL SPIRAL
      ---------------------------------------------------------- */
 
-  .footer-links-col > p {
-    width: 100%;
+  .site-footer .footer-icon {
+    display: block !important;
 
-    margin: 0 0 15px;
+    width: 72px !important;
+    height: 72px !important;
 
-    line-height: 1.5;
+    min-width: 72px !important;
+    min-height: 72px !important;
+
+    max-width: 72px !important;
+    max-height: 72px !important;
+
+    flex: 0 0 72px !important;
+
+    object-fit: contain !important;
+
+    margin: 0 100% 18px 0 !important;
+
+    padding: 0 !important;
   }
 
 
   /* ----------------------------------------------------------
-     PHOTOGRAPHY · GRAPHIC DESIGN · INSTAGRAM
+     DESCRIPTION
      ---------------------------------------------------------- */
 
-  .footer-links-col > a {
-    display: inline;
+  .site-footer .footer-links-col > p {
+    display: block !important;
 
-    width: auto;
+    width: 100% !important;
+
+    margin: 0 0 12px !important;
+
+    line-height: 1.45 !important;
   }
 
-  .footer-links-col > a:not(:last-of-type)::after {
+
+  /* ----------------------------------------------------------
+     MAIN LINKS
+     photography · graphic design · instagram
+     ---------------------------------------------------------- */
+
+  .site-footer .footer-links-col > a {
+    display: inline-block !important;
+
+    width: auto !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+
+  .site-footer .footer-links-col > a::after {
     content: " · ";
-
-    display: inline;
+    display: inline-block;
 
     margin: 0 7px;
 
@@ -2250,58 +2267,76 @@ form.contact-form {
   }
 
 
+  .site-footer .footer-links-col > a:last-of-type::after {
+    content: "";
+    margin: 0;
+  }
+
+
   /* ----------------------------------------------------------
-     EMAIL · PHONE
+     EMAIL + PHONE
      ---------------------------------------------------------- */
 
-  .footer-contact {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+  .site-footer .footer-contact {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
 
-    width: 100%;
+    width: 100% !important;
 
-    margin-top: 8px;
+    margin: 4px 0 0 !important;
+    padding: 0 !important;
   }
 
-  .footer-contact span {
-    display: inline;
+
+  .site-footer .footer-contact span,
+  .site-footer .footer-contact a {
+    display: inline-block !important;
+
+    width: auto !important;
+
+    margin: 0 !important;
   }
 
-  .footer-contact span::after {
+
+  .site-footer .footer-contact span::after {
     content: " · ";
+
+    display: inline-block;
 
     margin: 0 7px;
   }
 
-  .footer-contact a {
-    display: inline;
-  }
-
 
   /* ----------------------------------------------------------
-     COPYRIGHT / WEBSITE CREDIT
-     CENTERED ON MOBILE
+     COPYRIGHT
      ---------------------------------------------------------- */
 
-  .footer-bottom {
-    display: flex;
+  .site-footer .footer-bottom {
+    display: block !important;
 
-    width: 100%;
+    width: 100% !important;
+    max-width: none !important;
 
-    justify-content: center;
+    margin: 38px auto 0 !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
 
-    margin-top: 38px;
+    text-align: center !important;
   }
 
-  .footer-fine {
-    width: 100%;
 
-    margin: 0;
+  .site-footer .footer-fine {
+    display: block !important;
 
-    text-align: center;
+    width: 100% !important;
 
-    line-height: 1.5;
+    margin: 0 auto !important;
+
+    text-align: center !important;
+
+    line-height: 1.5 !important;
   }
 
 }
