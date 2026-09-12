@@ -1015,100 +1015,96 @@ p a {
     user-drag: none;
   }
 
+   /* =======================================================
+   GROUPED / STACKED PHOTO GALLERIES
+   Events + Branding
+   ======================================================= */
 
-/* -------------------------------------------------------
-   PHOTO 1
-   ------------------------------------------------------- */
+.event-gallery.drag-gallery,
+.stack-gallery.drag-gallery {
+  position: relative;
+  display: block;
 
-.event-gallery .event-stack > .masonry-item:nth-child(1) {
-  width: 68%;
-  left: 0%;
-  top: 2%;
+  width: 100%;
+  min-height: 650px;
 
-  transform: rotate(-3deg);
+  overflow: visible;
 
-  z-index: 1;
+  column-count: initial;
+  column-gap: initial;
 }
 
 
-/* -------------------------------------------------------
-   PHOTO 2
-   ------------------------------------------------------- */
+/*
+   Each wrapper represents one client,
+   event, shoot, etc.
 
-.event-gallery .event-stack > .masonry-item:nth-child(2) {
-  width: 66%;
-  left: 34%;
-  top: 12%;
+   JS assigns its width, left, top and height.
+*/
 
-  transform: rotate(2.5deg);
+.event-gallery .event-stack,
+.stack-gallery .photo-stack {
+  position: absolute;
 
-  z-index: 2;
+  margin: 0;
+  padding: 0;
+
+  overflow: visible;
+
+  user-select: none;
 }
 
 
-/* -------------------------------------------------------
-   PHOTO 3
-   ------------------------------------------------------- */
+/*
+   Every photograph remains its own
+   draggable + clickable object.
+*/
 
-.event-gallery .event-stack > .masonry-item:nth-child(3) {
-  width: 65%;
-  left: 8%;
-  top: 31%;
+.event-gallery.drag-gallery .event-stack > .masonry-item,
+.stack-gallery.drag-gallery .photo-stack > .masonry-item {
+  position: absolute;
+  display: block;
 
-  transform: rotate(-1.5deg);
+  margin: 0;
+  padding: 0;
 
-  z-index: 3;
+  border: 0;
+  background: transparent;
+
+  max-width: none;
+  break-inside: initial;
+
+  cursor: grab;
+  touch-action: none;
+
+  transform-origin: center center;
+
+  box-shadow:
+    0 4px 12px rgba(20, 21, 26, 0.10);
 }
 
 
-/* -------------------------------------------------------
-   PHOTO 4
-   ------------------------------------------------------- */
-
-.event-gallery .event-stack > .masonry-item:nth-child(4) {
-  width: 67%;
-  left: 32%;
-  top: 43%;
-
-  transform: rotate(2deg);
-
-  z-index: 4;
+.event-gallery.drag-gallery .event-stack > .masonry-item.is-dragging,
+.stack-gallery.drag-gallery .photo-stack > .masonry-item.is-dragging {
+  cursor: grabbing;
 }
 
 
-/* -------------------------------------------------------
-   PHOTO 5
-   ------------------------------------------------------- */
+.event-gallery.drag-gallery .event-stack > .masonry-item img,
+.stack-gallery.drag-gallery .photo-stack > .masonry-item img {
+  display: block;
 
-.event-gallery .event-stack > .masonry-item:nth-child(5) {
-  width: 63%;
-  left: 1%;
-  top: 58%;
+  width: 100%;
+  height: auto;
+  max-width: none;
 
-  transform: rotate(1.5deg);
+  object-fit: unset;
 
-  z-index: 5;
+  pointer-events: none;
+
+  -webkit-user-drag: none;
+  user-drag: none;
 }
-
-
-/* -------------------------------------------------------
-   PHOTO 6
-   ------------------------------------------------------- */
-
-.event-gallery .event-stack > .masonry-item:nth-child(6) {
-  width: 65%;
-  left: 34%;
-  top: 68%;
-
-  transform: rotate(-2deg);
-
-  z-index: 6;
-}
-
-
-/* CLOSE DESKTOP-ONLY MEDIA QUERY */
-}
-
 
 /* =========================================================
    MOBILE GALLERIES
