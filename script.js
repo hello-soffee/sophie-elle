@@ -44,13 +44,37 @@ document.addEventListener('DOMContentLoaded', function () {
    SHARED FOOTER
    ============================================================ */
 
+/* ============================================================
+   SHARED FOOTER
+   ============================================================ */
+
 function initFooter() {
 
   var footer =
     document.querySelector('.site-footer');
 
-  if (!footer) return;
 
+  /*
+     If this page does not already have a footer,
+     create one automatically.
+  */
+
+  if (!footer) {
+
+    footer =
+      document.createElement('footer');
+
+    footer.className =
+      'site-footer';
+
+    document.body.appendChild(footer);
+
+  }
+
+
+  /*
+     Shared footer content
+  */
 
   footer.innerHTML = `
     <div class="wrap footer-main">
