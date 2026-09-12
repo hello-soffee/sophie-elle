@@ -415,56 +415,56 @@ var photoPattern = [
   {
     left: 0,
     top: 0,
-    width: 96,
+    width: 86,
     rotation: -3
   },
 
   {
-    left: 12,
-    top: 80,
-    width: 94,
+    left: 14,
+    top: 110,
+    width: 84,
     rotation: 2.5
   },
 
   {
     left: 3,
-    top: 195,
-    width: 95,
+    top: 235,
+    width: 86,
     rotation: -1.5
   },
 
   {
-    left: 10,
-    top: 300,
-    width: 97,
+    left: 13,
+    top: 360,
+    width: 85,
     rotation: 2
   },
 
   {
-    left: 0,
-    top: 405,
-    width: 93,
+    left: 1,
+    top: 490,
+    width: 84,
     rotation: 1.5
   },
 
   {
-    left: 12,
-    top: 510,
-    width: 96,
+    left: 14,
+    top: 620,
+    width: 86,
     rotation: -2
   },
 
   {
-    left: 3,
-    top: 615,
-    width: 94,
+    left: 4,
+    top: 750,
+    width: 84,
     rotation: 2.5
   },
 
   {
-    left: 10,
-    top: 720,
-    width: 96,
+    left: 12,
+    top: 880,
+    width: 86,
     rotation: -1
   }
 
@@ -482,62 +482,62 @@ var photoPattern = [
 
 function getStackColumns(count) {
 
-  /* ONE GROUP */
+  /* ONE PILE */
 
   if (count === 1) {
     return [
       {
-        x: 25,
-        width: 50,
+        x: 24,
+        width: 52,
         offsetY: 0
       }
     ];
   }
 
 
-  /* TWO GROUPS — BRANDING */
+  /* TWO PILES — BRANDING */
 
   if (count === 2) {
     return [
       {
-        x: 1,
-        width: 48,
+        x: 0,
+        width: 52,
         offsetY: 0
       },
 
       {
-        x: 52,
-        width: 47,
+        x: 48,
+        width: 52,
         offsetY: 150
       }
     ];
   }
 
 
-  /* THREE GROUPS — EVENTS */
+  /* THREE PILES — EVENTS */
 
   return [
     {
-      x: -2,
-      width: 44,
+      x: -3,
+      width: 50,
       offsetY: 0
     },
 
     {
-      x: 28,
-      width: 44,
-      offsetY: 180
+      x: 25,
+      width: 50,
+      offsetY: 230
     },
 
     {
-      x: 59,
-      width: 44,
-      offsetY: 35
+      x: 53,
+      width: 50,
+      offsetY: 50
     }
   ];
 }
 
-  var stackZCounter = 10;
+var photoZCounter = 100;
 
   /*
      Start the first row near the top.
@@ -631,16 +631,12 @@ function getStackColumns(count) {
         stackTop + 'px';
 
 
-      stack.style.zIndex =
-        10 + stackIndex;
-
 
       /*
          Position every photograph
          automatically.
       */
 
-      var photoZCounter = 20;
 
       var maxPhotoTop = 0;
 
@@ -706,9 +702,10 @@ function getStackColumns(count) {
             'deg)';
 
 
-          photo.style.zIndex =
-            photoZCounter +
-            photoIndex;
+    photoZCounter++;
+
+photo.style.zIndex =
+  photoZCounter;
 
 
           maxPhotoTop =
@@ -718,29 +715,21 @@ function getStackColumns(count) {
             );
 
 
-          makeDraggable(
-            photo,
-            function () {
+   makeDraggable(
+  photo,
+  function () {
 
-              photoZCounter++;
-              stackZCounter++;
+    /*
+       Every time a photo is clicked / dragged,
+       give it the highest z-index anywhere
+       in this gallery.
+    */
 
+    photoZCounter++;
 
-              /*
-                 Bring this entire client/event
-                 pile above the other piles.
-              */
-
-              stack.style.zIndex =
-                stackZCounter;
-
-
-              return (
-                50 +
-                photoZCounter
-              );
-            }
-          );
+    return photoZCounter;
+  }
+);
 
         }
       );
