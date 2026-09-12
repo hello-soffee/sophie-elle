@@ -321,6 +321,9 @@ function initActiveNav() {
 /* ============================================================
    DRAG GALLERY
    ============================================================ */
+/* ============================================================
+   DRAG GALLERY
+   ============================================================ */
 
 function initDragGallery() {
   if (window.innerWidth <= 800) return;
@@ -330,36 +333,48 @@ function initDragGallery() {
 
   containers.forEach(function (container) {
 
+    /*
+       Stacked galleries:
+       Events + Branding
+    */
     if (
-      container.classList.contains(
-        'event-gallery'
-      )
+      container.classList.contains('event-gallery') ||
+      container.classList.contains('stack-gallery')
     ) {
-      initEventGallery(container);
+      initStackGallery(container);
       return;
     }
 
+    /*
+       All other photography galleries
+    */
     initNormalDragGallery(container);
   });
 }
 
 
 /* ============================================================
-   EVENTS GALLERY
+   STACKED PHOTO GALLERIES
 
-   The EVENT STACK controls the starting arrangement only.
+   Used by:
+   - Events
+   - Branding
 
-   Every photograph inside:
-   - can be clicked
-   - can be dragged individually
-   - keeps its own original aspect ratio
+   Each .event-stack or .photo-stack becomes one photo pile.
+
+   Photos inside every pile:
+   - are positioned automatically
+   - remain individually clickable
+   - remain individually draggable
+   - keep their natural aspect ratios
    ============================================================ */
 
-function initEventGallery(container) {
+function initStackGallery(container) {
+
   var stacks =
     Array.from(
       container.querySelectorAll(
-        '.event-stack'
+        '.event-stack, .photo-stack'
       )
     );
 
@@ -371,6 +386,7 @@ function initEventGallery(container) {
     return;
   }
 
+
   container.classList.add(
     'drag-gallery'
   );
@@ -380,97 +396,195 @@ function initEventGallery(container) {
   );
 
 
-  var canvasHeight = 850;
-
   var canvasWidth =
     container.clientWidth;
 
-  container.style.height =
-    canvasHeight + 'px';
-
 
   /*
-     Starting position of the three EVENT GROUPS.
+     Starting arrangement of photographs
+     INSIDE each stack.
+
+     Width + left are percentages of the stack.
+
+     Top is in pixels so adding more photos
+     naturally makes the pile taller.
   */
 
-  var stackPositions = [
+  var photoPattern = [
 
     {
-      x: 2,
-      y: 5,
-      width: 34
+      left: 0,
+      top: 0,
+      width: 68,
+      rotation: -3
     },
 
     {
-      x: 36,
-      y: 28,
-      width: 31
+      left: 34,
+      top: 65,
+      width: 66,
+      rotation: 2.5
     },
 
     {
-      x: 67,
-      y: 7,
-      width: 34
+      left: 8,
+      top: 165,
+      width: 65,
+      rotation: -1.5
+    },
+
+    {
+      left: 32,
+      top: 245,
+      width: 67,
+      rotation: 2
+    },
+
+    {
+      left: 1,
+      top: 330,
+      width: 63,
+      rotation: 1.5
+    },
+
+    {
+      left: 34,
+      top: 410,
+      width: 65,
+      rotation: -2
+    },
+
+    {
+      left: 8,
+      top: 490,
+      width: 64,
+      rotation: 2.5
+    },
+
+    {
+      left: 32,
+      top: 560,
+      width: 66,
+      rotation: -1
     }
 
   ];
 
 
+  /*
+     Different arrangements depending on
+     how many stacks are in a row.
+
+     One stack = centered.
+     Two stacks = spread across the page.
+     Three stacks = scattered like Events.
+  */
+
+  function getStackColumns(count) {
+
+    if (count === 1) {
+      return [
+        {
+          x: 31,
+          width: 38,
+          offsetY: 0
+        }
+      ];
+    }
+
+
+    if (count === 2) {
+      return [
+        {
+          x: 6,
+          width: 37,
+          offsetY: 0
+        },
+
+        {
+          x: 58,
+          width: 35,
+          offsetY: 140
+        }
+      ];
+    }
+
+
+    return [
+      {
+        x: 2,
+        width: 34,
+        offsetY: 0
+      },
+
+      {
+        x: 36,
+        width: 31,
+        offsetY: 160
+      },
+
+      {
+        x: 67,
+        width: 34,
+        offsetY: 20
+      }
+    ];
+  }
+
+
   var stackZCounter = 10;
 
+  /*
+     Start the first row near the top.
+  */
 
-  stacks.forEach(
-    function (stack, index) {
+  var rowTop = 20;
 
-      var position =
-        stackPositions[index] ||
-        {
-          x:
-            10 +
-            ((index % 3) * 28),
-
-          y:
-            12 +
-            (
-              Math.floor(index / 3) *
-              36
-            ),
-
-          width: 32
-        };
+  var canvasBottom = 0;
 
 
-      var stackWidth =
-        canvasWidth *
-        (position.width / 100);
+  /*
+     Maximum three stacks per row.
+  */
+
+  for (
+    var rowStart = 0;
+    rowStart < stacks.length;
+    rowStart += 3
+  ) {
+
+    var rowCount =
+      Math.min(
+        3,
+        stacks.length - rowStart
+      );
 
 
-      stack.style.width =
-        stackWidth + 'px';
+    var columns =
+      getStackColumns(rowCount);
 
 
-      stack.style.left =
-        (
-          canvasWidth *
-          (position.x / 100)
-        ) + 'px';
+    var rowBottom =
+      rowTop;
 
 
-      stack.style.top =
-        (
-          canvasHeight *
-          (position.y / 100)
-        ) + 'px';
+    for (
+      var columnIndex = 0;
+      columnIndex < rowCount;
+      columnIndex++
+    ) {
+
+      var stackIndex =
+        rowStart + columnIndex;
 
 
-      stack.style.zIndex =
-        stackZCounter;
+      var stack =
+        stacks[stackIndex];
 
 
-      /*
-         EACH PHOTO inside this event group
-         becomes independently draggable.
-      */
+      var column =
+        columns[columnIndex];
+
 
       var photos =
         Array.from(
@@ -480,14 +594,123 @@ function initEventGallery(container) {
         );
 
 
+      /*
+         Size + horizontal position
+         of the whole photo pile.
+      */
+
+      var stackWidth =
+        canvasWidth *
+        (column.width / 100);
+
+
+      var stackLeft =
+        canvasWidth *
+        (column.x / 100);
+
+
+      var stackTop =
+        rowTop +
+        column.offsetY;
+
+
+      stack.style.width =
+        stackWidth + 'px';
+
+
+      stack.style.left =
+        stackLeft + 'px';
+
+
+      stack.style.top =
+        stackTop + 'px';
+
+
+      stack.style.zIndex =
+        10 + stackIndex;
+
+
+      /*
+         Position every photograph
+         automatically.
+      */
+
       var photoZCounter = 20;
+
+      var maxPhotoTop = 0;
 
 
       photos.forEach(
-        function (photo) {
+        function (photo, photoIndex) {
+
+          var patternIndex =
+            photoIndex %
+            photoPattern.length;
+
+
+          var round =
+            Math.floor(
+              photoIndex /
+              photoPattern.length
+            );
+
+
+          var pattern =
+            photoPattern[patternIndex];
+
+
+          /*
+             If a stack ever contains more
+             than 8 photos, begin another
+             staggered layer below.
+          */
+
+          var extraTop =
+            round * 620;
+
+
+          var extraLeft =
+            round % 2 === 0
+              ? 0
+              : 3;
+
+
+          var photoTop =
+            pattern.top +
+            extraTop;
+
+
+          photo.style.width =
+            pattern.width + '%';
+
+
+          photo.style.left =
+            (
+              pattern.left +
+              extraLeft
+            ) + '%';
+
+
+          photo.style.top =
+            photoTop + 'px';
+
+
+          photo.style.transform =
+            'rotate(' +
+            pattern.rotation +
+            'deg)';
+
 
           photo.style.zIndex =
-            photoZCounter;
+            photoZCounter +
+            photoIndex;
+
+
+          maxPhotoTop =
+            Math.max(
+              maxPhotoTop,
+              photoTop
+            );
 
 
           makeDraggable(
@@ -499,23 +722,82 @@ function initEventGallery(container) {
 
 
               /*
-                 Bring the event group forward
-                 whenever one of its photos
-                 is interacted with.
+                 Bring this entire client/event
+                 pile above the other piles.
               */
 
               stack.style.zIndex =
                 stackZCounter;
 
 
-              return photoZCounter;
+              return (
+                50 +
+                photoZCounter
+              );
             }
           );
 
         }
       );
+
+
+      /*
+         Automatically give the stack enough
+         vertical room for however many photos
+         are inside it.
+      */
+
+      var stackHeight =
+        Math.max(
+          360,
+          maxPhotoTop + 320
+        );
+
+
+      stack.style.height =
+        stackHeight + 'px';
+
+
+      rowBottom =
+        Math.max(
+          rowBottom,
+          stackTop +
+          stackHeight
+        );
+
+
+      canvasBottom =
+        Math.max(
+          canvasBottom,
+          stackTop +
+          stackHeight
+        );
+
     }
-  );
+
+
+    /*
+       Start another row below the tallest
+       pile from the current row.
+    */
+
+    rowTop =
+      rowBottom + 80;
+
+  }
+
+
+  /*
+     Gallery itself now grows automatically.
+
+     No more fixed 850px canvas.
+  */
+
+  container.style.height =
+    Math.max(
+      650,
+      canvasBottom + 60
+    ) + 'px';
 
 
   container.addEventListener(
@@ -524,8 +806,8 @@ function initEventGallery(container) {
       e.preventDefault();
     }
   );
-}
 
+}
 
 /* ============================================================
    NORMAL PHOTOGRAPHY GALLERIES
