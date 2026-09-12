@@ -486,12 +486,15 @@ function initStackGallery(container) {
       )
     );
 
+
   if (!stacks.length) {
+
     container.classList.remove(
       'drag-gallery-pending'
     );
 
     return;
+
   }
 
 
@@ -499,400 +502,633 @@ function initStackGallery(container) {
     'drag-gallery'
   );
 
-  container.classList.remove(
-    'drag-gallery-pending'
-  );
-
-
-  var canvasWidth =
-    container.clientWidth;
-
 
   /*
      Starting arrangement of photographs
-     INSIDE each stack.
-
-     Width + left are percentages of the stack.
-
-     Top is in pixels so adding more photos
-     naturally makes the pile taller.
+     inside each collection.
   */
 
-var photoPattern = [
+  var photoPattern = [
 
-  {
-    left: 0,
-    top: 0,
-    width: 86,
-    rotation: -3
-  },
-
-  {
-    left: 14,
-    top: 110,
-    width: 84,
-    rotation: 2.5
-  },
-
-  {
-    left: 3,
-    top: 235,
-    width: 86,
-    rotation: -1.5
-  },
-
-  {
-    left: 13,
-    top: 360,
-    width: 85,
-    rotation: 2
-  },
-
-  {
-    left: 1,
-    top: 490,
-    width: 84,
-    rotation: 1.5
-  },
-
-  {
-    left: 14,
-    top: 620,
-    width: 86,
-    rotation: -2
-  },
-
-  {
-    left: 4,
-    top: 750,
-    width: 84,
-    rotation: 2.5
-  },
-
-  {
-    left: 12,
-    top: 880,
-    width: 86,
-    rotation: -1
-  }
-
-];
-
-
-  /*
-     Different arrangements depending on
-     how many stacks are in a row.
-
-     One stack = centered.
-     Two stacks = spread across the page.
-     Three stacks = scattered like Events.
-  */
-
-function getStackColumns(count) {
-
-  /*
-     ONE PILE
-     If a row only has one item left,
-     place it on the left.
-  */
-
-  if (count === 1) {
-    return [
-      {
-        x: 0,
-        width: 44,
-        offsetY: 0
-      }
-    ];
-  }
-
-
-  /*
-     TWO PILES
-
-     Left pile:  0% → 44%
-     Gap:       44% → 56%
-     Right pile:56% → 100%
-
-     Gives us a clear space between collections.
-  */
-
-  return [
     {
-      x: 0,
-      width: 44,
-      offsetY: 0
+      left: 0,
+      top: 0,
+      width: 86,
+      rotation: -3
     },
 
     {
-      x: 56,
-      width: 44,
-      offsetY: 80
-    }
-  ];
-}
+      left: 14,
+      top: 110,
+      width: 84,
+      rotation: 2.5
+    },
 
-var photoZCounter = 100;
+    {
+      left: 3,
+      top: 235,
+      width: 86,
+      rotation: -1.5
+    },
+
+    {
+      left: 13,
+      top: 360,
+      width: 85,
+      rotation: 2
+    },
+
+    {
+      left: 1,
+      top: 490,
+      width: 84,
+      rotation: 1.5
+    },
+
+    {
+      left: 14,
+      top: 620,
+      width: 86,
+      rotation: -2
+    },
+
+    {
+      left: 4,
+      top: 750,
+      width: 84,
+      rotation: 2.5
+    },
+
+    {
+      left: 12,
+      top: 880,
+      width: 86,
+      rotation: -1
+    }
+
+  ];
+
 
   /*
-     Start the first row near the top.
+     Maximum two collections per row.
+
+     One collection:
+     left column.
+
+     Two collections:
+     left + right.
   */
 
-/*
-   Each column keeps track of its own bottom.
+  function getStackColumns(count) {
 
-   Left column begins at 20px.
-   Right column begins 80px lower for the
-   slightly staggered look.
-*/
+    if (count === 1) {
 
-var columnBottoms = [
-  20,
-  100
-];
+      return [
+        {
+          x: 0,
+          width: 44
+        }
+      ];
 
-var canvasBottom = 0;
+    }
 
-/*
-   Maximum TWO stacks per row.
-*/
 
-for (
-  var rowStart = 0;
-  rowStart < stacks.length;
-  rowStart += 2
-) {
+    return [
 
-  var rowCount =
-    Math.min(
-      2,
-      stacks.length - rowStart
+      {
+        x: 0,
+        width: 44
+      },
+
+      {
+        x: 56,
+        width: 44
+      }
+
+    ];
+
+  }
+
+
+  /*
+     Shared z-index across every pile.
+  */
+
+  var photoZCounter = 100;
+
+
+  /*
+     SPACE BETWEEN COLLECTIONS.
+
+     Change only this number later
+     if you want more / less space.
+  */
+
+  var collectionGap = 55;
+
+
+  /*
+     Space beneath the final collection
+     before the next section / footer.
+  */
+
+  var galleryBottomPadding = 80;
+
+
+
+  /*
+     =========================================================
+     LAYOUT GALLERY
+     =========================================================
+  */
+
+  function layoutGallery() {
+
+    var canvasWidth =
+      container.clientWidth;
+
+
+    /*
+       Each column keeps track of
+       its own current bottom.
+
+       Right side begins slightly lower
+       for the staggered appearance.
+    */
+
+    var columnBottoms = [
+      20,
+      100
+    ];
+
+
+    var canvasBottom = 0;
+
+
+
+    /*
+       Work through collections
+       two at a time.
+    */
+
+    for (
+      var rowStart = 0;
+      rowStart < stacks.length;
+      rowStart += 2
+    ) {
+
+
+      var rowCount =
+        Math.min(
+          2,
+          stacks.length - rowStart
+        );
+
+
+      var columns =
+        getStackColumns(
+          rowCount
+        );
+
+
+
+      for (
+        var columnIndex = 0;
+        columnIndex < rowCount;
+        columnIndex++
+      ) {
+
+
+        var stackIndex =
+          rowStart +
+          columnIndex;
+
+
+        var stack =
+          stacks[stackIndex];
+
+
+        var column =
+          columns[columnIndex];
+
+
+        var photos =
+          Array.from(
+            stack.querySelectorAll(
+              '.masonry-item'
+            )
+          );
+
+
+
+        /*
+           Size + position
+           of this collection.
+        */
+
+        var stackWidth =
+          canvasWidth *
+          (
+            column.width /
+            100
+          );
+
+
+        var stackLeft =
+          canvasWidth *
+          (
+            column.x /
+            100
+          );
+
+
+        var stackTop =
+          columnBottoms[
+            columnIndex
+          ];
+
+
+
+        stack.style.width =
+          stackWidth +
+          'px';
+
+
+        stack.style.left =
+          stackLeft +
+          'px';
+
+
+        stack.style.top =
+          stackTop +
+          'px';
+
+
+
+        /*
+           IMPORTANT:
+
+           Remove the old estimated height
+           before measuring this collection.
+
+           The photos are absolutely positioned,
+           so they remain visible.
+        */
+
+        stack.style.height =
+          '0px';
+
+
+
+        /*
+           Position every photograph.
+        */
+
+        photos.forEach(
+          function (
+            photo,
+            photoIndex
+          ) {
+
+
+            var patternIndex =
+              photoIndex %
+              photoPattern.length;
+
+
+            var round =
+              Math.floor(
+                photoIndex /
+                photoPattern.length
+              );
+
+
+            var pattern =
+              photoPattern[
+                patternIndex
+              ];
+
+
+            /*
+               Existing continuation system
+               for collections with more
+               than 8 photographs.
+            */
+
+            var extraTop =
+              round *
+              620;
+
+
+            var extraLeft =
+              round % 2 === 0
+                ? 0
+                : 3;
+
+
+            var photoTop =
+              pattern.top +
+              extraTop;
+
+
+
+            photo.style.width =
+              pattern.width +
+              '%';
+
+
+            photo.style.left =
+              (
+                pattern.left +
+                extraLeft
+              ) +
+              '%';
+
+
+            photo.style.top =
+              photoTop +
+              'px';
+
+
+            photo.style.transform =
+              'rotate(' +
+              pattern.rotation +
+              'deg)';
+
+
+
+            /*
+               Initial layering.
+            */
+
+            photoZCounter++;
+
+
+            photo.style.zIndex =
+              photoZCounter;
+
+
+
+            /*
+               Clicking / dragging always
+               brings this photo above every
+               other photo in the gallery.
+            */
+
+            makeDraggable(
+              photo,
+              function () {
+
+                photoZCounter++;
+
+                return photoZCounter;
+
+              }
+            );
+
+          }
+        );
+
+
+
+        /*
+           =====================================================
+           MEASURE THE REAL PHOTO BOTTOMS
+           =====================================================
+
+           getBoundingClientRect() measures the
+           photograph AFTER width, natural aspect
+           ratio and rotation have been applied.
+
+           That means a rotated portrait image
+           cannot secretly extend below the
+           guessed collection height anymore.
+        */
+
+
+        var stackRect =
+          stack.getBoundingClientRect();
+
+
+        var lowestPhotoBottom =
+          0;
+
+
+
+        photos.forEach(
+          function (photo) {
+
+
+            var photoRect =
+              photo.getBoundingClientRect();
+
+
+            /*
+               Convert the photo's viewport
+               bottom into a measurement
+               relative to this stack.
+            */
+
+            var photoBottomInsideStack =
+              photoRect.bottom -
+              stackRect.top;
+
+
+            lowestPhotoBottom =
+              Math.max(
+                lowestPhotoBottom,
+                photoBottomInsideStack
+              );
+
+          }
+        );
+
+
+
+        /*
+           The collection now ends exactly
+           at its lowest visible photo edge.
+
+           Rotation is already included.
+        */
+
+        var stackHeight =
+          Math.max(
+            1,
+            Math.ceil(
+              lowestPhotoBottom
+            )
+          );
+
+
+        stack.style.height =
+          stackHeight +
+          'px';
+
+
+
+        /*
+           The next collection in THIS column
+           begins after:
+
+           real photo bottom
+           +
+           55px collection gap
+        */
+
+        columnBottoms[
+          columnIndex
+        ] =
+          stackTop +
+          stackHeight +
+          collectionGap;
+
+
+
+        /*
+           Track the lowest collection
+           anywhere in the gallery.
+        */
+
+        canvasBottom =
+          Math.max(
+            canvasBottom,
+            stackTop +
+            stackHeight
+          );
+
+      }
+
+    }
+
+
+
+    /*
+       Expand the gallery itself
+       to contain every collection.
+    */
+
+    container.style.height =
+      Math.max(
+        650,
+        canvasBottom +
+        galleryBottomPadding
+      ) +
+      'px';
+
+
+
+    /*
+       Reveal gallery only after
+       everything is positioned.
+    */
+
+    container.classList.remove(
+      'drag-gallery-pending'
+    );
+
+  }
+
+
+
+  /*
+     =========================================================
+     WAIT FOR IMAGES
+     =========================================================
+
+     Portraits, landscapes and GIFs can all
+     have different actual rendered heights.
+
+     Don't measure anything until every image
+     has either loaded or failed.
+  */
+
+  var images =
+    Array.from(
+      container.querySelectorAll(
+        'img'
+      )
     );
 
 
-    var columns =
-      getStackColumns(rowCount);
+  Promise.all(
+
+    images.map(
+      function (img) {
 
 
+        /*
+           Already loaded.
+        */
 
-    for (
-      var columnIndex = 0;
-      columnIndex < rowCount;
-      columnIndex++
-    ) {
+        if (img.complete) {
 
-      var stackIndex =
-        rowStart + columnIndex;
-
-
-      var stack =
-        stacks[stackIndex];
-
-
-      var column =
-        columns[columnIndex];
-
-
-      var photos =
-        Array.from(
-          stack.querySelectorAll(
-            '.masonry-item'
-          )
-        );
-
-
-      /*
-         Size + horizontal position
-         of the whole photo pile.
-      */
-
-      var stackWidth =
-        canvasWidth *
-        (column.width / 100);
-
-
-      var stackLeft =
-        canvasWidth *
-        (column.x / 100);
-
-
-var stackTop =
-  columnBottoms[columnIndex];
-
-
-      stack.style.width =
-        stackWidth + 'px';
-
-
-      stack.style.left =
-        stackLeft + 'px';
-
-
-      stack.style.top =
-        stackTop + 'px';
-
-
-
-      /*
-         Position every photograph
-         automatically.
-      */
-
-
-      var maxPhotoTop = 0;
-
-
-      photos.forEach(
-        function (photo, photoIndex) {
-
-          var patternIndex =
-            photoIndex %
-            photoPattern.length;
-
-
-          var round =
-            Math.floor(
-              photoIndex /
-              photoPattern.length
-            );
-
-
-          var pattern =
-            photoPattern[patternIndex];
-
-
-          /*
-             If a stack ever contains more
-             than 8 photos, begin another
-             staggered layer below.
-          */
-
-          var extraTop =
-            round * 620;
-
-
-          var extraLeft =
-            round % 2 === 0
-              ? 0
-              : 3;
-
-
-          var photoTop =
-            pattern.top +
-            extraTop;
-
-
-          photo.style.width =
-            pattern.width + '%';
-
-
-          photo.style.left =
-            (
-              pattern.left +
-              extraLeft
-            ) + '%';
-
-
-          photo.style.top =
-            photoTop + 'px';
-
-
-          photo.style.transform =
-            'rotate(' +
-            pattern.rotation +
-            'deg)';
-
-
-    photoZCounter++;
-
-photo.style.zIndex =
-  photoZCounter;
-
-
-          maxPhotoTop =
-            Math.max(
-              maxPhotoTop,
-              photoTop
-            );
-
-
-   makeDraggable(
-  photo,
-  function () {
-
-    /*
-       Every time a photo is clicked / dragged,
-       give it the highest z-index anywhere
-       in this gallery.
-    */
-
-    photoZCounter++;
-
-    return photoZCounter;
-  }
-);
+          return Promise.resolve();
 
         }
-      );
+
+
+
+        /*
+           Otherwise wait for it.
+        */
+
+        return new Promise(
+          function (resolve) {
+
+
+            img.addEventListener(
+              'load',
+              resolve,
+              {
+                once: true
+              }
+            );
+
+
+            img.addEventListener(
+              'error',
+              resolve,
+              {
+                once: true
+              }
+            );
+
+          }
+        );
+
+      }
+    )
+
+  ).then(
+    function () {
 
 
       /*
-         Automatically give the stack enough
-         vertical room for however many photos
-         are inside it.
+         Give the browser one frame
+         to calculate actual rendered
+         image dimensions.
       */
 
- var stackHeight =
-  Math.max(
-    500,
-    maxPhotoTop + 450
+      requestAnimationFrame(
+        layoutGallery
+      );
+
+    }
   );
 
 
-      stack.style.height =
-        stackHeight + 'px';
-
-
-/*
-   The next collection in THIS column
-   starts shortly below this collection.
-*/
-
-columnBottoms[columnIndex] =
-  stackTop +
-  stackHeight +
-  45;
-
-      canvasBottom =
-        Math.max(
-          canvasBottom,
-          stackTop +
-          stackHeight
-        );
-
-    }
- 
-
-  }
-
 
   /*
-     Gallery itself now grows automatically.
-
-     No more fixed 850px canvas.
+     Prevent native image dragging.
   */
-
-  container.style.height =
-    Math.max(
-      650,
-      canvasBottom + 60
-    ) + 'px';
-
 
   container.addEventListener(
     'dragstart',
     function (e) {
+
       e.preventDefault();
+
     }
   );
 
