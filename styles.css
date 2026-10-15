@@ -2630,3 +2630,19 @@ form.contact-form {
     transition: none !important;
   }
 }
+
+/* =========================================================
+   ABOUT ME PHOTO II
+   ========================================================= */
+
+.about-photo-section {
+  padding: 40px 0 80px;
+}
+
+.about-photo {
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  margin: 0 auto;
+}
