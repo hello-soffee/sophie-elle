@@ -2632,9 +2632,15 @@ form.contact-form {
 }
 
 /* =========================================================
-   ABOUT ME PHOTO II
+   ABOUT ME PHOTO II + SPACING
    ========================================================= */
 
+/* Reduce spacing below About Me text */
+.about-layout {
+  padding-bottom: 10px;
+}
+
+/* Remove spacing around the new photo */
 .about-photo-section {
   padding: 0;
   margin: 0;
@@ -2647,12 +2653,16 @@ form.contact-form {
   padding-bottom: 0;
 }
 
-.about-photo {
+/* New photo — large, without distortion */
+.about-extra-photo {
   display: block;
   width: 100%;
   max-width: 1000px;
   height: auto;
-  max-height: none;
-  object-fit: contain;
   margin: 0;
+}
+
+/* Bring testimonials closer */
+.section.testimonials {
+  padding-top: 20px;
 }
