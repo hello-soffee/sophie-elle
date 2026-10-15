@@ -2635,16 +2635,16 @@ form.contact-form {
    ABOUT ME PHOTO II
    ========================================================= */
 
-/* ---------- About Me Photo ---------- */
-
 .about-photo-section {
-  padding: 0 0 40px;
-  margin-top: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .about-photo-section .wrap {
   display: flex;
   justify-content: center;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .about-photo {
