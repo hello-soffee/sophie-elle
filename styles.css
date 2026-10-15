@@ -2649,10 +2649,10 @@ form.contact-form {
 
 .about-photo {
   display: block;
-  width: auto;
-  max-width: 100%;
-  max-height: 500px;
+  width: 100%;
+  max-width: 1000px;
   height: auto;
+  max-height: none;
   object-fit: contain;
   margin: 0;
 }
