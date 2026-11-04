@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An ongoing photography portfolio by Sophie Elle, a Montreal-based photographer.">
+  <title>portfolio / by sophie elle</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="images/favicon.sophieelle.png">
+</head>
+
+<body class="portfolio-page">
+
+  <header class="site-header">
+    <div class="wrap">
+      <a href="index.html" class="logo" aria-label="Sophie Elle — home">
+        <img src="images/logo.white.png" alt="sophie elle studio" class="logo-img">
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html">home</a>
+        <a href="photography.html">photography</a>
+        <a href="portfolio.html" aria-current="page">portfolio</a>
+        <a href="design.html">design</a>
+        <a href="about.html">about</a>
+        <a href="contact.html">contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="portfolio-intro wrap">
+      <h1>the photo archive.</h1>
+      <p class="font-accent">
+        an ongoing collection of moments, people & places,
+        seen through my lens.
+      </p>
+    </section>
+
+    <!-- PHOTOGRAPHY PORTFOLIO -->
+    <!-- Replace the filenames below with your photographs. -->
+
+    <section class="portfolio-gallery wrap" aria-label="Photography portfolio">
+
+      <button type="button" class="masonry-item" data-caption="01 / photography" aria-label="Open photograph 1">
+        <img src="images/portfolio-01.jpg" alt="Portfolio photograph 1" loading="eager">
+      </button>
+
+      <button type="button" class="masonry-item" data-caption="02 / photography" aria-label="Open photograph 2">
+        <img src="images/portfolio-02.jpg" alt="Portfolio photograph 2" loading="eager">
+      </button>
+
+      <button type="button" class="masonry-item" data-caption="03 / photography" aria-label="Open photograph 3">
+        <img src="images/portfolio-03.jpg" alt="Portfolio photograph 3" loading="lazy">
+      </button>
+
+      <button type="button" class="masonry-item" data-caption="04 / photography" aria-label="Open photograph 4">
+        <img src="images/portfolio-04.jpg" alt="Portfolio photograph 4" loading="lazy">
+      </button>
+
+      <button type="button" class="masonry-item" data-caption="05 / photography" aria-label="Open photograph 5">
+        <img src="images/portfolio-05.jpg" alt="Portfolio photograph 5" loading="lazy">
+      </button>
+
+      <button type="button" class="masonry-item" data-caption="06 / photography" aria-label="Open photograph 6">
+        <img src="images/portfolio-06.jpg" alt="Portfolio photograph 6" loading="lazy">
+      </button>
+
+      <button type="button" class="masonry-item" data-caption="07 / photography" aria-label="Open photograph 7">
+        <img src="images/portfolio-07.jpg" alt="Portfolio photograph 7" loading="lazy">
+      </button>
+
+      <button type="button" class="masonry-item" data-caption="08 / photography" aria-label="Open photograph 8">
+        <img src="images/portfolio-08.jpg" alt="Portfolio photograph 8" loading="lazy">
+      </button>
+
+      <button type="button" class="masonry-item" data-caption="09 / photography" aria-label="Open photograph 9">
+        <img src="images/portfolio-09.jpg" alt="Portfolio photograph 9" loading="lazy">
+      </button>
+
+      <button type="button" class="masonry-item" data-caption="10 / photography" aria-label="Open photograph 10">
+        <img src="images/portfolio-10.jpg" alt="Portfolio photograph 10" loading="lazy">
+      </button>
+
+      <button type="button" class="masonry-item" data-caption="11 / photography" aria-label="Open photograph 11">
+        <img src="images/portfolio-11.jpg" alt="Portfolio photograph 11" loading="lazy">
+      </button>
+
+      <button type="button" class="masonry-item" data-caption="12 / photography" aria-label="Open photograph 12">
+        <img src="images/portfolio-12.jpg" alt="Portfolio photograph 12" loading="lazy">
+      </button>
+
+    </section>
+  </main>
+
+  <!-- EXISTING PHOTO LIGHTBOX -->
+
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+
+    <button class="lightbox-close" type="button" aria-label="Close photo viewer">×</button>
+    <button class="lightbox-prev" type="button" aria-label="Previous photograph">‹</button>
+
+    <div class="lightbox-stage" role="img" aria-label="Selected photograph"></div>
+
+    <button class="lightbox-next" type="button" aria-label="Next photograph">›</button>
+
+    <div class="lightbox-info">
+      <p class="lightbox-caption"></p>
+      <a class="lightbox-link" href="#" style="display:none">view project</a>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
