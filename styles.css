@@ -2871,3 +2871,118 @@ form.contact-form {
 
 }
 
+
+/* =========================================================
+   STATIC PAGE NOTE INTRO
+   Photography + Design
+   ========================================================= */
+
+.page-note-intro {
+  padding: 72px 0 40px;
+}
+
+.page-note-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  column-gap: 80px;
+  align-items: start;
+}
+
+.page-note-title {
+  max-width: 560px;
+}
+
+.page-note-title .tag {
+  margin: 0 0 14px;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+}
+
+.page-note-title h1 {
+  font-size: clamp(52px, 7vw, 72px);
+  line-height: 0.95;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+
+.page-note-box {
+  background: var(--mist);
+  padding: 34px 36px 28px;
+  min-height: 360px;
+
+  /* this lowers the box so it starts after the title */
+  margin-top: 110px;
+}
+
+.page-note-box p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.9;
+  max-width: 26ch;
+}
+
+/* slightly different box sizing if wanted */
+.photo-note-intro .page-note-box {
+  min-height: 390px;
+}
+
+.design-note-intro .page-note-box {
+  min-height: 320px;
+}
+
+/* spacing before the gallery/content underneath */
+.page-note-intro + section,
+.page-note-intro + .section {
+  padding-top: 24px;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 980px) {
+  .page-note-layout {
+    grid-template-columns: 1fr 320px;
+    column-gap: 40px;
+  }
+
+  .page-note-box {
+    margin-top: 90px;
+    padding: 28px;
+  }
+
+  .page-note-title h1 {
+    font-size: clamp(44px, 6vw, 60px);
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+  .page-note-intro {
+    padding: 48px 0 24px;
+  }
+
+  .page-note-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .page-note-box {
+    margin-top: 0;
+    min-height: auto;
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .page-note-title h1 {
+    font-size: clamp(42px, 13vw, 58px);
+  }
+
+  .page-note-box p {
+    max-width: none;
+  }
+}
+
