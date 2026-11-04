@@ -2666,3 +2666,208 @@ form.contact-form {
 .section.testimonials {
   padding-top: 20px;
 }
+
+
+/* =========================================================
+   PORTFOLIO PAGE — TIGHT EDITORIAL SCATTER
+   ========================================================= */
+
+.portfolio-page .portfolio-intro {
+  padding-top: clamp(52px, 8vw, 110px);
+  padding-bottom: clamp(30px, 5vw, 65px);
+}
+
+.portfolio-intro h1 {
+  font-size: clamp(32px, 5vw, 68px);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+}
+
+.portfolio-intro p {
+  max-width: 50ch;
+  margin: 15px 0 0;
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   PORTFOLIO GALLERY — BASE LAYOUT
+   ========================================================= */
+
+.portfolio-page .portfolio-gallery {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+
+  column-gap: clamp(12px, 2.2vw, 28px);
+  row-gap: clamp(18px, 2.8vw, 40px);
+
+  align-items: start;
+
+  padding-bottom: clamp(80px, 12vw, 150px);
+}
+
+
+/* INDIVIDUAL PHOTOGRAPHS */
+
+.portfolio-page .portfolio-gallery > .masonry-item {
+  position: relative;
+  display: block;
+
+  grid-column: span 3;
+
+  width: 100%;
+  min-width: 0;
+
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+  background: none;
+  box-shadow: none;
+
+  text-align: left;
+  cursor: zoom-in;
+
+  transform: none;
+}
+
+
+/* PRESERVE ORIGINAL IMAGE PROPORTIONS */
+
+.portfolio-page .portfolio-gallery > .masonry-item img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+
+  object-fit: contain;
+
+  transition: opacity 180ms ease;
+}
+
+
+/* IMAGE HOVER */
+
+.portfolio-page .portfolio-gallery > .masonry-item:hover img {
+  opacity: 0.82;
+}
+
+.portfolio-page .portfolio-gallery > .masonry-item:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 5px;
+}
+
+
+/* =========================================================
+   SCATTERED PLACEMENT
+   Different image widths and vertical offsets
+   ========================================================= */
+
+.portfolio-page .portfolio-gallery > .masonry-item:nth-child(6n + 1) {
+  grid-column: span 4;
+  margin-top: 8px;
+}
+
+.portfolio-page .portfolio-gallery > .masonry-item:nth-child(6n + 2) {
+  grid-column: span 3;
+  margin-top: 64px;
+}
+
+.portfolio-page .portfolio-gallery > .masonry-item:nth-child(6n + 3) {
+  grid-column: span 4;
+  margin-top: 22px;
+}
+
+.portfolio-page .portfolio-gallery > .masonry-item:nth-child(6n + 4) {
+  grid-column: span 3;
+  margin-top: 42px;
+}
+
+.portfolio-page .portfolio-gallery > .masonry-item:nth-child(6n + 5) {
+  grid-column: span 4;
+  margin-top: 0;
+}
+
+.portfolio-page .portfolio-gallery > .masonry-item:nth-child(6n) {
+  grid-column: span 3;
+  margin-top: 52px;
+}
+
+
+/* =========================================================
+   TABLET LAYOUT
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .portfolio-page .portfolio-gallery {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 20px 14px;
+  }
+
+  .portfolio-page .portfolio-gallery > .masonry-item {
+    position: relative !important;
+
+    width: 100% !important;
+
+    left: auto !important;
+    top: auto !important;
+
+    transform: none !important;
+
+    margin-top: 0;
+    margin-bottom: 0;
+
+    grid-column: span 3;
+  }
+
+  .portfolio-page .portfolio-gallery > .masonry-item:nth-child(4n + 1) {
+    grid-column: span 4;
+  }
+
+  .portfolio-page .portfolio-gallery > .masonry-item:nth-child(4n + 2) {
+    grid-column: span 2;
+    margin-top: 48px;
+  }
+
+  .portfolio-page .portfolio-gallery > .masonry-item:nth-child(4n + 3) {
+    grid-column: span 3;
+  }
+
+  .portfolio-page .portfolio-gallery > .masonry-item:nth-child(4n) {
+    grid-column: span 3;
+    margin-top: 32px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE LAYOUT
+   ========================================================= */
+
+@media (max-width: 520px) {
+
+  .portfolio-page .portfolio-intro {
+    padding-top: 46px;
+  }
+
+  .portfolio-page .portfolio-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 12px;
+  }
+
+  .portfolio-page .portfolio-gallery > .masonry-item,
+  .portfolio-page .portfolio-gallery > .masonry-item:nth-child(n) {
+    grid-column: span 1;
+
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .portfolio-page .portfolio-gallery > .masonry-item:nth-child(even) {
+    margin-top: 34px;
+  }
+
+}
+
