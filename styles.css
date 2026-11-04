@@ -2498,185 +2498,162 @@ form.contact-form {
 
 
 /* =========================================================
-   PORTFOLIO GALLERY — BASE LAYOUT
+   PORTFOLIO — ORGANIC SCATTERED PHOTO ARCHIVE
    ========================================================= */
 
-.portfolio-page .portfolio-gallery {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
+.portfolio-page .portfolio-gallery.wrap {
+  display: block;
+  column-count: 4;
+  column-gap: clamp(20px, 3vw, 48px);
 
-  column-gap: clamp(12px, 2.2vw, 28px);
-  row-gap: clamp(18px, 2.8vw, 40px);
+  max-width: none;
+  width: 100%;
 
-  align-items: start;
-
-  padding-bottom: clamp(80px, 12vw, 150px);
+  padding-left: clamp(24px, 4vw, 70px);
+  padding-right: clamp(24px, 4vw, 70px);
+  padding-bottom: 120px;
 }
 
-
-/* INDIVIDUAL PHOTOGRAPHS */
+/* PHOTOGRAPHS */
 
 .portfolio-page .portfolio-gallery > .masonry-item {
-  position: relative;
   display: block;
-
-  grid-column: span 3;
+  position: relative;
 
   width: 100%;
-  min-width: 0;
+  max-width: 100%;
 
-  margin: 0;
+  margin: 0 0 42px;
   padding: 0;
 
-  border: 0;
-  background: none;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+
+  border: none;
+  background: transparent;
   box-shadow: none;
 
-  text-align: left;
   cursor: zoom-in;
 
   transform: none;
 }
 
-
-/* PRESERVE ORIGINAL IMAGE PROPORTIONS */
+/* KEEP ALL ORIGINAL IMAGE PROPORTIONS */
 
 .portfolio-page .portfolio-gallery > .masonry-item img {
   display: block;
-
   width: 100%;
   height: auto;
-  max-width: 100%;
 
   object-fit: contain;
 
-  transition: opacity 180ms ease;
+  transition: opacity 0.2s ease;
 }
-
-
-/* IMAGE HOVER */
 
 .portfolio-page .portfolio-gallery > .masonry-item:hover img {
-  opacity: 0.82;
+  opacity: 0.85;
 }
-
-.portfolio-page .portfolio-gallery > .masonry-item:focus-visible {
-  outline: 2px solid var(--ink);
-  outline-offset: 5px;
-}
-
 
 /* =========================================================
-   SCATTERED PLACEMENT
-   Different image widths and vertical offsets
+   VARY IMAGE SIZES AND POSITIONS
    ========================================================= */
 
-.portfolio-page .portfolio-gallery > .masonry-item:nth-child(6n + 1) {
-  grid-column: span 4;
-  margin-top: 8px;
+.portfolio-page .portfolio-gallery > .masonry-item:nth-child(7n + 1) {
+  width: 100%;
+  margin-top: 15px;
 }
 
-.portfolio-page .portfolio-gallery > .masonry-item:nth-child(6n + 2) {
-  grid-column: span 3;
-  margin-top: 64px;
+.portfolio-page .portfolio-gallery > .masonry-item:nth-child(7n + 2) {
+  width: 78%;
+  margin-left: auto;
+  margin-top: 80px;
 }
 
-.portfolio-page .portfolio-gallery > .masonry-item:nth-child(6n + 3) {
-  grid-column: span 4;
-  margin-top: 22px;
+.portfolio-page .portfolio-gallery > .masonry-item:nth-child(7n + 3) {
+  width: 92%;
+  margin-top: 25px;
 }
 
-.portfolio-page .portfolio-gallery > .masonry-item:nth-child(6n + 4) {
-  grid-column: span 3;
-  margin-top: 42px;
+.portfolio-page .portfolio-gallery > .masonry-item:nth-child(7n + 4) {
+  width: 72%;
+  margin-left: 12%;
+  margin-top: 65px;
 }
 
-.portfolio-page .portfolio-gallery > .masonry-item:nth-child(6n + 5) {
-  grid-column: span 4;
-  margin-top: 0;
+.portfolio-page .portfolio-gallery > .masonry-item:nth-child(7n + 5) {
+  width: 100%;
+  margin-top: 40px;
 }
 
-.portfolio-page .portfolio-gallery > .masonry-item:nth-child(6n) {
-  grid-column: span 3;
-  margin-top: 52px;
+.portfolio-page .portfolio-gallery > .masonry-item:nth-child(7n + 6) {
+  width: 82%;
+  margin-left: auto;
+  margin-top: 15px;
 }
 
+.portfolio-page .portfolio-gallery > .masonry-item:nth-child(7n) {
+  width: 90%;
+  margin-top: 55px;
+}
 
 /* =========================================================
-   TABLET LAYOUT
+   TABLET
    ========================================================= */
 
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
 
-  .portfolio-page .portfolio-gallery {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 20px 14px;
+  .portfolio-page .portfolio-gallery.wrap {
+    column-count: 3;
+    column-gap: 22px;
+
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .portfolio-page .portfolio-gallery.wrap {
+    display: block;
+
+    column-count: 2;
+    column-gap: 14px;
+
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 70px;
   }
 
   .portfolio-page .portfolio-gallery > .masonry-item {
     position: relative !important;
 
-    width: 100% !important;
-
     left: auto !important;
     top: auto !important;
 
+    width: 100% !important;
+    margin: 0 0 24px !important;
+
     transform: none !important;
-
-    margin-top: 0;
-    margin-bottom: 0;
-
-    grid-column: span 3;
   }
 
-  .portfolio-page .portfolio-gallery > .masonry-item:nth-child(4n + 1) {
-    grid-column: span 4;
-  }
-
-  .portfolio-page .portfolio-gallery > .masonry-item:nth-child(4n + 2) {
-    grid-column: span 2;
-    margin-top: 48px;
+  .portfolio-page .portfolio-gallery > .masonry-item:nth-child(3n + 2) {
+    width: 82% !important;
+    margin-left: auto !important;
+    margin-top: 28px !important;
   }
 
   .portfolio-page .portfolio-gallery > .masonry-item:nth-child(4n + 3) {
-    grid-column: span 3;
-  }
-
-  .portfolio-page .portfolio-gallery > .masonry-item:nth-child(4n) {
-    grid-column: span 3;
-    margin-top: 32px;
-  }
-}
-
-
-/* =========================================================
-   MOBILE LAYOUT
-   ========================================================= */
-
-@media (max-width: 520px) {
-
-  .portfolio-page .portfolio-intro {
-    padding-top: 46px;
-  }
-
-  .portfolio-page .portfolio-gallery {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px 12px;
-  }
-
-  .portfolio-page .portfolio-gallery > .masonry-item,
-  .portfolio-page .portfolio-gallery > .masonry-item:nth-child(n) {
-    grid-column: span 1;
-
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  .portfolio-page .portfolio-gallery > .masonry-item:nth-child(even) {
-    margin-top: 34px;
+    width: 90% !important;
+    margin-top: 18px !important;
   }
 
 }
+
 
 
 /* =========================================================
@@ -2872,54 +2849,6 @@ form.contact-form {
   .site-footer .footer-links-col > a:last-of-type::after {
     content: "";
     margin: 0;
-  }
-
-}
-
-
-/* =========================================================
-   PORTFOLIO — WIDER EDITORIAL GALLERY
-   ========================================================= */
-
-/* Expand gallery toward both edges of the screen */
-
-.portfolio-page .portfolio-gallery.wrap {
-  max-width: none;
-  width: 100%;
-  padding-left: clamp(16px, 2.5vw, 40px);
-  padding-right: clamp(16px, 2.5vw, 40px);
-
-  /* Bring photographs closer together */
-  column-gap: clamp(10px, 1.5vw, 22px);
-  row-gap: clamp(16px, 2vw, 30px);
-}
-
-/* Give images a little more presence */
-
-@media (min-width: 801px) {
-
-  .portfolio-page .portfolio-gallery > .masonry-item:nth-child(6n + 1),
-  .portfolio-page .portfolio-gallery > .masonry-item:nth-child(6n + 3),
-  .portfolio-page .portfolio-gallery > .masonry-item:nth-child(6n + 5) {
-    grid-column: span 4;
-  }
-
-  .portfolio-page .portfolio-gallery > .masonry-item:nth-child(6n + 2),
-  .portfolio-page .portfolio-gallery > .masonry-item:nth-child(6n + 4),
-  .portfolio-page .portfolio-gallery > .masonry-item:nth-child(6n) {
-    grid-column: span 4;
-  }
-}
-
-/* Maintain comfortable spacing on mobile */
-
-@media (max-width: 800px) {
-
-  .portfolio-page .portfolio-gallery.wrap {
-    padding-left: 16px;
-    padding-right: 16px;
-    column-gap: 12px;
-    row-gap: 22px;
   }
 
 }
