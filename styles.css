@@ -2875,3 +2875,52 @@ form.contact-form {
   }
 
 }
+
+
+/* =========================================================
+   PORTFOLIO — WIDER EDITORIAL GALLERY
+   ========================================================= */
+
+/* Expand gallery toward both edges of the screen */
+
+.portfolio-page .portfolio-gallery.wrap {
+  max-width: none;
+  width: 100%;
+  padding-left: clamp(16px, 2.5vw, 40px);
+  padding-right: clamp(16px, 2.5vw, 40px);
+
+  /* Bring photographs closer together */
+  column-gap: clamp(10px, 1.5vw, 22px);
+  row-gap: clamp(16px, 2vw, 30px);
+}
+
+/* Give images a little more presence */
+
+@media (min-width: 801px) {
+
+  .portfolio-page .portfolio-gallery > .masonry-item:nth-child(6n + 1),
+  .portfolio-page .portfolio-gallery > .masonry-item:nth-child(6n + 3),
+  .portfolio-page .portfolio-gallery > .masonry-item:nth-child(6n + 5) {
+    grid-column: span 4;
+  }
+
+  .portfolio-page .portfolio-gallery > .masonry-item:nth-child(6n + 2),
+  .portfolio-page .portfolio-gallery > .masonry-item:nth-child(6n + 4),
+  .portfolio-page .portfolio-gallery > .masonry-item:nth-child(6n) {
+    grid-column: span 4;
+  }
+}
+
+/* Maintain comfortable spacing on mobile */
+
+@media (max-width: 800px) {
+
+  .portfolio-page .portfolio-gallery.wrap {
+    padding-left: 16px;
+    padding-right: 16px;
+    column-gap: 12px;
+    row-gap: 22px;
+  }
+
+}
+
