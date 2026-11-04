@@ -2849,3 +2849,29 @@ form.contact-form {
   }
 }
 
+
+/* =========================================================
+   MOBILE FOOTER — LINKS ON ONE LINE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .site-footer .footer-links-col > a {
+    font-size: clamp(11px, 3.2vw, 14px) !important;
+    white-space: nowrap;
+    letter-spacing: 0;
+  }
+
+  .site-footer .footer-links-col > a::after {
+    content: " · ";
+    display: inline-block;
+    margin: 0 5px;
+    text-decoration: none;
+  }
+
+  .site-footer .footer-links-col > a:last-of-type::after {
+    content: "";
+    margin: 0;
+  }
+
+}
