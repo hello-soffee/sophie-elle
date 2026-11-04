@@ -703,90 +703,6 @@ p a {
 
 
 /* =========================================================
-   PHOTOGRAPHY INTRO ACCORDION
-   ========================================================= */
-
-.photo-intro-accordion {
-  max-width: var(--max);
-  margin: 64px auto 96px;
-  background: var(--mist);
-}
-
-.photo-intro-header {
-  position: relative;
-  padding: 38px 40px 20px;
-  cursor: pointer;
-}
-
-.photo-intro-heading .tag {
-  margin: 0 0 10px;
-}
-
-.photo-intro-toggle {
-  position: absolute;
-  right: 40px;
-  bottom: 20px;
-
-  font-family: var(--mono);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  color: var(--ink);
-}
-
-.photo-intro-content {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.35s ease;
-}
-
-.photo-intro-content-inner {
-  overflow: hidden;
-  padding: 0 40px;
-}
-
-.photo-intro-accordion.open .photo-intro-content {
-  grid-template-rows: 1fr;
-}
-
-.photo-intro-accordion.open .photo-intro-content-inner {
-  padding: 0 40px 42px;
-}
-
-.photo-intro-content p {
-  max-width: 48ch;
-  margin: 0;
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-@media (max-width: 800px) {
-
-  .photo-intro-accordion {
-    margin: 40px 24px 70px;
-  }
-
-  .photo-intro-header {
-    padding: 30px 24px 36px;
-    min-height: 170px;
-  }
-
-  .photo-intro-toggle {
-    right: 24px;
-    bottom: 22px;
-  }
-
-  .photo-intro-content-inner {
-    padding: 0 24px;
-  }
-
-  .photo-intro-accordion.open .photo-intro-content-inner {
-    padding: 0 24px 32px;
-  }
-}
-
-
-/* =========================================================
    PHOTOGRAPHY GALLERIES
    Standard masonry + desktop drag layouts
    ========================================================= */
@@ -1326,103 +1242,6 @@ p a {
     flex-direction: column;
 
     text-align: center;
-  }
-}
-
-
-/* =========================================================
-   DESIGN INTRO ACCORDION
-   ========================================================= */
-
-.design-intro-accordion {
-  max-width: var(--max);
-  margin: 64px auto 96px;
-  background: var(--mist);
-}
-
-.design-intro-header {
-  position: relative;
-  padding: 38px 40px 20px;
-  cursor: pointer;
-}
-
-.design-intro-heading .tag {
-  margin: 0 0 10px;
-}
-
-.design-intro-toggle {
-  position: absolute;
-
-  right: 40px;
-  bottom: 20px;
-
-  font-family: var(--mono);
-
-  font-size: 12px;
-  font-weight: 600;
-
-  letter-spacing: 0.04em;
-
-  color: var(--ink);
-}
-
-.design-intro-content {
-  display: grid;
-
-  grid-template-rows: 0fr;
-
-  transition:
-    grid-template-rows 0.35s ease;
-}
-
-.design-intro-content-inner {
-  overflow: hidden;
-
-  padding: 0 40px;
-}
-
-.design-intro-accordion.open .design-intro-content {
-  grid-template-rows: 1fr;
-}
-
-.design-intro-accordion.open .design-intro-content-inner {
-  padding: 0 40px 42px;
-}
-
-.design-intro-content p {
-  max-width: 48ch;
-
-  margin: 0 0 20px;
-
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-.design-intro-content p:last-child {
-  margin-bottom: 0;
-}
-
-@media (max-width: 800px) {
-
-  .design-intro-accordion {
-    margin: 40px 24px 70px;
-  }
-
-  .design-intro-header {
-    padding: 30px 24px 20px;
-  }
-
-  .design-intro-toggle {
-    right: 24px;
-    bottom: 20px;
-  }
-
-  .design-intro-content-inner {
-    padding: 0 24px;
-  }
-
-  .design-intro-accordion.open .design-intro-content-inner {
-    padding: 0 24px 32px;
   }
 }
 
@@ -2565,18 +2384,6 @@ form.contact-form {
 
 
 /* =========================================================
-   ABOUT + CONTACT TITLE SIZING
-   ========================================================= */
-
-.page-head .about-title,
-.page-head .contact-title,
-.about-title,
-.contact-title {
-  font-size: 2em;
-}
-
-
-/* =========================================================
    ANIMATED SPIRAL CURSOR
    ========================================================= */
 
@@ -2983,6 +2790,62 @@ form.contact-form {
 
   .page-note-box p {
     max-width: none;
+  }
+}
+
+
+/* =========================================================
+   UNIVERSAL PAGE TITLES
+   Photography / Design / About / Contact / Portfolio
+   ========================================================= */
+
+.page-title-section {
+  padding: 72px 0 40px;
+}
+
+.page-title-section .wrap {
+  width: 100%;
+}
+
+.page-title-content {
+  max-width: 700px;
+}
+
+.page-title-content .tag {
+  display: block;
+  margin: 0 0 14px;
+
+  font-size: 14px;
+  letter-spacing: 0.08em;
+}
+
+.page-title-content h1 {
+  margin: 0;
+
+  font-family: var(--display);
+  font-size: clamp(52px, 7vw, 72px);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+/* TABLET */
+
+@media (max-width: 980px) {
+  .page-title-content h1 {
+    font-size: clamp(44px, 6vw, 60px);
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+  .page-title-section {
+    padding: 48px 0 24px;
+  }
+
+  .page-title-content h1 {
+    font-size: clamp(42px, 13vw, 58px);
   }
 }
 
