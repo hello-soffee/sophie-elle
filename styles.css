@@ -2853,3 +2853,209 @@ form.contact-form {
 
 }
 
+
+/* =========================================================
+   PHOTOGRAPHY — INTERACTIVE POST-IT NOTES
+   ========================================================= */
+
+.photo-notes-section {
+  padding: 70px 0 65px;
+  overflow: hidden;
+}
+
+/* AREA HOLDING THE NOTES */
+
+.photo-notes-stack {
+  position: relative;
+  width: min(100%, 530px);
+  height: 480px;
+  margin: 0;
+  isolation: isolate;
+}
+
+/* INDIVIDUAL NOTES */
+
+.photo-note {
+  position: absolute;
+
+  width: 290px;
+  height: 290px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+
+  padding: 30px;
+
+  background: var(--mist);
+  color: var(--ink);
+
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+
+  text-align: left;
+  font-family: var(--accent-font);
+
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+
+  overflow: auto;
+  scrollbar-width: thin;
+
+  transform-origin: center center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* TITLES */
+
+.photo-note-title {
+  display: block;
+
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 600;
+
+  line-height: 1.3;
+}
+
+/* NOTE DESCRIPTIONS */
+
+.photo-note-text {
+  display: block;
+
+  font-family: var(--accent-font);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
+
+  white-space: pre-line;
+}
+
+.photo-note-text em {
+  font-style: italic;
+}
+
+/* SUBTLE INTERACTIVE STATES */
+
+.photo-note.is-dragging {
+  cursor: grabbing;
+}
+
+.photo-note:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 4px;
+}
+
+/* =========================================================
+   DESKTOP — IMPERFECT STACK
+   ========================================================= */
+
+@media (min-width: 801px) {
+
+  .photo-note:nth-child(1) {
+    left: 8px;
+    top: 36px;
+    transform: rotate(-5deg);
+  }
+
+  .photo-note:nth-child(2) {
+    left: 92px;
+    top: 5px;
+    transform: rotate(4deg);
+  }
+
+  .photo-note:nth-child(3) {
+    left: 168px;
+    top: 54px;
+    transform: rotate(-3deg);
+  }
+
+  .photo-note:nth-child(4) {
+    left: 58px;
+    top: 115px;
+    transform: rotate(5deg);
+  }
+
+  .photo-note:nth-child(5) {
+    left: 205px;
+    top: 128px;
+    transform: rotate(-2deg);
+  }
+}
+
+/* =========================================================
+   MOBILE — TAP-TO-CYCLE STACK
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .photo-notes-section {
+    padding: 45px 0 60px;
+  }
+
+  .photo-notes-stack {
+    width: min(100%, 350px);
+    height: 360px;
+    margin: 0 auto;
+  }
+
+
+.photo-note {
+  width: min(76vw, 285px, calc(100% - 52px));
+  height: auto;
+  aspect-ratio: 1 / 1;
+
+  padding: clamp(17px, 5vw, 27px);
+  gap: 14px;
+
+  cursor: pointer;
+  touch-action: manipulation;
+
+  overflow: auto;
+}
+
+  .photo-note-title {
+    font-size: 13px;
+  }
+
+  .photo-note-text {
+    font-size: clamp(12px, 3.5vw, 14px);
+    line-height: 1.5;
+  }
+
+  .photo-note:nth-child(1) {
+    left: 10px !important;
+    top: 22px !important;
+    transform: rotate(-5deg);
+  }
+
+  .photo-note:nth-child(2) {
+    left: 24px !important;
+    top: 8px !important;
+    transform: rotate(4deg);
+  }
+
+  .photo-note:nth-child(3) {
+    left: 34px !important;
+    top: 30px !important;
+    transform: rotate(-3deg);
+  }
+
+  .photo-note:nth-child(4) {
+    left: 17px !important;
+    top: 46px !important;
+    transform: rotate(5deg);
+  }
+
+  .photo-note:nth-child(5) {
+    left: 40px !important;
+    top: 18px !important;
+    transform: rotate(-2deg);
+  }
+}
+
+
