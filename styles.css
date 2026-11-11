@@ -2893,7 +2893,8 @@ form.contact-form {
 
   border: none;
   border-radius: 0;
-  box-shadow: none;
+   box-shadow: 3px 5px 14px rgba(40, 30, 25, 0.15);
+
 
   text-align: left;
   font-family: var(--accent-font);
