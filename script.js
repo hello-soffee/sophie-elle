@@ -2412,3 +2412,155 @@ if (
   initSpiralCursor();
 
 }
+
+
+
+
+
+
+
+
+/* ============================================================
+   PHOTOGRAPHY — INTERACTIVE POST-IT STACK
+   ============================================================ */
+
+function initPhotoNotes() {
+
+  const stack = document.getElementById("photo-notes-stack");
+
+  if (!stack) return;
+
+  const notes = Array.from(stack.querySelectorAll(".photo-note"));
+  const mobile = window.matchMedia("(max-width: 800px)");
+
+  // Back-to-front order, last item is the front note.
+  const order = [...notes];
+
+  function updateLayers() {
+    order.forEach((note, index) => {
+      note.style.zIndex = index + 1;
+    });
+  }
+
+  function bringToFront(note) {
+    const index = order.indexOf(note);
+
+    if (index !== -1) {
+      order.splice(index, 1);
+      order.push(note);
+    }
+
+    updateLayers();
+  }
+
+  // On mobile, send the front note to the back.
+  function nextMobileNote() {
+    order.unshift(order.pop());
+    updateLayers();
+  }
+
+  updateLayers();
+
+  notes.forEach((note) => {
+
+    let pointerId = null;
+    let startX = 0;
+    let startY = 0;
+    let originalLeft = 0;
+    let originalTop = 0;
+    let moved = false;
+
+    note.addEventListener("pointerdown", (event) => {
+
+      if (mobile.matches) return;
+
+      if (event.button !== 0) return;
+
+      bringToFront(note);
+
+      pointerId = event.pointerId;
+      startX = event.clientX;
+      startY = event.clientY;
+
+      originalLeft = parseFloat(getComputedStyle(note).left);
+      originalTop = parseFloat(getComputedStyle(note).top);
+
+      moved = false;
+
+      note.setPointerCapture(pointerId);
+    });
+
+    note.addEventListener("pointermove", (event) => {
+
+      if (mobile.matches || pointerId !== event.pointerId) {
+        return;
+      }
+
+      const dx = event.clientX - startX;
+      const dy = event.clientY - startY;
+
+      if (!moved && Math.hypot(dx, dy) < 4) return;
+
+      moved = true;
+      note.classList.add("is-dragging");
+
+      const maxLeft = Math.max(0, stack.clientWidth - note.offsetWidth);
+      const maxTop = Math.max(0, stack.clientHeight - note.offsetHeight);
+
+      note.style.left =
+        Math.max(0, Math.min(maxLeft, originalLeft + dx)) + "px";
+
+      note.style.top =
+        Math.max(0, Math.min(maxTop, originalTop + dy)) + "px";
+    });
+
+    function endDrag(event) {
+      if (pointerId !== event.pointerId) return;
+
+      pointerId = null;
+      note.classList.remove("is-dragging");
+    }
+
+    note.addEventListener("pointerup", endDrag);
+    note.addEventListener("pointercancel", endDrag);
+
+    note.addEventListener("click", () => {
+
+      if (mobile.matches) {
+        nextMobileNote();
+      } else {
+        bringToFront(note);
+      }
+    });
+
+  });
+
+  // Restore the starting desktop positions when resizing
+  // back from mobile, while keeping the current layer order.
+  let wasMobile = mobile.matches;
+
+  function handleResize() {
+    const isMobile = mobile.matches;
+
+    if (wasMobile !== isMobile && !isMobile) {
+      notes.forEach((note) => {
+        note.style.left = "";
+        note.style.top = "";
+      });
+    }
+
+    wasMobile = isMobile;
+  }
+
+  window.addEventListener("resize", handleResize);
+
+}
+
+/* Initialize independently from the existing galleries */
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initPhotoNotes);
+} else {
+  initPhotoNotes();
+}
+
