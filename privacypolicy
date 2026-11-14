@@ -1,216 +1,160 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>about</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/png" href="images/favicon.sophieelle.png">
-</head>
-
-<body>
-
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="wrap">
-      <a href="index.html" class="logo">
-        <img src="images/logo.white.png" alt="sophie elle studio" class="logo-img">
-      </a>
-
-      <button class="nav-toggle" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-      <nav class="main-nav">
-        <a href="index.html">home</a>
-      <a href="photography.html">photography</a>
-     <!-- <a href="design.html">design</a> -->
-      <a href="about.html">about</a>
-      <a href="contact.html">contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-
-
-<!-- ABOUT PAGE TITLE -->
-
-<section class="page-title-section">
-  <div class="wrap">
-    <div class="page-title-content">
-
-    <!---  <p class="tag">A LITTLE MORE</p> --->
-      <h2>privacy policy</h2>
-
-    </div>
-  </div>
-</section>
-
 Last updated: November 14, 2026
-<br>
+
 Your privacy is important to me. This Privacy Policy explains how sophie elle collects, uses,
 and protects your personal information when you visit my website, contact me, or book my photography services.
 sophie elle is a photography and creative studio based in Montreal, Quebec, operated by Sofia Lambroulias
-<br>
+
 1. Information I Collect
-<br>
+
 When you contact me, visit my website, or book a photography session, I may collect the following information:
-<br>
+
 Your name, email address, and phone number.
-<br>
+
 Details about your photography inquiry, booking, or project.
-<br>
+
 Information needed for contracts, invoices, and payments.
-<br>
+
 Photographs taken during your session or event.
-<br>
+
 Your preferences and permissions regarding the use of your photographs.
-<br>
+
 Basic website usage information collected through analytics tools.
-<br>
+
 I only collect information that is necessary for my services and business operations.
-<br>
+
 2. How I Use Your Information
-<br>
+
 I use your personal information to:
-<br>
+
 Respond to inquiries and communicate with you.
-<br>
+
 Schedule and organize photography sessions.
-<br>
+
 Prepare quotes, contracts, and invoices.
-<br>
+
 Provide photography services and deliver final photographs.
-<br>
+
 Maintain booking and payment records.
-<br>
+
 Manage your privacy preferences and image permissions.
-<br>
+
 Understand how visitors use my website and improve their experience.
-<br>
+
 I will not use your personal information for unrelated purposes without the appropriate authorization or another lawful basis.
-<br>
+
 3. Photographs & Portfolio Use
-<br>
+
 Photographs taken during your session or event are handled with care.
-<br>
+
 I may ask for your permission to share selected photographs on my website, Instagram, or in promotional materials.
-<br>
+
 Portfolio permission is completely optional.
-<br>
+
 If you agree, your photographs will only be used for the purposes described in the separate Model Release & Image Consent Form.
 You can decline permission or request that certain photographs remain private.
-<br>
+
 Photographs of identifiable individuals, including children, will only be used publicly where the necessary permissions or another lawful basis exist.
-<br>
+
 4. How Your Information Is Stored & Protected
-<br>
+
 I use digital services to manage my website, communicate with clients, organize business records, and deliver photographs.
 These may include email services, secure file storage, and online photography galleries.
 I take reasonable steps to protect personal information from unauthorized access, loss, or misuse.
 Access to personal information is limited to those who need it to provide the agreed services.
-<br>
+
 No digital storage system is entirely risk-free, but I aim to handle all client information responsibly.
-<br>
+
 5. Third-Party Services
-<br>
+
 Some trusted third-party services help me operate sophie elle.
-<br>
+
 These may include:
-<br>
+
 Vercel: Website hosting and website analytics.
-<br>
+
 Resend: Processing messages submitted through my website contact form.
-<br>
+
 Pixieset: Hosting and delivering private client photo galleries.
-<br>
+
 Google Workspace: Managing client communications and business files.
-<br>
+
 These providers may process personal information as needed to perform their services.
-<br>
+
 6. Website Analytics & Cookies
-<br>
+
 My website uses analytics tools to help me understand how visitors interact with the site.
 These tools may collect information such as pages visited, general device information, referral sources, and website activity.
 My website may also use cookies or similar technologies, depending on the services enabled.
 Where consent is required for optional tracking technologies, I will provide the appropriate notice and choice before activating them.
-<br>
+
 7. How Long I Keep Your Information
-<br>
+
 I keep personal information only for as long as reasonably necessary for the purposes for which it was collected, or as required by law.
-<br>
+
 For photography clients:
-<br>
+
 Online galleries: Final galleries are normally available for 30 calendar days after delivery.
-<br>
+
 Photographs and working files: May be stored separately from the online gallery for a limited period according to my file retention practices.
-<br>
+
 Contracts and invoices: Retained for the period required by applicable legal, accounting, and tax obligations.
-<br>
+
 Portfolio permissions: Consent records are retained as needed to manage authorized uses, renewals, and withdrawal requests.
-<br>
+
 Contact inquiries: Retained only as long as reasonably necessary to respond and manage related communications.
-<br>
+
 When information is no longer needed, I will take appropriate steps to securely delete or anonymize it, unless continued retention is required or permitted by law.
-<br>
+
 8. Your Privacy Rights
-<br>
+
 You may contact me to:
-<br>
+
 Ask what personal information I hold about you.
-<br>
+
 Request access to your personal information.
-<br>
-Ask me to correct information that is inaccurate.
-<br>
+
+Ask me to correct inaccurate information.
+
 Withdraw consent for certain uses of your information.
-<br>
+
 Request deletion of personal information where applicable.
-<br>
+
 Ask questions or raise concerns about how your information is handled.
-<br>
+
 Some information may need to be retained to meet legal or contractual obligations.
-<br>
+
 I will review requests and respond in accordance with applicable Quebec privacy laws.
-<br>
+
 9. Photographs of Children
-<br>
+
 I respect the privacy of children.
-<br>
+
 When photographs involve minors, I will obtain any necessary authorization from a parent, legal guardian, or the minor, as required by law.
-<br>
+
 Photographs of children will not be used for my own promotional purposes without the appropriate permission or another lawful basis.
-<br>
+
 10. Updates to This Policy
-<br>
+
 I may update this Privacy Policy if my services, business practices, or legal obligations change.
-<br>
+
 Any updates will be reflected on this page, along with a revised date.
-<br>
+
 Where required, I will provide additional notice of changes.
-<br>
+
 11. Contact & Privacy Questions
-<br>
+
 If you have questions about this Privacy Policy or would like to make a privacy-related request, you can contact me.
-<br>
+
 sophie elle
-<br>
+
 Operated by: Sofia Lambroulias
-<br>
+
 Montreal, Quebec, Canada
-<br>
+
 Person Responsible for the Protection of Personal Information: Sofia Lambroulas, Owner
-<br>
+
 Email: hellosoffee@gmail.com
-<br>
+
 Website: sophieelle.com
-  </main>
 
-  <script src="script.js"></script>
-
-</body>
-</html>
 
