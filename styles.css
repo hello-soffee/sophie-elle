@@ -93,18 +93,22 @@ h3 {
   color: var(--slate);
 }
 
-
 /* =========================================================
-   HEADER
+   HEADER — INTERIOR PAGES
    ========================================================= */
 
 .site-header {
   position: relative;
   z-index: 50;
-  background-image: url('images/62720003.jpg');
-  background-size: cover;
-  background-position: center top;
+  background: var(--paper);
 }
+
+/* HOMEPAGE — KEEP ORIGINAL SKY BACKGROUND */
+
+.home-header.site-header {
+  background: transparent;
+}
+
 
 .site-header .wrap {
   display: flex;
