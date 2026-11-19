@@ -1508,114 +1508,64 @@ p a {
 }
 
 
+
 /* =========================================================
-   CONTACT
+   CONTACT PAGE
    ========================================================= */
+
+/* CONTACT LAYOUT */
 
 .contact-layout {
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
-
   gap: 48px;
 
   max-width: var(--max);
-
   margin: 0 auto;
-
-  padding:
-    64px
-    32px
-    96px;
+  padding: 64px 32px 96px;
 }
 
-.reach-out-lede {
-  font-family: var(--display);
 
-  font-size: 18px;
-
-  margin: 0 0 20px;
-}
-
-.contact-info dt {
-  font-family: var(--mono);
-
-  font-size: 11px;
-
-  text-transform: uppercase;
-
-  letter-spacing: 0.08em;
-
-  color: var(--stone);
-
-  margin-top: 24px;
-}
-
-.contact-info dt:first-child {
-  margin-top: 0;
-}
-
-.contact-info dd {
-  margin: 6px 0 0;
-
-  font-size: 18px;
-
-  font-family: var(--display);
-}
+/* CONTACT FORM */
 
 form.contact-form {
   display: flex;
-
   flex-direction: column;
-
   gap: 20px;
 
   width: 100%;
-
   max-width: 680px;
 }
 
+
+/* FORM FIELDS */
+
 .field {
   display: flex;
-
   flex-direction: column;
-
   gap: 8px;
 }
 
 .field label {
   font-family: var(--mono);
-
   font-size: 11px;
-
   text-transform: uppercase;
-
   letter-spacing: 0.08em;
-
   color: var(--stone);
 }
 
 .field input,
 .field textarea {
-  font-family: var(--body);
-
-  font-size: 15px;
-
+  width: 100%;
   padding: 12px 14px;
 
-  border:
-    1px solid
-    var(--stone-line);
+  font-family: var(--body);
+  font-size: 15px;
 
+  border: 1px solid var(--stone-line);
   background: #fff;
-
   color: var(--ink);
-
-  width: 100%;
-
-  box-sizing: border-box;
 }
 
 .field textarea {
@@ -1625,22 +1575,17 @@ form.contact-form {
 
 .field input:focus,
 .field textarea:focus {
-  outline:
-    2px solid
-    var(--ink);
-
+  outline: 2px solid var(--ink);
   outline-offset: 1px;
 }
 
+
+/* SEND BUTTON */
+
 .contact-form button[type="submit"] {
   background: transparent;
-
   color: var(--ink);
-
-  border:
-    1px solid
-    var(--ink);
-
+  border: 1px solid var(--ink);
   cursor: pointer;
 
   transition:
@@ -1651,6 +1596,109 @@ form.contact-form {
 .contact-form button[type="submit"]:hover {
   background: var(--ink);
   color: var(--paper);
+}
+
+.contact-form button[type="submit"]:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+
+
+/* =========================================================
+   CONFIRMATION POST-IT
+   ========================================================= */
+
+.contact-confirmation {
+  display: none;
+
+  width: min(100%, 280px);
+  aspect-ratio: 1 / 1;
+  padding: 30px;
+
+  background: var(--mist);
+  color: var(--ink);
+
+  font-family: var(--accent-font);
+  font-size: 17px;
+  line-height: 1.6;
+  text-align: left;
+  white-space: pre-line;
+
+  transform: rotate(-3deg);
+  box-shadow: 3px 5px 14px rgba(40, 30, 25, 0.15);
+
+  margin: 35px auto 20px;
+
+  align-items: center;
+  justify-content: center;
+
+  overflow-wrap: anywhere;
+}
+
+/* SHOW CONFIRMATION AFTER SUCCESS */
+
+.contact-confirmation.success {
+  display: flex;
+}
+
+/* ERROR MESSAGE */
+
+.contact-confirmation.error {
+  display: flex;
+
+  background: var(--paper);
+  border: 1px solid var(--ink);
+
+  aspect-ratio: auto;
+  min-height: 100px;
+
+  transform: none;
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   DIRECT CONTACT INFORMATION
+   ========================================================= */
+
+.reach-out-lede {
+  font-family: var(--display);
+  font-size: 18px;
+  margin: 0 0 20px;
+}
+
+.contact-info dt {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--stone);
+  margin-top: 24px;
+}
+
+.contact-info dt:first-child {
+  margin-top: 0;
+}
+
+.contact-info dd {
+  margin: 6px 0 0;
+  font-family: var(--display);
+  font-size: 18px;
+}
+
+
+/* =========================================================
+   MOBILE CONTACT
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .contact-confirmation {
+    width: min(76vw, 280px);
+    padding: 24px;
+    font-size: 15px;
+  }
+
 }
 
 
