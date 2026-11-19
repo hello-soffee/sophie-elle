@@ -1987,12 +1987,10 @@ if (contactForm) {
         'sending...';
 
 
-      if (formStatus) {
-
-        formStatus.textContent =
-          '';
-
-      }
+     if (formStatus) {
+  formStatus.textContent = '';
+  formStatus.className = 'contact-confirmation';
+}
 
 
       const formData =
@@ -2073,13 +2071,15 @@ if (contactForm) {
 
         contactForm.reset();
 
+         
+if (formStatus) {
+  formStatus.className = 'contact-confirmation success';
 
-        if (formStatus) {
+  formStatus.textContent =
+    "message sent! " +
+    "thank you! i'll be in touch soon <3";
+}
 
-          formStatus.textContent =
-            "thank you! i'll be in touch soon <3 ";
-
-        }
 
 
       } catch (error) {
@@ -2089,12 +2089,15 @@ if (contactForm) {
         );
 
 
-        if (formStatus) {
+      
+if (formStatus) {
+  formStatus.className = 'contact-confirmation error';
 
-          formStatus.textContent =
-            'oops! something went wrong here. please email me directly at hellosoffee@gmail.com';
+  formStatus.textContent =
+    'oops! something went wrong here. ' +
+    'please email me directly at hellosoffee@gmail.com';
+}
 
-        }
 
 
       } finally {
