@@ -1381,6 +1381,32 @@ p a {
 
 
 /* =========================================================
+   PHOTOGRAPHY — INTRODUCTION
+   ========================================================= */
+
+.photography-layout {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.photography-layout .about-body {
+  width: 100%;
+  max-width: 600px;
+  text-align: left;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+  .photography-layout {
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+}
+
+/* =========================================================
    TESTIMONIALS / ENVELOPES
    ========================================================= */
 
@@ -2905,109 +2931,6 @@ form.contact-form {
 
 }
 
-
-/* =========================================================
-   PHOTOGRAPHY — INTERACTIVE POST-IT NOTES
-   ========================================================= */
-
-.photo-notes-section {
-  padding: 70px 0 65px;
-  overflow: hidden;
-}
-
-/* AREA HOLDING THE NOTES */
-
-.photo-notes-stack {
-  position: relative;
-  width: min(100%, 530px);
-  height: 480px;
-  margin: 0;
-  isolation: isolate;
-}
-
-/* INDIVIDUAL NOTES */
-
-.photo-note {
-  position: absolute;
-
-  width: 290px;
-  height: 290px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 20px;
-
-  padding: 30px;
-
-  background: var(--mist);
-  color: var(--ink);
-
-  border: none;
-  border-radius: 0;
-   box-shadow: 3px 5px 14px rgba(40, 30, 25, 0.15);
-
-
-  text-align: left;
-  font-family: var(--accent-font);
-
-  cursor: grab;
-  touch-action: none;
-  user-select: none;
-  -webkit-user-select: none;
-
-  overflow: auto;
-  scrollbar-width: thin;
-
-  transform-origin: center center;
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* TITLES */
-
-.photo-note-title {
-  display: block;
-
-  font-family: var(--display);
-  font-size: 15px;
-  font-weight: 600;
-
-  line-height: 1.3;
-}
-
-/* NOTE DESCRIPTIONS */
-
-.photo-note-text {
-  display: block;
-
-  font-family: var(--accent-font);
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 1.6;
-
-  text-align: justify;
-  text-justify: inter-word;
-  hyphens: auto;
-
-  white-space: normal;
-}
-
-
-
-.photo-note-text em {
-  font-style: italic;
-}
-
-/* SUBTLE INTERACTIVE STATES */
-
-.photo-note.is-dragging {
-  cursor: grabbing;
-}
-
-.photo-note:focus-visible {
-  outline: 2px solid var(--ink);
-  outline-offset: 4px;
-}
 
 /* =========================================================
    DESKTOP — IMPERFECT STACK
