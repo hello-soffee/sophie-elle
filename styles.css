@@ -1328,7 +1328,6 @@ p a {
 .photography-layout {
   display: flex;
   justify-content: flex-end;
-
   padding-top: 64px;
   padding-bottom: 80px;
 }
@@ -1341,11 +1340,10 @@ p a {
 
 .photography-layout .about-body p {
   font-family: var(--accent-font);
-  font-size: 28px;
-  line-height: 1.55;
-
+  font-size: inherit;
+  line-height: inherit;
   max-width: none;
-  margin: 0 0 32px;
+  margin: 0 0 20px;
 }
 
 /* MOBILE */
@@ -1355,13 +1353,8 @@ p a {
     padding-top: 40px;
     padding-bottom: 48px;
   }
-
-  .photography-layout .about-body p {
-    font-size: clamp(18px, 4vw, 24px);
-    line-height: 1.5;
-    margin-bottom: 24px;
-  }
 }
+
 
 /* =========================================================
    TESTIMONIALS / ENVELOPES
