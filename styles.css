@@ -242,94 +242,85 @@ body.nav-open {
 
 
 /* =========================================================
-   HOME HERO
+   HOME HERO — CONTINUOUS SKY BACKGROUND
    ========================================================= */
 
-.split-panel {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  flex: 1 1 0;
-  padding: 48px;
-  min-height: 400px;
-  overflow: hidden;
-  transition: flex 0.5s ease;
-}
+/* One background shared by the navigation and hero */
 
-.panel-label {
-  position: absolute;
-  top: 40px;
-  left: 40px;
-  z-index: 1;
-  font-family: var(--display);
-  font-size: clamp(20px, 2.4vw, 28px);
-  letter-spacing: 0.01em;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  color: var(--paper);
-}
-
-.split-panel.design .panel-label {
-  left: auto;
-  right: 40px;
-}
-
-.split-hero {
+.home-hero-band {
   background-image: url('images/62720003.jpg');
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+}
 
+/* Keep homepage navigation transparent */
+
+.home-header.site-header {
+  background: transparent;
+}
+
+/* Full-width hero */
+
+.home-hero {
   display: flex;
-  min-height: 640px;
-  width: 100vw;
+  align-items: center;
 
-  position: relative;
-  left: 50%;
-  right: 50%;
+  width: 100%;
+  min-height: 620px;
 
-  margin-left: -50vw;
-  margin-right: -50vw;
+  background: transparent;
 }
 
-.split-panel.photo {
-  color: var(--slate);
+/* Text container */
+
+.home-hero-content {
+  width: 100%;
 }
 
-.split-panel.design {
-  color: var(--slate);
+/* Main introduction */
+
+.home-hero h1 {
+  max-width: 1050px;
+
+  font-family: var(--display);
+  font-size: clamp(36px, 5.5vw, 78px);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+
+  color: #ffffff;
 }
 
-.split-panel .placeholder-block {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
+/* Montreal link */
+
+.home-hero h1 a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+  transition: opacity 0.2s ease;
 }
 
-.split-panel.photo .placeholder-block,
-.split-panel.design .placeholder-block {
-  background: none;
+.home-hero h1 a:hover {
+  opacity: 0.7;
 }
 
-.split-panel .content {
-  position: relative;
-  z-index: 1;
-}
+/* =========================================================
+   MOBILE HOMEPAGE
+   ========================================================= */
 
-.split-panel .tag {
-  display: block;
-  margin-bottom: 14px;
-}
+@media (max-width: 800px) {
 
-.split-panel h2 {
-  font-size: clamp(32px, 4vw, 52px);
-  margin-bottom: 18px;
-}
+  .home-hero {
+    min-height: 480px;
+  }
 
-.split-panel p {
-  max-width: 34ch;
-  margin: 0 0 24px;
-  opacity: 0.85;
+  .home-hero h1 {
+    font-size: clamp(32px, 7vw, 48px);
+    line-height: 1.2;
+  }
+
 }
 
 
@@ -358,31 +349,6 @@ body.nav-open {
   color: var(--paper);
 }
 
-.split-panel .btn {
-  position: absolute;
-  bottom: 40px;
-  z-index: 1;
-  border-color: var(--paper);
-  color: var(--paper);
-}
-
-.split-panel.photo .btn,
-.split-panel.design .btn {
-  right: 40px;
-}
-
-.split-panel.photo .btn:hover {
-  background: var(--safelight);
-  border-color: var(--safelight);
-  color: var(--paper);
-}
-
-.split-panel.design .btn:hover {
-  background: var(--slate);
-  border-color: var(--slate);
-  color: var(--paper);
-}
-
 .home-hero-band {
   background-image: url('images/62720003.jpg');
   background-size: cover;
@@ -396,29 +362,6 @@ body.nav-open {
 .home-hero-band .split-hero {
   background: none;
 }
-
-@media (max-width: 800px) {
-
-  .split-hero {
-    flex-direction: column;
-    min-height: unset;
-  }
-
-  .split-panel {
-    flex: 1 1 auto;
-    min-height: 320px;
-    padding: 36px 28px;
-  }
-
-  .split-panel .btn {
-    top: 50%;
-    left: 50%;
-    right: auto;
-    bottom: auto;
-    transform: translate(-50%, -50%);
-  }
-}
-
 
 /* =========================================================
    GENERAL SECTIONS
